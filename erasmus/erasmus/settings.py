@@ -56,7 +56,7 @@ ROOT_URLCONF = 'erasmus.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates', 'templates/pages'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
