@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width" />
+    {% block head_title %}{% endblock %}
+
+    <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/responsee-all/css/components.css' %}">
+    <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/responsee-all/css/responsee.css' %}">
+    <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/responsee-all/owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/responsee-all/owl-carousel/owl.theme.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="{% static '/static/shareErasmus/lib/responsee-all/js/jquery-1.8.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/static/shareErasmus/lib/responsee-all/js/jquery-ui.min.js' %}"></script>    
+    <script type="text/javascript" src="{% static '/static/shareErasmus/lib/responsee-all/js/modernizr.js' %}"></script>
+    <script type="text/javascript" src="{% static '/static/shareErasmus/lib/responsee-all/js/responsee.js' %}"></script>
+</head>
+<body class="size-960">
+    <!-- HEADER -->
+    <header>
+        {% include 'topBar.html' %}
+    </header>
+    <section class="line margin">
+        {% block page_body_content %}{% endblock %}
+    </section>
+    <!-- FOOTER -->
+      <footer class="line">
+      </footer>
+    
+</body>
+</html>
