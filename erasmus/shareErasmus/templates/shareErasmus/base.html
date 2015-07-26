@@ -3,33 +3,43 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width" />
-    {% block head_title %}{% endblock %}
-
-    <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/responsee-all/css/components.css' %}">
+    <meta name="description" content="Share Erasmus">
+    <meta name="author" content="Marcos Martín Vedriel">
+    
+{% block head %}{% endblock %}
+    <!--responsee-2.2-->
     <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/responsee-all/css/responsee.css' %}">
-    <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/responsee-all/owl-carousel/owl.carousel.css' %}">
-    <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/responsee-all/owl-carousel/owl.theme.css' %}">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!--bootstrap-3.3.5-dist-->
+    <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/static/shareErasmus/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css' %}">
 
-    <script type="text/javascript" src="{% static '/static/shareErasmus/lib/responsee-all/js/jquery-1.8.3.min.js' %}"></script>
-    <script type="text/javascript" src="{% static '/static/shareErasmus/lib/responsee-all/js/jquery-ui.min.js' %}"></script>    
-    <script type="text/javascript" src="{% static '/static/shareErasmus/lib/responsee-all/js/modernizr.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/static/shareErasmus/css/normalize.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!--icon pencil login form-->
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="{% static '/static/shareErasmus/css/loginForm.css' %}">
+
+    <!--Javascript-->
+    <script type="text/javascript" src="{% static '/static/shareErasmus/js/jquery-1.11.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/static/shareErasmus/js/jquery-ui.min.js' %}"></script>    
+    <script type="text/javascript" src="{% static '/static/shareErasmus/js/modernizr.js' %}"></script>
     <script type="text/javascript" src="{% static '/static/shareErasmus/lib/responsee-all/js/responsee.js' %}"></script>
+    <script type="text/javascript" src="{% static '/static/shareErasmus/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/static/shareErasmus/js/loginForm.js' %}"></script>
+
 </head>
-<body class="size-960">
+<body class="col-12 container">
     <!-- HEADER -->
     <header>
         {% include 'topBar.html' %}
     </header>
-    <section class="line margin">
+    <section class="">
+        {% include 'login.html' %}
         {% block page_body_content %}{% endblock %}
     </section>
     <!-- FOOTER -->
-      <footer class="line">
-      </footer>
+    <footer class="">
+    </footer>
     
 </body>
 </html>
