@@ -15,20 +15,25 @@
 
     <link rel="stylesheet" href="{% static '/static/shareErasmus/css/normalize.css' %}">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!--icon pencil login form-->
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="{% static '/static/shareErasmus/css/loginForm.css' %}">
 
     <!--Javascript-->
-    <script type="text/javascript" src="{% static '/static/shareErasmus/js/jquery-1.8.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/static/shareErasmus/js/jquery-1.11.3.min.js' %}"></script>
     <script type="text/javascript" src="{% static '/static/shareErasmus/js/jquery-ui.min.js' %}"></script>    
     <script type="text/javascript" src="{% static '/static/shareErasmus/js/modernizr.js' %}"></script>
     <script type="text/javascript" src="{% static '/static/shareErasmus/lib/responsee-all/js/responsee.js' %}"></script>
-    
+    <script type="text/javascript" src="{% static '/static/shareErasmus/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/static/shareErasmus/js/loginForm.js' %}"></script>
 </head>
-<body class="col-12">
+<body class="col-12 container">
     <!-- HEADER -->
     <header>
         {% include 'topBar.html' %}
     </header>
     <section class="">
+        {% include 'login.html' %}
         {% block page_body_content %}{% endblock %}
     </section>
     <!-- FOOTER -->
