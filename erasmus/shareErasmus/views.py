@@ -15,3 +15,11 @@ class LoginView(View):
 class ContactView(View):
     def get(self, request):
         return render(request, "pages/contact.html" )
+
+class ProfileView(View):
+    def get(self, request):
+        return render(request, "pages/myProfile/indexProfile.html" )
+
+class UniversityProfileView(View):
+    def get(self, request):
+        return render(request, "pages/myProfile/universityProfile.html" )
