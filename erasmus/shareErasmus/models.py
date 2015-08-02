@@ -26,7 +26,7 @@ class User(models.Model):
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=50)
-    photo = models.ImageField()
+    #photo = models.ImageField()
     subject = models.ManyToManyField(Subject)
     date = models.DateField()   #Date of account creation
 
