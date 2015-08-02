@@ -58,3 +58,6 @@ target/
 
 #Data Base
 db.sqlite3
+
+.idea
+.vagrant

@@ -7,11 +7,6 @@ class HomeView(View):
         return render(request, "pages/index.html" )
 
 
-class LoginView(View):
-    def get(self, request):
-        return render(request, "pages/login.html" )
-
-
 class ContactView(View):
     def get(self, request):
         return render(request, "pages/contact.html" )

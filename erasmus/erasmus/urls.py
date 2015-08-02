@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from shareErasmus.views import (HomeView, LoginView, ContactView, ProfileView, UniversityProfileView)
+from shareErasmus.views import (HomeView, ContactView, ProfileView, UniversityProfileView)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', HomeView.as_view()),
-    url(r'^login$', LoginView.as_view()),
     url(r'^contacto$', ContactView.as_view()),
     url(r'^miPerfil$', ProfileView.as_view()),
     url(r'^miPerfil/miUniversidad$', UniversityProfileView.as_view()),
