@@ -56,7 +56,7 @@ ROOT_URLCONF = 'erasmus.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['erasmus/shareErasmus/templates/shareErasmus'],
+        'DIRS': ['shareErasmus/templates/shareErasmus'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

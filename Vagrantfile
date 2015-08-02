@@ -75,6 +75,6 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-     sudo python /vagrant/erasmus/manage.py runserver 192.168.56.160:1234
+     sudo python /vagrant/manage.py runserver 192.168.56.160:1234
   SHELL
 end

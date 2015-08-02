@@ -13,8 +13,6 @@ sudo apt-get -y install git
 
 echo 'Installing python libraries ...'
 sudo apt-get -y install build-essential python-dev
-sudo pip install --upgrade pip
-sudo pip install python-axolotl
 sudo apt-get -y install python-setuptools python-pip
 
 echo 'Installing Django ...'
