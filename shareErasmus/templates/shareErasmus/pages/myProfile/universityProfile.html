@@ -1,4 +1,4 @@
-{% extends 'pages/myProfile.html' %}
+{% extends 'pages/baseMyProfile.html' %}
 
 {% block head_title %} <title>Mi universidad</title> {% endblock %}
 
@@ -6,6 +6,7 @@
     
     <div>
         Página de mi universidad europea
+        {% include 'pages/myProfile/universityForm.html' %}
     </div>
     
 {% endblock %}

@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^$', HomeView.as_view()),
     url(r'^contacto$', ContactView.as_view()),
     url(r'^miPerfil$', ProfileView.as_view()),
-    url(r'^miPerfil/miUniversidad$', UniversityProfileView.as_view()),
+    url(r'^miPerfil/universidad$', UniversityProfileView.as_view()),
+    url(r'^data/universities$', UniversityProfileView.as_view()),
 ]
