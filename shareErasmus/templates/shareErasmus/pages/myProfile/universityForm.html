@@ -1,0 +1,35 @@
+<form role="form">
+    <div class="form-group">
+        <label class="control-label" for="country-select">País:</label>
+        <select class="form-control" id="country-select">
+            <option>  ---  </option>
+            {% for country in countries %}
+                <option>{{country.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label class="control-label" for="university-select">Universidad:</label>
+        <select class="form-control" id="university-select">
+            <option>  ---  </option>
+            {% for university in universities %}
+                <option>{{university.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label class="control-label">Asignaturas:</label>
+        {% for subject in subjects %}
+            <div class="checkbox">
+              <label><input type="checkbox" value="">{{subject.name}}</label>
+            </div>
+        {% endfor %}
+
+        <label class="control-label">Si no has encontrado tus asignaturas, añadelas:</label>
+        <input type="text" class="form-control" id="" placeholder="">
+
+        <label>Evaluación de la asignatura</label>
+
+        <input id="input-21d" value="0" type="number" class="rating" min=0 max=5 step=1.0 data-size="xs" >
+
+        <input type="submit" value="Submit">
+    </div>
+</form>

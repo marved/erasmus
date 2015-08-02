@@ -11,11 +11,13 @@ class Score(models.Model):
     bad = models.IntegerField(default=2)
     veryBad = models.IntegerField(default=1)
 
+class Country(models.Model):
+    name = models.CharField(max_length=150, unique=True)
+
 class University(models.Model):
     name = models.CharField(max_length=150, unique=True)
-    shortName = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
-    description = models.CharField(max_length=1000)
+    country = models.ForeignKey(Country)
+    description = models.CharField(max_length=1000, blank=True)
 
 class Subject(models.Model):
     name = models.CharField(max_length=100, unique=True)

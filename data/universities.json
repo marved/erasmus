@@ -1,0 +1,19 @@
+{
+    "university": [
+        {
+            "id": "1",
+            "country": "Francia",
+            "name": "Universidad 1"
+        },
+        {
+            "id": "2",
+            "country": "Francia",
+            "name": "Universidad 2"
+        },
+        {
+            "id": "3",
+            "country": "Alemania",
+            "name": "Universidad 3"
+        }
+    ]
+}
