@@ -1,5 +1,6 @@
 #encoding:utf-8
 from django.db import models
+from django.contrib.auth.models import User
 
 class Link(models.Model):
     url = models.URLField()
@@ -24,17 +25,15 @@ class Subject(models.Model):
     score = models.ForeignKey(Score, null=True, blank=True)
     university = models.ForeignKey(University)
 
-class User(models.Model):
-    username = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=50)
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
     #photo = models.ImageField()
     subject = models.ManyToManyField(Subject)
     date = models.DateField()   #Date of account creation
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(UserProfile)
     title = models.CharField(max_length=80)
     body = models.CharField(max_length=300)
     date = models.DateField()
