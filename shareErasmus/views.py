@@ -1,10 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
-<<<<<<< HEAD
 from erasmus import settings
 from shareErasmus.models import Country, University, Subject
-=======
->>>>>>> 37fcc90b2f462e2653ab53ce26915fc99e76c196
 import json
 
 
@@ -13,11 +10,7 @@ def loadJson(file):
     data1 = json.load(json_data) # deserialises it
     data2 = json.dumps(json_data) # json formatted string
     json_data.close()
-<<<<<<< HEAD
     return data1
-=======
-    return data2
->>>>>>> 37fcc90b2f462e2653ab53ce26915fc99e76c196
 
 
 
