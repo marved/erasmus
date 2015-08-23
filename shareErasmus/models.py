@@ -26,7 +26,7 @@ class Subject(models.Model):
     university = models.ForeignKey(University)
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, unique=True)
     #photo = models.ImageField()
     subject = models.ManyToManyField(Subject)
     date = models.DateField()   #Date of account creation
