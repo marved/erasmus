@@ -28,8 +28,7 @@ class Subject(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True)
     #photo = models.ImageField()
-    subject = models.ManyToManyField(Subject)
-    date = models.DateField()   #Date of account creation
+    subject = models.ManyToManyField(Subject, blank=True)
 
 
 class Comment(models.Model):
