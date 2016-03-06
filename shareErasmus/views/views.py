@@ -3,7 +3,7 @@ from django.views.generic import View
 from erasmus import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from shareErasmus.models import Country, University, Subject, UserProfile
+from shareErasmus.models import University, Subject, UserProfile
 import json
 import datetime
 
@@ -75,13 +75,4 @@ class ProfileView(View):
 
 class UniversityProfileView(View):
     def get(self, request):
-        if request.user.is_authenticated():
-            countries = Country.objects.all()
-            universities = University.objects.all()
-            subjects = Subject.objects.all()
-            ctx = {'countries': countries,
-                   'universities': universities,
-                   'subjects': subjects}
-            return render(request, "pages/myProfile/universityProfile.html", ctx)
-        else:
-            return render(request, "accessDenied.html")
+        pass
