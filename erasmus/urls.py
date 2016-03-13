@@ -16,12 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from shareErasmus.views.views import (HomeView, LoginView, ContactView, ProfileView, UniversityProfileView)
-from shareErasmus.views.api import UniversityViewSet
+from shareErasmus.views.api import UniversityViewSet, UserProfileViewSet, SubjectViewSet, CommentViewSet
 from rest_framework import routers
 
 
 router = routers.DefaultRouter()
-router.register(r'api/1.0/universities', UniversityViewSet)
+router.register(r'api/1.0/universidades', UniversityViewSet)
+router.register(r'api/1.0/usuarios', UserProfileViewSet)
+router.register(r'api/1.0/asignaturas', SubjectViewSet)
+router.register(r'api/1.0/comentarios', CommentViewSet)
 
 
 urlpatterns = [

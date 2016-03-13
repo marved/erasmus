@@ -8,11 +8,12 @@ REGULAR = '3'
 GOOD = '4'
 VERY_GOOD = '5'
 scores_choices = (
-         (VERY_BAD,'Very Bad'),
-         (BAD,'Bad'),
+         (VERY_GOOD,'Muy bien'),
+         (GOOD,'Bien'),
          (REGULAR,'Regular'),
-         (GOOD,'Good'),
-         (VERY_GOOD,'Very Good')
+         (BAD,'Mal'),
+         (VERY_BAD,'Muy mal')
+
 )
 
 class Link(models.Model):
@@ -28,11 +29,17 @@ class University(models.Model):
     country = models.CharField(max_length=150)
     description = models.CharField(max_length=1000, blank=True)
 
+    def __str__(self):
+        return self.name
+
 class Subject(models.Model):
     name = models.CharField(max_length=100, unique=True)
     score = models.CharField(max_length=1, choices=scores_choices)
     university = models.ForeignKey(University)
     users = models.ManyToManyField(UserProfile, blank=True)
+
+    def __str__(self):
+        return self.name
 
 class Comment(models.Model):
     user = models.ForeignKey(UserProfile)
