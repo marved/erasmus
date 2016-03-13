@@ -1,11 +1,6 @@
-from shareErasmus.models import University, Country
+from shareErasmus.models import University
 from rest_framework import serializers
 
-
-class CountrySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Country
-        fields = ('name',)
 
 class UniversitySerializer(serializers.ModelSerializer):
     class Meta:

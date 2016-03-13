@@ -1,11 +1,30 @@
+from django.http import Http404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework import generics
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
 from django.shortcuts import render
 from django.views.generic import View
 from erasmus import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from shareErasmus.models import University, Subject, UserProfile
+from shareErasmus.serializers import UniversitySerializer
 import json
 import datetime
+
+class JSONResponse(HttpResponse):
+    """
+    An HttpResponse that renders its content into JSON.
+    """
+    def __init__(self, data, **kwargs):
+        content = JSONRenderer().render(data)
+        kwargs['content_type'] = 'application/json'
+        super(JSONResponse, self).__init__(content, **kwargs)
 
 
 def loadJson(file):
