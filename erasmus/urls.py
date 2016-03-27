@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^login$', LoginView.as_view()),
     url(r'^universidades', UniversitiesView.as_view()),
     url(r'^contacto$', ContactView.as_view()),
-    url(r'^miPerfil$', ProfileView.as_view()),
+    url(r'^miCuenta$', ProfileView.as_view()),
     url(r'^miPerfil/universidad$', UniversityProfileView.as_view(), name="universities"),
     url(r'^data/universities$', UniversityProfileView.as_view()),
 

@@ -72,10 +72,10 @@ class ContactView(View):
 ###############
 class ProfileView(View):
     def get(self, request):
-        if request.user.is_authenticated():
-            return render(request, "pages/myProfile/indexProfile.html")
-        else:
-            return render(request, "accessDenied.html")
+  #      if request.user.is_authenticated():
+            return render(request, "pages/user.html")
+ #       else:
+ #           return render(request, "accessDenied.html")
 
 
 
