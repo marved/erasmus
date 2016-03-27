@@ -21,6 +21,13 @@ class HomeView(View):
         return render(request, "pages/index.html")
 
 
+class UniversitiesView(View):
+    def get(self, request):
+        return render(request, "pages/universities.html")
+
+
+
+
 #SACAR FUERA DE VIEWS.PY
 def registerUser(request):
     username = request.POST['username']

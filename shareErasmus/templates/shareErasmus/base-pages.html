@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block page_title %}{% endblock %}
 {% block content %}
-<!-- Start Page Banner -->
-  <div class="page-banner" style="padding:40px 0; background: url(images/slide-02-bg.jpg) center #f9f9f9;">
+<!-- Start Page Banner
+  <div class="page-banner" style="padding:40px 0; background: url(../../static/shareErasmus/images/slide-02-bg.jpg) center #f9f9f9;">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -20,11 +20,6 @@
   </div>
   <!-- End Page Banner -->
 
-<!-- Start Content -->
-    <div id="content">
-      <div class="container">
-        {% block page_body_content %}{% endblock %}
-      </div>
-    </div>
-<!-- End content -->
+{% block page_body_content %}{% endblock %}
+
 {% endblock %}

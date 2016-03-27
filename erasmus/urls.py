@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from shareErasmus.views.views import (HomeView, LoginView, ContactView, ProfileView, UniversityProfileView)
+from shareErasmus.views.views import (HomeView, LoginView, ContactView, UniversitiesView, ProfileView, UniversityProfileView)
 from shareErasmus.views.api import UniversityViewSet, UserProfileViewSet, SubjectViewSet, CommentViewSet
 from rest_framework import routers
 
@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', HomeView.as_view()),
     url(r'^login$', LoginView.as_view()),
+    url(r'^universidades', UniversitiesView.as_view()),
     url(r'^contacto$', ContactView.as_view()),
     url(r'^miPerfil$', ProfileView.as_view()),
     url(r'^miPerfil/universidad$', UniversityProfileView.as_view(), name="universities"),
