@@ -68,12 +68,12 @@ class ContactView(View):
         return render(request, "pages/contact.html")
 
 ###############
-#Profile views#
+#Settings views#
 ###############
-class ProfileView(View):
+class AccountView(View):
     def get(self, request):
   #      if request.user.is_authenticated():
-            return render(request, "pages/user.html")
+            return render(request, "pages/settings/account.html")
  #       else:
  #           return render(request, "accessDenied.html")
 
