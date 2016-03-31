@@ -2,7 +2,7 @@
 {% block page_title %}Universidades{% endblock %}
 {% block page_body_content %}
 <!-- Start Page Banner -->
-<div class="page-banner" style="padding:40px 0; background: url(../../static/shareErasmus/images/slide-02-bg.jpg) center #f9f9f9;">
+<div class="page-banner" style="padding:40px 0; background: url(../../../static/shareErasmus/images/slide-02-bg.jpg) center #f9f9f9;">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -21,7 +21,7 @@
 <!-- End Page Banner -->
 
 <!-- Start Content -->
-<div id="content">
+<div id="content" ng-controller="UniversitiesCtrl">
   <div class="container">
     <div class="row sidebar-page">
 
@@ -40,21 +40,11 @@
           </form>
         </div>
 
-        <!-- Toggle -->
-            <div class="panel-group">
-
-              <!-- Start Toggle 1 -->
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-2" class="collapsed">
-                      <i class="fa fa-angle-up control-icon"></i>
-                      <i class=""></i>>> Búsqueda avanzada
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapse-2" class="panel-collapse collapse">
-                  <div class="form-group">
+        <div ng-controller="UniversitiesCtrl">
+          <a class="" ng-click="isCollapsed = !isCollapsed">>> Búsqueda avanzada</a>
+          <hr>
+          <div uib-collapse="isCollapsed" >
+            <div class="form-group well well-lg">
                     <label for="sel1">País:</label>
                     <select class="form-control" id="sel1">
                       <option></option>
@@ -72,12 +62,9 @@
                       <option>Roma</option>
                     </select>
                   </div>
-                </div>
-              </div>
-              <!-- End Toggle 1 -->
+          </div>
+        </div>
 
-            </div>
-            <!-- End Toggle -->
 
         <!-- Divider -->
         <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>

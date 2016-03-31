@@ -2,7 +2,7 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
 {% load staticfiles %}
-<html lang="es">
+<html lang="es" ng-app="shareErasmus">
 <head>
     <!-- Basic -->
   <title>Share Erasmus | {% block page_title %}{% endblock %}</title>
@@ -48,6 +48,12 @@
   <link rel="stylesheet" type="text/css" href="{% static '/static/shareErasmus/css/colors/purple.css' %}" title="purple" media="screen"/>
   <link rel="stylesheet" type="text/css" href="{% static '/static/shareErasmus/css/colors/sky-blue.css' %}" title="sky-blue" media="screen"/>
   <link rel="stylesheet" type="text/css" href="{% static '/static/shareErasmus/css/colors/yellow.css' %}" title="yellow" media="screen"/>
+
+  <!-- Angular JS  -->
+  <script type="text/javascript" src="{% static '/static/shareErasmus/asset/js/angular.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/static/shareErasmus/asset/js/ui-bootstrap-tpls-1.2.5.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/static/shareErasmus/js/app.js' %}"></script>
+  <script type="text/javascript" src="{% static '/static/shareErasmus/js/controllers/universitiesCtrl.js' %}"></script>
 
   <!-- Margo JS  -->
   <script type="text/javascript" src="{% static '/static/shareErasmus/js/jquery-2.1.4.min.js' %}"></script>
