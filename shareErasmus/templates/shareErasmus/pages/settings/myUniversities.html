@@ -2,6 +2,20 @@
 {% block page_title %}my universities{% endblock %}
 {% block heading %}Mira y añade tus universidades{% endblock %}
 {% block page_body_content %}
-
-
+<div ng-controller="SettingsCtrl">
+  <a class="" ng-click="isCollapsed = !isCollapsed">>> Seleccionar universidad</a>
+  <hr>
+  <div uib-collapse="isCollapsed" >
+    <div class="form-group well well-lg">
+      <label for="sel1">Nombre:</label>
+      <select class="form-control" id="sel1">
+        <option></option>
+        <option>URJC</option>
+        <option>UCM</option>
+        <option>UAM</option>
+        <option>Universidad Europea</option>
+      </select>
+    </div>
+  </div>
+</div>
 {% endblock %}
