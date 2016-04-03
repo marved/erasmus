@@ -1,76 +1,36 @@
-{% extends 'base-pages.html' %}
-{% block page_title %}username{% endblock %}
+{% extends 'base-settings.html' %}
+{% block page_title %}account{% endblock %}
+{% block heading %}Cambia tus configuraciones básicas de tu cuenta{% endblock %}
 {% block page_body_content %}
-<!-- Start Content -->
-<div id="content">
-  <div class="container">
-    <div class="row sidebar-page">
-
-      <!--Sidebar-->
-      <div class="col-md-3 sidebar left-sidebar">
-
-        <!-- Categories Widget -->
-        <div class="widget widget-categories">
-          <h4>Configuración <span class="head-line"></span></h4>
-          <ul>
-            <li>
-              <a href="/settings/account">Cuenta</a>
-            </li>
-            <li>
-              <a href="#">Contraseña</a>
-            </li>
-            <li>
-              <a href="#">Mis universidades</a>
-            </li>
-          </ul>
-        </div>
-
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="username">Nombre de usuario</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username">
       </div>
-      <!--End sidebar-->
-      <!-- Page Content -->
-      <div class="col-md-9 page-content">
-
-        <!-- Classic Heading -->
-        <h4 class="classic-title"><span>Cambia tus configuraciones básicas de tu cuenta</span></h4>
-
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="username">Nombre de usuario</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="username">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="first_name">Nombre</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="first_name">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="last_name">Apellidos</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="last_name">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Correo electrónico</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="email">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-default">Guardar</button>
-            </div>
-          </div>
-        </form>
-        <!-- Divider -->
-        <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
-
-      </div>
-      <!-- End Page Content-->
     </div>
-  </div>
-</div>
-<!-- End Content -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="first_name">Nombre</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="first_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="last_name">Apellidos</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="last_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Correo electrónico</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Guardar</button>
+      </div>
+    </div>
+  </form>
 {% endblock %}

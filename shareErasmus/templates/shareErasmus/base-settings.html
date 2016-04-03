@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block page_title %}{% endblock %}
+{% block content %}
+<!-- Start Content -->
+<div id="content">
+  <div class="container">
+    <div class="row sidebar-page">
+      <!--Sidebar-->
+      <div class="col-md-3 sidebar left-sidebar">
+
+        <!-- Categories Widget -->
+        <div class="widget widget-categories">
+          <h4>Configuración <span class="head-line"></span></h4>
+          <ul>
+            <li>
+              <a href="/settings/account">Cuenta</a>
+            </li>
+            <li>
+              <a href="#">Contraseña</a>
+            </li>
+            <li>
+              <a href="#">Mis universidades</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <!--End sidebar-->
+      <!-- Page Content -->
+      <div class="col-md-9 page-content">
+
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>{% block heading %}{% endblock %}</span></h4>
+
+        {% block page_body_content %}{% endblock %}
+
+        <!-- Divider -->
+        <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
+      </div>
+      <!-- End Page Content-->
+    </div>
+  </div>
+</div>
+<!-- End Content -->
+
+{% endblock %}
