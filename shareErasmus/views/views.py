@@ -78,6 +78,11 @@ class AccountView(View):
  #           return render(request, "accessDenied.html")
 
 
+class MyUniversitiesView(View):
+    def get(self, request):
+        return render(request, "pages/settings/myUniversities.html")
+
+
 
 class UniversityProfileView(View):
     def get(self, request):
