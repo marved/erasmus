@@ -84,6 +84,3 @@ class MyUniversitiesView(View):
 
 
 
-class UniversityProfileView(View):
-    def get(self, request):
-        pass
