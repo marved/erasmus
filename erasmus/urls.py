@@ -21,10 +21,10 @@ from rest_framework import routers
 
 
 router = routers.DefaultRouter()
-router.register(r'api/1.0/universidades', UniversityViewSet)
-router.register(r'api/1.0/usuarios', UserProfileViewSet)
-router.register(r'api/1.0/asignaturas', SubjectViewSet)
-router.register(r'api/1.0/comentarios', CommentViewSet)
+router.register(r'api/1.0/universities', UniversityViewSet)
+router.register(r'api/1.0/users', UserProfileViewSet)
+router.register(r'api/1.0/subjects', SubjectViewSet)
+router.register(r'api/1.0/comments', CommentViewSet)
 
 
 urlpatterns = [

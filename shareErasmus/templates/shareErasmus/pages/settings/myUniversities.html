@@ -8,12 +8,8 @@
   <div uib-collapse="isCollapsed" >
     <div class="form-group well well-lg">
       <label for="sel1">Nombre:</label>
-      <select class="form-control" id="sel1">
-        <option></option>
-        <option>URJC</option>
-        <option>UCM</option>
-        <option>UAM</option>
-        <option>Universidad Europea</option>
+      <select class="form-control" id="sel1" ng-model="universitySelected" ng-options="university.name for university in universities">
+        <option value="" disabled selected>Seleccionar</option>
       </select>
     </div>
   </div>
