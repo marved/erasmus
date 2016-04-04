@@ -67,7 +67,7 @@ app.service('shareErasmusApi', ['$http',  function($http) {
     this.getUsers = function() {
         return _http("GET", USERS_PATH);
     };
-    
+
     this.getComments = function() {
         return _http("GET", COMMENTS_PATH);
     };

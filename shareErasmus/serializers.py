@@ -6,13 +6,13 @@ from rest_framework.serializers import ModelSerializer
 class UniversitySerializer(ModelSerializer):
     class Meta:
         model = University
-        fields = ('name', 'country', 'city','description')
+        fields = ('pk', 'name', 'country', 'city','description')
 
 
 class UserSerializer(ModelSerializer):
     class Meta():
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined')
+        fields = ('pk', 'username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined')
 
 
 class UserProfileSerializer(ModelSerializer):
@@ -26,7 +26,7 @@ class SubjectSerializer(ModelSerializer):
     users = UserProfileSerializer
     class Meta:
         model = Subject
-        fields = ('name', 'score', 'university', 'users')
+        fields = ('pk', 'name', 'score', 'university', 'users')
 
 
 class CommentSerializer(ModelSerializer):
@@ -35,5 +35,5 @@ class CommentSerializer(ModelSerializer):
     subject = SubjectSerializer
     class Meta:
         model = Comment
-        fields = ('user', 'title', 'body', 'dateTime', 'university', 'subject')
+        fields = ('pk', 'user', 'title', 'body', 'dateTime', 'university', 'subject')
 
