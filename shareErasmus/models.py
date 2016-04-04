@@ -27,10 +27,10 @@ class UserProfile(models.Model):
 class University(models.Model):
     name = models.CharField(max_length=150, unique=True)
     country = models.CharField(max_length=150)
-    city = models.CharField(max_length=150, null=True)
+    city = models.CharField(max_length=150)
     description = models.CharField(max_length=1000, blank=True)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
 class Subject(models.Model):
@@ -39,7 +39,7 @@ class Subject(models.Model):
     university = models.ForeignKey(University)
     users = models.ManyToManyField(UserProfile, blank=True)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
 class Comment(models.Model):
