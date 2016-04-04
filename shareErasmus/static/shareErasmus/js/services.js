@@ -1,6 +1,9 @@
 app.service('shareErasmusApi', ['$http',  function($http) {
 
     var UNIVERSITIES_PATH = "/api/1.0/universities";
+    var SUBJECTS_PATH = "/api/1.0/subjects";
+    var USERS_PATH = "/api/1.0/users";
+    var COMMENTS_PATH = "/api/1.0/comments";
 
     var X_CSRF_TOKEN_HEADER_NAME = "X-CSRFToken";
     var COOKIE_HEADER_NAME = "Cookie";
@@ -55,6 +58,18 @@ app.service('shareErasmusApi', ['$http',  function($http) {
 
     this.getUniversities = function() {
         return _http("GET", UNIVERSITIES_PATH);
+    };
+
+    this.getSubjects = function() {
+        return _http("GET", SUBJECTS_PATH);
+    };
+
+    this.getUsers = function() {
+        return _http("GET", USERS_PATH);
+    };
+    
+    this.getComments = function() {
+        return _http("GET", COMMENTS_PATH);
     };
 
 }]);
