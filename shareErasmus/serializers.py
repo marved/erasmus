@@ -6,7 +6,7 @@ from rest_framework.serializers import ModelSerializer
 class UniversitySerializer(ModelSerializer):
     class Meta:
         model = University
-        fields = ('name', 'country', 'description')
+        fields = ('name', 'country', 'city','description')
 
 
 class UserSerializer(ModelSerializer):

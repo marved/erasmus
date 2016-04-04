@@ -21,6 +21,13 @@ class HomeView(View):
         return render(request, "pages/index.html")
 
 
+class UniversitiesView(View):
+    def get(self, request):
+        return render(request, "pages/universities.html")
+
+
+
+
 #SACAR FUERA DE VIEWS.PY
 def registerUser(request):
     username = request.POST['username']
@@ -61,17 +68,19 @@ class ContactView(View):
         return render(request, "pages/contact.html")
 
 ###############
-#Profile views#
+#Settings views#
 ###############
-class ProfileView(View):
+class AccountView(View):
     def get(self, request):
-        if request.user.is_authenticated():
-            return render(request, "pages/myProfile/indexProfile.html")
-        else:
-            return render(request, "accessDenied.html")
+  #      if request.user.is_authenticated():
+            return render(request, "pages/settings/account.html")
+ #       else:
+ #           return render(request, "accessDenied.html")
 
 
-
-class UniversityProfileView(View):
+class MyUniversitiesView(View):
     def get(self, request):
-        pass
+        return render(request, "pages/settings/myUniversities.html")
+
+
+

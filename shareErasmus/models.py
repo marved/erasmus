@@ -27,6 +27,7 @@ class UserProfile(models.Model):
 class University(models.Model):
     name = models.CharField(max_length=150, unique=True)
     country = models.CharField(max_length=150)
+    city = models.CharField(max_length=150, null=True)
     description = models.CharField(max_length=1000, blank=True)
 
     def __str__(self):

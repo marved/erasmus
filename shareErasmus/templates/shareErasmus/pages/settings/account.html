@@ -1,0 +1,36 @@
+{% extends 'base-settings.html' %}
+{% block page_title %}account{% endblock %}
+{% block heading %}Cambia tus configuraciones básicas de tu cuenta{% endblock %}
+{% block page_body_content %}
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="username">Nombre de usuario</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="first_name">Nombre</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="first_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="last_name">Apellidos</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="last_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Correo electrónico</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Guardar</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}
