@@ -7,14 +7,21 @@
   <hr>
   <div uib-collapse="isCollapsed" >
     <div class="form-group well well-lg">
-      <label for="sel1">Nombre:</label>
-      <select class="form-control" id="sel1">
-        <option></option>
-        <option>URJC</option>
-        <option>UCM</option>
-        <option>UAM</option>
-        <option>Universidad Europea</option>
+      <label for="sel1">País:</label>
+      <select ng-change="" class="form-control" id="sel1" ng-model="" ng-options="">
+        <option value="" disabled selected>Seleccionar</option>
       </select>
+      <label for="sel1">Nombre:</label>
+      <select ng-change="changeSelectedUniversity()" class="form-control" id="sel2" ng-model="universitySelected" ng-options="university.pk as university.name for university in universities">
+        <option value="" disabled selected>Seleccionar</option>
+      </select>
+      <label for="sel1">Asignaturas:</label>
+      <div class="checkbox" ng-repeat="subject in filterSubjects">
+        <label>
+          <input type="checkbox" checklist-value="subject.pk" data-checklist-model="subjectsSelected">{% verbatim %}{{ subject.name }}{% endverbatim %}
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Guardar</button>
     </div>
   </div>
 </div>
