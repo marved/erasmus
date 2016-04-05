@@ -5,7 +5,7 @@ app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, s
     $scope.universitySelected = null;
     $scope.subjects = [];
     $scope.filterSubjects = [];
-    $scope.subjectSelected = null;
+    $scope.subjectsSelected = [];
 
     shareErasmusApi.getUniversities().then(function (response) {
         $scope.universities = response.data;
@@ -29,6 +29,7 @@ app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, s
                 $scope.filterSubjects.push($scope.subjects[i]);
             }
         }
+         console.log($scope.filterSubjects);
     };
 
     $scope.changeSelectedUniversity = function() {
