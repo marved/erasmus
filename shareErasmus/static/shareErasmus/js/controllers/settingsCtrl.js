@@ -3,6 +3,9 @@ app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, s
     $scope.isCollapsed = true;
     $scope.countries = [];
     $scope.countrySelected = null;
+    $scope.cities = [];
+    $scope.filterCities = [];
+    $scope.citySelected = null;
     $scope.universities = [];
     $scope.filterUniversities = [];
     $scope.universitySelected = null;
@@ -13,25 +16,44 @@ app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, s
 
     shareErasmusApi.getUniversities().then(function (response) {
         $scope.universities = response.data;
-        loadCountries();
+        $scope.countries = shareErasmusApi.loadCountries($scope.universities);
+
     });
 
     shareErasmusApi.getSubjects().then(function (response) {
         $scope.subjects = response.data;
     });
 
-    var loadCountries = function() {
+
+    var reloadFilterCities = function() {
+        if ($scope.countrySelected == null || $scope.countrySelected == undefined) {
+            $scope.filterCities = [];
+            $scope.filterUniversities = [];
+            $scope.filterSubjects = [];
+            return;
+        }
+        $scope.filterCities = shareErasmusApi.loadCities($scope.universities, $scope.countrySelected);
+
+    };
+
+    var reloadFilterUniversities = function() {
+        if ($scope.citySelected == null || $scope.citySelected == undefined) {
+            $scope.filterUniversities = [];
+            $scope.filterSubjects = [];
+            return;
+        }
+
+        $scope.filterUniversities = [];
         for (var i=0; i<$scope.universities.length; i++) {
-            if (!~$scope.countries.indexOf($scope.universities[i].country)) {
-                $scope.countries.push($scope.universities[i].country);
+            if ($scope.universities[i].city == $scope.citySelected){
+                $scope.filterUniversities.push($scope.universities[i]);
             }
         }
     };
 
     var reloadFilterSubjects = function() {
         if ($scope.universitySelected == null || $scope.universitySelected == undefined) {
-            console.log($scope.universitySelected);
-            $scope.filterSubjects = $scope.subjects;
+            $scope.filterSubjects = [];
             return;
         }
 
@@ -41,29 +63,19 @@ app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, s
                 $scope.filterSubjects.push($scope.subjects[i]);
             }
         }
-        console.log($scope.countrySelected);
     };
 
-    var reloadFilterUniversities = function() {
-        if ($scope.countrySelected == null || $scope.countrySelected == undefined) {
-            $scope.filterUniversities = $scope.universities;
-            return;
-        }
+    $scope.changeSelectedCountry = function() {
+        reloadFilterCities();
+    };
 
-        $scope.filterUniversities = [];
-        for (var i=0; i<$scope.universities.length; i++) {
-            if ($scope.universities[i].country == $scope.countrySelected){
-                $scope.filterUniversities.push($scope.universities[i]);
-            }
-        }
+    $scope.changeSelectedCity = function() {
+        reloadFilterUniversities();
     };
 
     $scope.changeSelectedUniversity = function() {
         reloadFilterSubjects();
     };
 
-    $scope.changeSelectedCountry = function() {
-        reloadFilterUniversities();
-    };
 
 }]);
