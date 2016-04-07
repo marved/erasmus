@@ -72,4 +72,33 @@ app.service('shareErasmusApi', ['$http',  function($http) {
         return _http("GET", COMMENTS_PATH);
     };
 
+    this.loadCountries = function(universities) {
+        var countries = [];
+        for (var i=0; i<universities.length; i++) {
+            if (!~countries.indexOf(universities[i].country)) {
+                countries.push(universities[i].country);
+            }
+        }
+        return countries;
+    };
+
+    this.loadCities = function(universities, country) {
+        var cities = [];
+        for (var i=0; i<universities.length; i++) {
+            if (!~cities.indexOf(universities[i].city) && universities[i].country == country) {
+                cities.push(universities[i].city);
+            }
+        }
+        return cities;
+    };
+
+
+
+
+
+    this.getCountries = function() {
+
+    };
+
+
 }]);

@@ -8,20 +8,37 @@
   <div uib-collapse="isCollapsed" >
     <div class="form-group well well-lg">
       <label for="sel1">País:</label>
-      <select ng-change="" class="form-control" id="sel1" ng-model="" ng-options="">
+      <select ng-change="changeSelectedCountry()" class="form-control" id="sel1" ng-model="countrySelected" ng-options="country for country in countries">
         <option value="" disabled selected>Seleccionar</option>
       </select>
-      <label for="sel1">Nombre:</label>
-      <select ng-change="changeSelectedUniversity()" class="form-control" id="sel2" ng-model="universitySelected" ng-options="university.pk as university.name for university in universities">
+      <label for="sel2">Ciudad:</label>
+      <select ng-change="changeSelectedCity()" class="form-control" id="sel2" ng-model="citySelected" ng-options="city for city in filterCities">
         <option value="" disabled selected>Seleccionar</option>
       </select>
-      <label for="sel1">Asignaturas:</label>
-      <div class="checkbox" ng-repeat="subject in filterSubjects">
-        <label>
-          <input type="checkbox" checklist-value="subject.pk" data-checklist-model="subjectsSelected">{% verbatim %}{{ subject.name }}{% endverbatim %}
-        </label>
+      <label for="sel3">Universidad:</label>
+      <select ng-change="changeSelectedUniversity()" class="form-control" id="sel3" ng-model="universitySelected" ng-options="university.pk as university.name for university in filterUniversities">
+        <option value="" disabled selected>Seleccionar</option>
+      </select>
+      <div ng-show="universitySelected" class="input-group">
+        <label>Asignaturas:</label>
+        <div class="checkbox" ng-repeat="subject in filterSubjects">
+          <label>
+            <input type="checkbox" checklist-value="subject.pk" data-checklist-model="subjectsSelected">{% verbatim %}{{ subject.name }}{% endverbatim %}
+          </label>
+        </div>
+        <label>Otras asignaturas:</label>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input type="checkbox" aria-label="Checkbox for following text input">
+          </span>
+          <input type="text" class="form-control" aria-label="Text input with checkbox">
+        </div>
+
       </div>
-      <button type="submit" class="btn btn-default">Guardar</button>
+
+      <div class="input-group">
+        <button type="submit" class="btn btn-default">Guardar</button>
+      </div>
     </div>
   </div>
 </div>
