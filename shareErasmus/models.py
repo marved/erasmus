@@ -1,6 +1,6 @@
 #encoding:utf-8
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractBaseUser
 
 VERY_BAD = '1'
 BAD = '2'
@@ -16,13 +16,9 @@ scores_choices = (
 
 )
 
-class Link(models.Model):
-    url = models.URLField()
 
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, unique=True)
-    #photo = models.ImageField()
+class UserProfile(User):
+    photo = models.ImageField(blank=True)
 
 class University(models.Model):
     name = models.CharField(max_length=150, unique=True)

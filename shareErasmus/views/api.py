@@ -31,7 +31,7 @@ class UserProfileViewSet(CreateModelMixin,
     """
     API endpoint that allows
     """
-    queryset = UserProfile.objects.all().order_by('user')
+    queryset = UserProfile.objects.all().order_by('username')
     serializer_class = UserProfileSerializer
 
 
