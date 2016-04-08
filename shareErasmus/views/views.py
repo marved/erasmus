@@ -21,6 +21,11 @@ class HomeView(View):
         return render(request, "pages/index.html")
 
 
+class SignView(View):
+    def get(self, request):
+        return render(request, "pages/sign.html")
+
+
 class UniversitiesView(View):
     def get(self, request):
         return render(request, "pages/universities.html")
