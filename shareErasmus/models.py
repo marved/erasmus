@@ -18,7 +18,7 @@ scores_choices = (
 
 
 class UserProfile(User):
-    photo = models.ImageField(blank=True)
+    photo = models.ImageField(blank=True, null=True)
 
 class University(models.Model):
     name = models.CharField(max_length=150, unique=True)

@@ -1,2 +1,2 @@
-var app = angular.module('shareErasmus', ['ui.bootstrap', "checklist-model"]);
+var app = angular.module('shareErasmus', ['ui.bootstrap', "checklist-model", 'ngCookies']);
 
