@@ -18,7 +18,20 @@ class UserSerializer(ModelSerializer):
 class UserProfileSerializer(ModelSerializer):
     class Meta():
         model = UserProfile
-        fields = ('pk', 'username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined', 'photo')
+        fields = ('pk', 'username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined', 'photo', 'password')
+        write_only_fields = ('password')
+        read_only_fields = ('pk')
+
+    def create(self, validated_data):
+        user = UserProfile.objects.create(
+            username=validated_data['username'],
+            email=validated_data['email']
+        )
+
+        user.set_password(validated_data['password'])
+        user.save()
+
+        return user
 
 
 class SubjectSerializer(ModelSerializer):

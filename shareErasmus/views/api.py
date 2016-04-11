@@ -4,10 +4,17 @@ from rest_framework.mixins import RetrieveModelMixin, ListModelMixin, CreateMode
 from rest_framework import viewsets, generics
 from rest_framework import authentication, permissions
 
-from django.contrib.auth.models import User
+from django.contrib.auth import logout, login, authenticate
+from django.contrib.sessions.models import Session
 from shareErasmus.models import University, UserProfile, Subject, Comment
 from shareErasmus.serializers import UniversitySerializer, UserProfileSerializer, SubjectSerializer, CommentSerializer
 
+from shareErasmus.validators import LoginFormValidator
+from shareErasmus.views.responses import (
+    http_400_bad_request, http_401_not_authorized,
+    INVALID_CREDENTIALS_ERROR_MSG, http_403_forbidden,
+    USER_NOT_AUTHENTICATED_ERROR_MSG
+)
 
 class UniversityViewSet(CreateModelMixin,
                         RetrieveModelMixin,
@@ -59,3 +66,44 @@ class CommentViewSet(CreateModelMixin,
     """
     queryset = Comment.objects.all().order_by('user')
     serializer_class = CommentSerializer
+
+
+class SessionAPIView(APIView):
+    """
+    Authentication methods.
+    """
+    queryset = Session.objects.none()  # Required for DjangoModelPermissions
+
+    def get(self, request, format=None):
+        user = request.user
+        if user.is_authenticated():
+            context = {"request": request}
+            serializer = UserProfileSerializer(user, context=context)
+            return Response(serializer.data)
+        else:
+            return http_403_forbidden(USER_NOT_AUTHENTICATED_ERROR_MSG)
+
+    def post(self, request, format=None):
+        form = LoginFormValidator(request.data)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+
+            user = authenticate(username=username, password=password)
+            if user is None:
+                raise
+                return http_401_not_authorized(INVALID_CREDENTIALS_ERROR_MSG)
+            else:
+                if user.is_active:
+                    login(request, user)
+                    context = {"request": request}
+                    serializer = UserProfileSerializer(user, context=context)
+                    return Response(serializer.data)
+                else:
+                    return http_401_not_authorized(INVALID_CREDENTIALS_ERROR_MSG)
+        else:
+            return http_400_bad_request(form.errors)
+
+    def delete(self, request, format=None):
+        logout(request)
+        return Response()
