@@ -2,17 +2,19 @@
 {% block page_title %}sign{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="col-sm-5">
-    <form class="form-signin" id="form-signin" method="post">
+  <div class="col-sm-5" ng-controller="SignInCtrl">
+    <form class="form-signin" id="form-signin" ng-submit="signInSend()" method="post">
+      {% csrf_token %}
       <h2 class="form-signin-heading">Iniciar sesión</h2>
-      <input type="text" id="login-username-or-email" class="form-control" name="login_username_or_email" placeholder="Nombre de usuario" required autofocus="">
-      <input type="password" id="loginPassword" class="form-control" name="login_password" placeholder="Contraseña" required>
+      <input ng-model="user.username" type="text" id="login-username" class="form-control" name="login_username" placeholder="Nombre de usuario" required>
+      <input ng-model="user.password" type="password" id="loginPassword" class="form-control" name="login_password" placeholder="Contraseña" required>
       <div class="checkbox">
         <label>
           <input type="checkbox" value="remember-me"> Recordarme
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Entrar</button>
+      <a href="/request_password_reset">¿Olvidaste la contraseña?</a>
     </form>
   </div>
   <div class="col-sm-1 middle-border"></div>
@@ -24,7 +26,7 @@
       <input ng-model="user.register_email" type="email" id="register-email" class="form-control" name="register_email" placeholder="Correo electrónico" required>
       <input ng-model="user.register_username" type="text" id="register-username" class="form-control" name="register_username" placeholder="Nombre de usuario" required>
       <input ng-model="user.register_password" type="password" id="register-password" class="form-control" name="register_password" placeholder="Contraseña" required>
-      <input type="password" id="registerPasswordRepeat" class="form-control" placeholder="Confirmar contraseña" required>
+      <input ng-model="user.register_repeat_password" type="password" id="registerPasswordRepeat" class="form-control" placeholder="Confirmar contraseña" required>
       <div class="checkbox">
           <label><input ng-model="confirm_privacy_policy" id="confirm-privacy-policy" type="checkbox">Confirmo que he leído y que acepto la <a target="_blank" href="/privacy_policy">política de privacidad.</a></label>
       </div>

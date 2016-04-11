@@ -4,6 +4,7 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
     var SUBJECTS_PATH = "/api/1.0/subjects/";
     var USERS_PATH = "/api/1.0/users/";
     var COMMENTS_PATH = "/api/1.0/comments/";
+    var SESSION_PATH = "/api/1.0/session/";
 
     var X_CSRF_TOKEN_HEADER_NAME = "X-CSRFToken";
     var COOKIE_HEADER_NAME = "Cookie";
@@ -75,6 +76,10 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("GET", COMMENTS_PATH);
     };
 
+    this.getSession = function() {
+        return _http("GET", SESSION_PATH);
+    };
+
     this.createUser = function(email, username, password) {
         email = email || null;
         username = username || null;
@@ -86,6 +91,14 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
             'password': password
         };
         return _http("POST", USERS_PATH, null, form_params);
+    };
+
+    this.authenticate = function(username, password) {
+        var form_params = {
+            'username': username,
+            'password': password
+        };
+        return _http("POST", SESSION_PATH, null, form_params);
     };
 
     this.loadCountries = function(universities) {
@@ -114,6 +127,21 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
 
     this.getCountries = function() {
 
+    };
+
+    this.getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
     };
 
 

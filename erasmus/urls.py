@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from shareErasmus.views.views import (HomeView, SignView, ContactView, UniversitiesView, AccountView, MyUniversitiesView)
-from shareErasmus.views.api import UniversityViewSet, UserProfileViewSet, SubjectViewSet, CommentViewSet
+from shareErasmus.views.api import UniversityViewSet, UserProfileViewSet, SubjectViewSet, CommentViewSet, SessionAPIView
 from rest_framework import routers
 
 
@@ -38,4 +38,5 @@ urlpatterns = [
 
     #API
     url(r'^', include(router.urls)),
+    url(r'^api/1.0/session/$', SessionAPIView.as_view()),
 ]
