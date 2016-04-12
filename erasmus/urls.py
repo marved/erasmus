@@ -36,6 +36,8 @@ urlpatterns = [
     url(r'^settings/account$', AccountView.as_view()),
     url(r'^settings/universities$', MyUniversitiesView.as_view()),
 
+    url(r'^logout$', 'shareErasmus.views.do_logout'),
+
     #API
     url(r'^', include(router.urls)),
     url(r'^api/1.0/session/$', SessionAPIView.as_view()),
