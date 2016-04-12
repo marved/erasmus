@@ -91,7 +91,6 @@ class SessionAPIView(APIView):
 
             user = authenticate(username=username, password=password)
             if user is None:
-                raise
                 return http_401_not_authorized(INVALID_CREDENTIALS_ERROR_MSG)
             else:
                 if user.is_active:
