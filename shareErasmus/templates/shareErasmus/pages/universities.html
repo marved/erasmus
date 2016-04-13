@@ -69,33 +69,15 @@
         <!-- Divider -->
         <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
 
+        <!-- Universities list -->
         <div class="row pricing-tables">
           {% for university in universities %}
           <div class="col-md-4 col-sm-4">
-            <div class="pricing-table highlight-plan">
-              <div class="plan-name">
-                <h3>{{university.name}}</h3>
-              </div>
-              <div class="plan-price">
-                <div class="price-value">$99<span>.00</span></div>
-                <div class="interval">per month</div>
-              </div>
-              <div class="plan-list">
-                <ul>
-                  <li><strong>{{university.city}}</strong></li>
-                  <li><strong>{{university.country}}</strong></li>
-                  <li><strong>10</strong> Domains</li>
-                </ul>
-              </div>
-              <div class="plan-signup">
-                <a href="#" class="btn-system btn-small border-btn">Visitar</a>
-              </div>
-            </div>
+            {% include 'components/universities/university-item.html' %}
           </div>
           {% endfor %}
-
-
         </div>
+        <!-- End universities list -->
 
 
       </div>
