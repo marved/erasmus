@@ -1614,7 +1614,9 @@ input[type="submit"] {
 
 
 /*************** Item Tables ***************/
-
+.item-university {
+    margin-bottom: 50px;
+}
 .item-tables {
 	padding: 25px 0;
     text-align: center;
@@ -1651,7 +1653,8 @@ input[type="submit"] {
 }
 
 .item-tables .item-table.highlight-plan .plan-name {
-	padding: 25px 0;
+    padding: 15px 0;
+    min-height: 104px;
 }
 .item-tables .item-table.highlight-plan .plan-name h3 {
     color: #fff;
