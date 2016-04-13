@@ -1,0 +1,57 @@
+{% extends 'base-pages.html' %}
+{% block page_title %}Detalle{% endblock %}
+{% block page_body_content %}
+<!-- Start Page Banner -->
+<div class="page-banner" style="padding:40px 0; background: url(../../../static/shareErasmus/images/slide-02-bg.jpg) center #f9f9f9;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>{{university.name}}</h2>
+        <p>{{university.city}}</p>
+      </div>
+      <div class="col-md-6">
+        <ul class="breadcrumbs">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/universities">Universidades</a></li>
+          <li>{{university.name}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Page Banner -->
+
+<!-- Start Content -->
+<div id="content" ng-controller="UniversitiesCtrl">
+  <div class="container">
+    <div class="row sidebar-page">
+      <!--Left Page Content-->
+      <div class="col-md-3 page-content">
+
+        <h4>Columna 1<span class="head-line"></span></h4>
+
+        </div>
+      <!--End left Page Content-->
+
+      <!-- Center Page Content -->
+      <div class="col-md-6 page-content">
+
+        <h4>Columna 2<span class="head-line"></span></h4>
+
+      </div>
+      <!-- End Center Page Content-->
+
+      <!--Right Page Content-->
+      <div class="col-md-3 page-content">
+
+        <h4>Columna 3<span class="head-line"></span></h4>
+
+      </div>
+      <!--End right Page Content-->
+
+    </div>
+  </div>
+</div>
+<!-- End Content -->
+
+{% endblock %}
