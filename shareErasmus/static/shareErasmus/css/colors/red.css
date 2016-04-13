@@ -119,15 +119,15 @@ ul.breadcrumbs li a:hover {
 	color: #ee3733;
 }
 
-.pricing-tables .pricing-table.highlight-plan .plan-name h3 {
+.item-tables .item-table.highlight-plan .plan-name h3 {
 	//color: #ee3733;
 }
 
-.pricing-tables .pricing-table.highlight-plan .plan-signup {
+.item-tables .item-table.highlight-plan .plan-signup {
     background-color: #ee3733;
 }
 
-.pricing-tables .pricing-table.highlight-plan .plan-name {
+.item-tables .item-table.highlight-plan .plan-name {
 	background-color: #ee3733;
 }
 

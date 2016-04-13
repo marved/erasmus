@@ -1613,14 +1613,14 @@ input[type="submit"] {
 
 
 
-/*************** Pricing Tables ***************/
+/*************** Item Tables ***************/
 
-.pricing-tables {
+.item-tables {
 	padding: 25px 0;
     text-align: center;
 }
 
-.pricing-tables .pricing-table {
+.item-tables .item-table {
 	border: 1px solid #e4e4e4;
 	text-align: center;
 	position: relative;
@@ -1631,7 +1631,7 @@ input[type="submit"] {
     -o-transition: all 0.2s ease-in-out;
 }
 
-.pricing-tables .pricing-table:hover {
+.item-tables .item-table:hover {
 	z-index: 2;
 	top: -3px;
 	box-shadow: 0 0 8px rgba(0,0,0,0.1);
@@ -1640,7 +1640,7 @@ input[type="submit"] {
 	-o-box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
-.pricing-tables .highlight-plan {
+.item-tables .highlight-plan {
 	margin: -15px 0;
 	margin-right: -1px;
 	z-index: 1;
@@ -1650,23 +1650,23 @@ input[type="submit"] {
 	-o-box-shadow: 0 0 6px rgba(0,0,0,0.06);
 }
 
-.pricing-tables .pricing-table.highlight-plan .plan-name {
+.item-tables .item-table.highlight-plan .plan-name {
 	padding: 25px 0;
 }
-.pricing-tables .pricing-table.highlight-plan .plan-name h3 {
+.item-tables .item-table.highlight-plan .plan-name h3 {
     color: #fff;
 }
 
-.pricing-tables .pricing-table.highlight-plan .plan-signup {
+.item-tables .item-table.highlight-plan .plan-signup {
 	padding: 30px 0;
 }
 
-.pricing-tables .pricing-table.highlight-plan .plan-signup .btn-system.border-btn {
+.item-tables .item-table.highlight-plan .plan-signup .btn-system.border-btn {
     border-color: #fff;
     color: #fff;
 }
 
-.pricing-table .plan-name {
+.item-table .plan-name {
 	padding: 15px 0;
 	box-shadow: 0 0 20px rgba(0,0,0,.04) inset;
 	-o-box-shadow:  0 0 20px rgba(0,0,0,.04) inset;
@@ -1676,44 +1676,44 @@ input[type="submit"] {
 
 }
 
-.pricing-table .plan-name h3 {
+.item-table .plan-name h3 {
 	font-weight: 700;
 	color: #666;
 	text-transform: uppercase;
 }
 
-.pricing-table .plan-price {
+.item-table .plan-price {
 	padding: 25px 0;
 }
 
-.pricing-table .plan-price .price-value {
+.item-table .plan-price .price-value {
 	font-size: 38px;
 	line-height: 40px;
 	font-weight: 600;
 	color: #444;
 }
 
-.pricing-table .plan-price .price-value span {
+.item-table .plan-price .price-value span {
 	font-size: 18px;
 	font-weight: 300;
 	line-height: 18px;
 }
 
-.pricing-table .plan-price .interval {
+.item-table .plan-price .interval {
 	line-height: 14px;
 }
 
-.pricing-table .plan-list li {
+.item-table .plan-list li {
 	padding: 8px;
 	font-size: 12px;
 	border-bottom: 1px solid #eee;
 }
 
-.pricing-table .plan-list li:first-child {
+.item-table .plan-list li:first-child {
 	border-top: 1px solid #eee;
 }
 
-.pricing-table .plan-signup {
+.item-table .plan-signup {
 	padding: 25px 0;
 	box-shadow: 0 0 20px rgba(0,0,0,.06) inset;
 	-o-box-shadow: 0 0 20px rgba(0,0,0,.06) inset;
@@ -1721,7 +1721,7 @@ input[type="submit"] {
   	-webkit-box-shadow: 0 0 20px rgba(0,0,0,.06) inset;
 }
 
-.pricing-table .plan-signup a {
+.item-table .plan-signup a {
 	text-transform: uppercase;
 }
 
