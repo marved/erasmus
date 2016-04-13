@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View
+from shareErasmus.models import University
 
 
 class HomeView(View):
@@ -15,7 +16,11 @@ class SignView(View):
 
 class UniversitiesView(View):
     def get(self, request):
-        return render(request, "pages/universities.html")
+        universities = University.objects.all().order_by('name')
+        context = {
+            'universities': universities
+        }
+        return render(request, "pages/universities.html", context)
 
 
 class ContactView(View):

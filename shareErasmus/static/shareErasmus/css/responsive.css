@@ -118,24 +118,24 @@
 		width: 100% !important;
 	}
 	
-	.pricing-tables .pricing-table {
+	.item-tables .item-table {
 		//width: 50% !important;
 		margin-bottom: 15px;
 	}
 	
-	.pricing-tables .highlight-plan {
+	.item-tables .highlight-plan {
 		margin: 0;
 	}
 	
-	.pricing-tables .pricing-table.highlight-plan .plan-name {
+	.item-tables .item-table.highlight-plan .plan-name {
 		padding: 15px 0;
 	}
 	
-	.pricing-tables .pricing-table.highlight-plan .plan-signup {
+	.item-tables .item-table.highlight-plan .plan-signup {
 		padding:25px 0;
 	}
 	
-	.pricing-tables .pricing-table:hover {
+	.item-tables .item-table:hover {
 		top: 0;
 	}
 	
