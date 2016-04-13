@@ -70,11 +70,11 @@
         <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
 
         <div class="row pricing-tables">
-
+          {% for university in universities %}
           <div class="col-md-4 col-sm-4">
             <div class="pricing-table highlight-plan">
               <div class="plan-name">
-                <h3>URJC Fuenlabrada</h3>
+                <h3>{{university.name}}</h3>
               </div>
               <div class="plan-price">
                 <div class="price-value">$99<span>.00</span></div>
@@ -82,11 +82,9 @@
               </div>
               <div class="plan-list">
                 <ul>
-                  <li><strong>Fuenlabrada</strong></li>
-                  <li><strong>España</strong></li>
+                  <li><strong>{{university.city}}</strong></li>
+                  <li><strong>{{university.country}}</strong></li>
                   <li><strong>10</strong> Domains</li>
-                  <li><strong>20</strong> Projects</li>
-                  <li><strong>Free</strong> installation</li>
                 </ul>
               </div>
               <div class="plan-signup">
@@ -94,54 +92,8 @@
               </div>
             </div>
           </div>
+          {% endfor %}
 
-          <div class="col-md-4 col-sm-4">
-            <div class="pricing-table highlight-plan">
-              <div class="plan-name">
-                <h3>Universidad de Salamanca</h3>
-              </div>
-              <div class="plan-price">
-                <div class="price-value">$99<span>.00</span></div>
-                <div class="interval">per month</div>
-              </div>
-              <div class="plan-list">
-                <ul>
-                  <li><strong>Salamanca</strong></li>
-                  <li><strong>España</strong></li>
-                  <li><strong>10</strong> Domains</li>
-                  <li><strong>20</strong> Projects</li>
-                  <li><strong>Free</strong> installation</li>
-                </ul>
-              </div>
-              <div class="plan-signup">
-                <a href="#" class="btn-system btn-small border-btn">Visitar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-4">
-            <div class="pricing-table highlight-plan">
-              <div class="plan-name">
-                <h3>Universidad Complutense de Madrid</h3>
-              </div>
-              <div class="plan-price">
-                <div class="price-value">$99<span>.00</span></div>
-                <div class="interval">per month</div>
-              </div>
-              <div class="plan-list">
-                <ul>
-                  <li><strong>Madrid</strong></li>
-                  <li><strong>España</strong></li>
-                  <li><strong>10</strong> Domains</li>
-                  <li><strong>20</strong> Projects</li>
-                  <li><strong>Free</strong> installation</li>
-                </ul>
-              </div>
-              <div class="plan-signup">
-                <a href="#" class="btn-system btn-small border-btn">Visitar</a>
-              </div>
-            </div>
-          </div>
 
         </div>
 
