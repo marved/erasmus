@@ -1,3 +1,25 @@
+app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+
+    $scope.user = {};
+
+    shareErasmusApi.getSession().then(function (response) {
+        $scope.user = response.data;
+    });
+
+    $scope.updateUserSend = function() {
+        shareErasmusApi.updateUser($scope.user.pk,
+                                    $scope.user.username,
+                                    $scope.user.email,
+                                    $scope.user.first_name,
+                                    $scope.user.last_name,
+                                    $scope.user.password)
+            .then(function (response) {
+                $scope.user =  response.data;
+                console.log("Datos actualizados con éxito.");
+        });
+    };
+}]);
+
 app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
 
     $scope.isCollapsed = true;
