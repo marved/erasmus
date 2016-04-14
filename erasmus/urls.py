@@ -41,4 +41,6 @@ urlpatterns = [
     #API
     url(r'^', include(router.urls)),
     url(r'^api/1.0/session/$', SessionAPIView.as_view()),
+
+    url(r'^.*$', 'shareErasmus.views.not_found'),
 ]
