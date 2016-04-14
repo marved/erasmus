@@ -13,7 +13,6 @@ class SignView(View):
         return render(request, "pages/sign.html")
 
 
-
 class UniversitiesView(View):
     def get(self, request):
         universities = University.objects.all().order_by('name')
@@ -32,15 +31,15 @@ class ContactView(View):
 ###############
 class AccountView(View):
     def get(self, request):
-  #      if request.user.is_authenticated():
+        if request.user.is_authenticated():
             return render(request, "pages/settings/account.html")
- #       else:
- #           return render(request, "accessDenied.html")
+        else:
+            return render(request, "403.html")
 
 
 class MyUniversitiesView(View):
     def get(self, request):
-        return render(request, "pages/settings/myUniversities.html")
-
-
-
+        if request.user.is_authenticated():
+            return render(request, "pages/settings/myUniversities.html")
+        else:
+            return render(request, "403.html")
