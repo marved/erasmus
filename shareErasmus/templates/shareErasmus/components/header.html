@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <!-- Start Header Section -->
 <div class="hidden-header"></div>
-<header class="clearfix">
+<header class="clearfix" ng-controller="HeaderCtrl">
 
   <!-- Start Top Bar -->
   <div class="top-bar">
@@ -116,15 +116,22 @@
             <a href="/universities">Universidades</a>
           </li>
           <li><a href="/contact">Contacto</a>
-          <li>
-            <a href="/settings/account">Mi cuenta</a>
+
+          <li ng-show="isAuthenticated">
+            <a href="">{% verbatim %}{{user.username}}{% endverbatim %}</a>
             <ul class="dropdown">
+              <li><a href="/settings/account">Mi cuenta</a>
+              </li>
               <li><a href="/settings/universities">Mis universidades</a>
               </li>
               <li><a href="/logout">Cerrar sesión</a>
               </li>
             </ul>
           </li>
+          <li ng-show="!isAuthenticated">
+            <a href="/sign">Iniciar Sesión/Registrarse</a>
+          </li>
+
         </ul>
         <!-- End Navigation List -->
       </div>
@@ -183,7 +190,7 @@
           </li>
           <li><a href="latest-projects.html">Latest Projects</a>
           </li>
-          <li><a href="pricing.html">Pricing Tables</a>
+          <li><a href="item.html">item Tables</a>
           </li>
           <li><a href="animated-graphs.html">Animated Graphs</a>
           </li>

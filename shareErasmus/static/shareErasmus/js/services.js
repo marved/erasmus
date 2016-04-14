@@ -93,6 +93,17 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("POST", USERS_PATH, null, form_params);
     };
 
+    this.updateUser = function(userId, username, email, firstName, lastName, password) {
+        var form_params = {
+            'username': username,
+            'email': email,
+            'first_name': firstName,
+            'last_name': lastName,
+            'password': password
+        };
+        return _http("PUT", USERS_PATH + userId + "/", null, form_params);
+    };
+
     this.authenticate = function(username, password) {
         var form_params = {
             'username': username,

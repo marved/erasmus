@@ -23,7 +23,7 @@ class UserProfileSerializer(ModelSerializer):
         read_only_fields = ('pk')
 
     def create(self, validated_data):
-        user = UserProfile.objects.create(
+        user = UserProfile.objects.create_user(
             username=validated_data['username'],
             email=validated_data['email']
         )
