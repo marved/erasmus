@@ -40,6 +40,6 @@ class AccountView(View):
 class MyUniversitiesView(View):
     def get(self, request):
         if request.user.is_authenticated():
-            return render(request, "pages/settings/myUniversities.html")
+            return render(request, "pages/settings/my-universities.html")
         else:
             return render(request, "403.html")
