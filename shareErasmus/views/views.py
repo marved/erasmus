@@ -22,6 +22,19 @@ class UniversitiesView(View):
         return render(request, "pages/universities.html", context)
 
 
+class UniversityDetailView(View):
+    def get(self, request, **kwargs):
+
+        university_id = kwargs.get("id", None)
+        if university_id:
+            university = University.objects.get(pk=university_id)
+
+        context = {
+            'university': university
+        }
+        return render(request, "pages/university-detail.html", context)
+
+
 class ContactView(View):
     def get(self, request):
         return render(request, "pages/contact.html")
