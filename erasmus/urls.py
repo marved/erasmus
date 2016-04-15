@@ -19,7 +19,8 @@ from django.views.generic import RedirectView
 from shareErasmus.views.views import (
     HomeView, SignView, ContactView, UniversitiesView,
     AccountView, MyUniversitiesView, MySubjectsView,
-    MyCitiesView, UniversityDetailView, SubjectDetailView)
+    MyCitiesView, UniversityDetailView, SubjectDetailView,
+    PrivacyPolicyView)
 from shareErasmus.views.api import (CountryViewSet, CityViewSet, UniversityViewSet, UserProfileViewSet,
                                     SubjectViewSet, CommentViewSet, SessionAPIView)
 from rest_framework import routers
@@ -47,6 +48,7 @@ urlpatterns = [
     url(r'^settings/subjects$', MySubjectsView.as_view()),
     url(r'^settings/cities$', MyCitiesView.as_view()),
     url(r'^settings$', RedirectView.as_view(url='settings/account')),
+    url(r'^privacy_policy$', PrivacyPolicyView.as_view()),
 
     url(r'^logout$', 'shareErasmus.views.do_logout'),
 

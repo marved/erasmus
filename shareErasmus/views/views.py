@@ -177,3 +177,8 @@ class MyCitiesView(View):
             return render(request, "pages/settings/my-cities.html", context)
         else:
             return render(request, "403.html")
+
+
+class PrivacyPolicyView(View):
+    def get(self, request):
+        return render(request, 'privacy-policy.html')
