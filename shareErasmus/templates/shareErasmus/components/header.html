@@ -92,12 +92,12 @@
         <!-- Start Navigation List -->
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a class="active" href="/">Inicio</a>
+            <a  ng-class="{ active: isActive('/')}" href="/">Inicio</a>
           </li>
           <li>
-            <a href="/universities">Universidades</a>
+            <a ng-class="{ active: isActive('/universities')}" href="/universities">Universidades</a>
           </li>
-          <li><a href="/contact">Contacto</a>
+          <li><a ng-class="{ active: isActive('/contact')}" href="/contact">Contacto</a>
           <li ng-show="isAuthenticated">
             <a href="">{% verbatim %}{{user.username}}{% endverbatim %}</a>
             <ul class="dropdown">
@@ -110,7 +110,7 @@
             </ul>
           </li>
           <li ng-show="!isAuthenticated">
-            <a href="/sign">Iniciar Sesión/Registrarse</a>
+            <a ng-class="{ active: isActive('/sign')}" href="/sign">Iniciar Sesión/Registrarse</a>
           </li>
         </ul>
         <!-- End Navigation List -->
