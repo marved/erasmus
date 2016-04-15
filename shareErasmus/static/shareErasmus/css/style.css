@@ -1099,8 +1099,9 @@ input[type="submit"] {
 }
 
 .widget-search input[type="search"],
-#contact-form input[type="text"],
-#contact-form textarea,
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea,
 #respond input[type="text"],
 #respond textarea, .email {
     color: #666fb5;
@@ -1123,8 +1124,9 @@ input[type="submit"] {
 }
 
 .widget-search input[type="search"]:focus,
-#contact-form input[type="text"]:focus,
-#contact-form textarea:focus,
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus,
 #respond input[type="text"]:focus,
 #respond textarea:focus {
     border-color: #ddd;
