@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^$', HomeView.as_view()),
     url(r'^sign$', SignView.as_view()),
     url(r'^universities/(?P<id>[0-9]+)$', UniversityDetailView.as_view()),
-    url(r'^universities/$', UniversitiesView.as_view()),
+    url(r'^universities$', UniversitiesView.as_view()),
     url(r'^contact$', ContactView.as_view()),
     url(r'^settings/account$', AccountView.as_view()),
     url(r'^settings/universities$', MyUniversitiesView.as_view()),
