@@ -65,7 +65,6 @@ class UserProfileViewSet(CreateModelMixin,
     API endpoint that allows
     """
     queryset = UserProfile.objects.all().order_by('username')
-    permission_classes = (permissions.IsAuthenticated,)
     serializer_class = UserProfileSerializer
 
     def update(self, request, *args, **kwargs):
