@@ -6,8 +6,9 @@ from rest_framework import authentication, permissions
 
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.sessions.models import Session
-from shareErasmus.models import University, UserProfile, Subject, Comment
-from shareErasmus.serializers import UniversitySerializer, UserProfileSerializer, SubjectSerializer, CommentSerializer
+from shareErasmus.models import University, UserProfile, Subject, Comment, Country, City
+from shareErasmus.serializers import (CountrySerializer, CitySerializer, UniversitySerializer,
+                                      UserProfileSerializer, SubjectSerializer, CommentSerializer)
 
 from shareErasmus.validators import LoginFormValidator
 from shareErasmus.views.responses import (
@@ -15,6 +16,31 @@ from shareErasmus.views.responses import (
     INVALID_CREDENTIALS_ERROR_MSG, http_403_forbidden,
     USER_NOT_AUTHENTICATED_ERROR_MSG
 )
+
+class CountryViewSet(CreateModelMixin,
+                    RetrieveModelMixin,
+                    DestroyModelMixin,
+                    UpdateModelMixin,
+                    ListModelMixin,
+                    viewsets.GenericViewSet):
+    """
+    API endpoint that allows
+    """
+    queryset = Country.objects.all().order_by('name')
+    serializer_class = CountrySerializer
+
+
+class CityViewSet(CreateModelMixin,
+                    RetrieveModelMixin,
+                    DestroyModelMixin,
+                    UpdateModelMixin,
+                    ListModelMixin,
+                    viewsets.GenericViewSet):
+    """
+    API endpoint that allows
+    """
+    queryset = City.objects.all().order_by('name')
+    serializer_class = CitySerializer
 
 class UniversityViewSet(CreateModelMixin,
                         RetrieveModelMixin,

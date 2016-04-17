@@ -16,14 +16,33 @@ scores_choices = (
 
 )
 
+class Country(models.Model):
+    name = models.CharField(max_length=150)
+
+    def __unicode__(self):
+        return self.name
+
+class City(models.Model):
+    name = models.CharField(max_length=150)
+    country = models.ForeignKey(Country)
+    description = models.CharField(max_length=1000, blank=True)
+    prices = models.CharField(max_length=500, blank=True)
+    weather = models.CharField(max_length=500, blank=True)
+    student_life = models.CharField(max_length=1000, blank=True)
+    culture = models.CharField(max_length=1000, blank=True)
+    lodging = models.CharField(max_length=1000, blank=True)
+    nightlife = models.CharField(max_length=1000, blank=True)
+    information_interest = models.CharField(max_length=1000, blank=True)
+
+    def __unicode__(self):
+        return self.name
 
 class UserProfile(User):
     photo = models.ImageField(blank=True, null=True)
 
 class University(models.Model):
     name = models.CharField(max_length=150, unique=True)
-    country = models.CharField(max_length=150)
-    city = models.CharField(max_length=150)
+    city = models.ForeignKey(City)
     description = models.CharField(max_length=1000, blank=True)
 
     def __unicode__(self):

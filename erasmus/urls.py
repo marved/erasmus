@@ -18,11 +18,14 @@ from django.contrib import admin
 from shareErasmus.views.views import (
     HomeView, SignView, ContactView, UniversitiesView,
     AccountView, MyUniversitiesView, UniversityDetailView)
-from shareErasmus.views.api import UniversityViewSet, UserProfileViewSet, SubjectViewSet, CommentViewSet, SessionAPIView
+from shareErasmus.views.api import (CountryViewSet, CityViewSet, UniversityViewSet, UserProfileViewSet,
+                                    SubjectViewSet, CommentViewSet, SessionAPIView)
 from rest_framework import routers
 
 
 router = routers.DefaultRouter()
+router.register(r'api/1.0/countries', CountryViewSet)
+router.register(r'api/1.0/cities', CityViewSet)
 router.register(r'api/1.0/universities', UniversityViewSet)
 router.register(r'api/1.0/users', UserProfileViewSet)
 router.register(r'api/1.0/subjects', SubjectViewSet)
