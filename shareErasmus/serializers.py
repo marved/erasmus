@@ -1,18 +1,26 @@
-from shareErasmus.models import University, UserProfile, Subject, Comment
-from django.contrib.auth.models import User
+from shareErasmus.models import University, UserProfile, Subject, Comment, Country, City
 from rest_framework.serializers import ModelSerializer
+
+
+class CountrySerializer(ModelSerializer):
+    class Meta:
+        model = Country
+        fields = ('pk', 'name')
+
+
+class CitySerializer(ModelSerializer):
+    country = CountrySerializer
+    class Meta:
+        model = City
+        fields = ('pk', 'name', 'country', 'description',
+                  'prices', 'weather', 'student_life', 'culture',
+                  'lodging', 'nightlife', 'information_interest')
 
 
 class UniversitySerializer(ModelSerializer):
     class Meta:
         model = University
-        fields = ('pk', 'name', 'country', 'city','description')
-
-
-class UserSerializer(ModelSerializer):
-    class Meta():
-        model = User
-        fields = ('pk', 'username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined')
+        fields = ('pk', 'name', 'city','description')
 
 
 class UserProfileSerializer(ModelSerializer):
