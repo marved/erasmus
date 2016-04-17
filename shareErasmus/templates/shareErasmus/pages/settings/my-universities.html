@@ -6,13 +6,14 @@
   <a class="" ng-click="isCollapsed = !isCollapsed">>> Seleccionar universidad</a>
   <hr>
   <div uib-collapse="isCollapsed" >
-    <div class="form-group well well-lg">
+    <form role="form" class="contact-form" id="my-universities-form" method="post">
+      <div class="form-group well well-lg">
       <label for="sel1">País:</label>
-      <select ng-change="changeSelectedCountry()" class="form-control" id="sel1" ng-model="countrySelected" ng-options="country for country in countries">
+      <select ng-change="changeSelectedCountry()" class="form-control" id="sel1" ng-model="countrySelected" ng-options="country.pk as country.name for country in countries">
         <option value="" disabled selected>Seleccionar</option>
       </select>
       <label for="sel2">Ciudad:</label>
-      <select ng-change="changeSelectedCity()" class="form-control" id="sel2" ng-model="citySelected" ng-options="city for city in filterCities">
+      <select ng-change="changeSelectedCity()" class="form-control" id="sel2" ng-model="citySelected" ng-options="city.pk as city.name for city in filterCities">
         <option value="" disabled selected>Seleccionar</option>
       </select>
       <label for="sel3">Universidad:</label>
@@ -40,6 +41,7 @@
         <button type="submit" class="btn btn-default">Guardar</button>
       </div>
     </div>
+    </form>
   </div>
 </div>
 {% endblock %}

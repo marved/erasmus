@@ -36,9 +36,16 @@ app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, s
     $scope.subjectsSelected = [];
 
 
+    shareErasmusApi.getCountries().then(function (response) {
+        $scope.countries = response.data;
+    });
+
+    shareErasmusApi.getCities().then(function (response) {
+        $scope.cities = response.data;
+    });
+
     shareErasmusApi.getUniversities().then(function (response) {
         $scope.universities = response.data;
-        $scope.countries = shareErasmusApi.loadCountries($scope.universities);
 
     });
 
@@ -54,7 +61,7 @@ app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, s
             $scope.filterSubjects = [];
             return;
         }
-        $scope.filterCities = shareErasmusApi.loadCities($scope.universities, $scope.countrySelected);
+        $scope.filterCities = shareErasmusApi.loadCities($scope.cities, $scope.countrySelected);
 
     };
 
@@ -64,13 +71,7 @@ app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, s
             $scope.filterSubjects = [];
             return;
         }
-
-        $scope.filterUniversities = [];
-        for (var i=0; i<$scope.universities.length; i++) {
-            if ($scope.universities[i].city == $scope.citySelected){
-                $scope.filterUniversities.push($scope.universities[i]);
-            }
-        }
+        $scope.filterUniversities = shareErasmusApi.loadUniversities($scope.universities, $scope.citySelected);
     };
 
     var reloadFilterSubjects = function() {

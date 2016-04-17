@@ -1,5 +1,7 @@
 app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
 
+    var COUNTRIES_PATH = "/api/1.0/countries/";
+    var CITIES_PATH = "/api/1.0/cities/";
     var UNIVERSITIES_PATH = "/api/1.0/universities/";
     var SUBJECTS_PATH = "/api/1.0/subjects/";
     var USERS_PATH = "/api/1.0/users/";
@@ -60,6 +62,14 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return $http(req);
     };
 
+    this.getCountries = function() {
+        return _http("GET", COUNTRIES_PATH);
+    };
+
+    this.getCities = function() {
+        return _http("GET", CITIES_PATH);
+    };
+
     this.getUniversities = function() {
         return _http("GET", UNIVERSITIES_PATH);
     };
@@ -112,33 +122,27 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("POST", SESSION_PATH, null, form_params);
     };
 
-    this.loadCountries = function(universities) {
-        var countries = [];
-        for (var i=0; i<universities.length; i++) {
-            if (!~countries.indexOf(universities[i].country)) {
-                countries.push(universities[i].country);
+    this.loadCities = function(cities, country) {
+        var filterCities = [];
+        for (var i=0; i<cities.length; i++) {
+            if (!~filterCities.indexOf(cities[i].name) && cities[i].country == country) {
+                filterCities.push(cities[i]);
             }
         }
-        return countries;
+        return filterCities;
     };
 
-    this.loadCities = function(universities, country) {
-        var cities = [];
+    this.loadUniversities = function(universities, city) {
+        var filterUniversities = [];
         for (var i=0; i<universities.length; i++) {
-            if (!~cities.indexOf(universities[i].city) && universities[i].country == country) {
-                cities.push(universities[i].city);
+            if (!~filterUniversities.indexOf(universities[i].name) && universities[i].city == city) {
+                filterUniversities.push(universities[i]);
             }
         }
-        return cities;
+        return filterUniversities;
     };
 
 
-
-
-
-    this.getCountries = function() {
-
-    };
 
     this.getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
