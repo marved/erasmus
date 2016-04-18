@@ -1,5 +1,5 @@
 {% extends 'base-pages.html' %}
-{% block page_title %}Detalle{% endblock %}
+{% block page_title %}{{university.name}}{% endblock %}
 {% block page_body_content %}
 <!-- Start Page Banner -->
 <div class="page-banner" style="padding:40px 0; background: url(../../../static/shareErasmus/images/slide-02-bg.jpg) center #f9f9f9;">
@@ -89,30 +89,15 @@
 
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Asignaturas</span></h4>
-        <!-- Start Call Action -->
+        <!-- Start Subject -->
+        {% for subject in subjects %}
         <div class="call-action call-action-boxed call-action-style2 no-descripton clearfix">
-          <!-- Call Action Button -->
-          <div class="button-side"><a href="#" class="btn-system border-btn btn-medium">Ver</a></div>
-          <!-- Call Action Text -->
-          <h2 class="primary">Procesamiento digital de la información</h2>
+          <div class="button-side"><a href="/universities/{{university.pk}}/{{subject.pk}}" class="btn-system border-btn btn-medium">Ver</a></div>
+          <h2 class="primary">{{subject.name}}</h2>
         </div>
-        <!-- End Call Action -->
-        <!-- Start Call Action -->
-        <div class="call-action call-action-boxed call-action-style2 no-descripton clearfix">
-          <!-- Call Action Button -->
-          <div class="button-side"><a href="#" class="btn-system border-btn btn-medium">Ver</a></div>
-          <!-- Call Action Text -->
-          <h2 class="primary">Comunicaciones digitales</h2>
-        </div>
-        <!-- End Call Action -->
-        <!-- Start Call Action -->
-        <div class="call-action call-action-boxed call-action-style2 no-descripton clearfix">
-          <!-- Call Action Button -->
-          <div class="button-side"><a href="#" class="btn-system border-btn btn-medium">Ver</a></div>
-          <!-- Call Action Text -->
-          <h2 class="primary">SAT</h2>
-        </div>
-        <!-- End Call Action -->
+        {% endfor %}
+        <!-- End Subject -->
+
 
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Turismo</span></h4>
