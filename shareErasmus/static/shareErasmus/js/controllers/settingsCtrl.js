@@ -20,7 +20,7 @@ app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', function ($scope, sh
     };
 }]);
 
-app.controller('SettingsCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
 
     $scope.isCollapsed = true;
     $scope.countries = [];
