@@ -27,15 +27,18 @@ class UniversityDetailView(View):
 
         university_id = kwargs.get("id", None)
         if university_id:
-            university = University.objects.get(pk=university_id)
+            try:
+                university = University.objects.get(pk=university_id)
+                subjects = Subject.objects.all().filter(university=university_id)
+                context = {
+                    'university': university,
+                    'subjects': subjects
+                }
+                return render(request, "pages/university-detail.html", context)
+            except:
+                pass
 
-        subjects = Subject.objects.all().filter(university=university_id)
-
-        context = {
-            'university': university,
-            'subjects': subjects
-        }
-        return render(request, "pages/university-detail.html", context)
+        return render(request, "404.html")
 
 
 class SubjectDetailView(View):
@@ -46,7 +49,6 @@ class SubjectDetailView(View):
         if subject_id and university_id:
             try:
                 subject = Subject.objects.get(pk=subject_id)
-
                 if subject.university.pk == int(university_id):
                     context = {
                         'subject': subject
