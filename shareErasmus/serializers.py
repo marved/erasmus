@@ -20,7 +20,7 @@ class CitySerializer(ModelSerializer):
 class UniversitySerializer(ModelSerializer):
     class Meta:
         model = University
-        fields = ('pk', 'name', 'city','description')
+        fields = ('pk', 'name', 'city','description', 'validation_subjects', 'contacts')
 
 
 class UserProfileSerializer(ModelSerializer):
@@ -47,7 +47,7 @@ class SubjectSerializer(ModelSerializer):
     users = UserProfileSerializer
     class Meta:
         model = Subject
-        fields = ('pk', 'name', 'score', 'university', 'users')
+        fields = ('pk', 'name', 'difficulty', 'university', 'users')
 
 
 class CommentSerializer(ModelSerializer):
@@ -56,5 +56,5 @@ class CommentSerializer(ModelSerializer):
     subject = SubjectSerializer
     class Meta:
         model = Comment
-        fields = ('pk', 'user', 'title', 'body', 'dateTime', 'university', 'subject')
+        fields = ('pk', 'user', 'title', 'body', 'dateTime', 'university', 'subject', 'parent')
 
