@@ -142,6 +142,18 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return filterUniversities;
     };
 
+    this.createSubject = function(name, university, users) {
+        name = name || "";
+        university = university || null;
+        users = users || null;
+
+        var form_params = {
+            'name': name,
+            'university': university,
+            'users': users
+        };
+        return _http("POST", SUBJECTS_PATH, null, form_params);
+    };
 
 
     this.getUrlParameter = function getUrlParameter(sParam) {

@@ -22,6 +22,7 @@ app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', function ($scope, sh
 
 app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
 
+    $scope.user = {};
     $scope.countries = [];
     $scope.countrySelected = null;
     $scope.cities = [];
@@ -33,7 +34,12 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
     $scope.subjects = [];
     $scope.filterSubjects = [];
     $scope.subjectsSelected = [];
+    $scope.subjectsCreated = [];
 
+
+    shareErasmusApi.getSession().then(function (response) {
+        $scope.user = response.data;
+    });
 
     shareErasmusApi.getCountries().then(function (response) {
         $scope.countries = response.data;
@@ -99,5 +105,23 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
         reloadFilterSubjects();
     };
 
+    var createSubjects = function(users) {
+        for (var i=0; i<$scope.subjectsCreated.length; i++) {
+            if (!($scope.subjectsCreated[i] == undefined || $scope.subjectsCreated[i] == "")) {
+                shareErasmusApi.createSubject($scope.subjectsCreated[i], $scope.universitySelected, users)
+                    .then(function (response) {
+                        $scope.subjectsCreated = [];
+                }, function (response) {
+                    console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+                });
+            }
+        }
+    };
+
+    $scope.saveSubjects = function() {
+        var users = [];
+        users.push($scope.user.pk);
+        createSubjects(users);
+    };
 
 }]);
