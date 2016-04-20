@@ -37,10 +37,6 @@ class City(models.Model):
     def __unicode__(self):
         return self.name
 
-class UserProfile(User):
-    photo = models.ImageField(blank=True, null=True)
-    is_public_email = models.BooleanField(default=False)
-
 class University(models.Model):
     name = models.CharField(max_length=150, unique=True)
     city = models.ForeignKey(City)
@@ -55,10 +51,14 @@ class Subject(models.Model):
     name = models.CharField(max_length=150)
     difficulty = models.CharField(max_length=1, choices=hardness_choices, blank=True)
     university = models.ForeignKey(University)
-    users = models.ManyToManyField(UserProfile, blank=True)
 
     def __unicode__(self):
         return self.name
+
+class UserProfile(User):
+    photo = models.ImageField(blank=True, null=True)
+    is_public_email = models.BooleanField(default=False)
+    subjects = models.ManyToManyField(Subject, blank=True)
 
 class Comment(models.Model):
     user = models.ForeignKey(UserProfile)

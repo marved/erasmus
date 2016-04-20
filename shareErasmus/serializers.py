@@ -26,7 +26,7 @@ class UniversitySerializer(ModelSerializer):
 class UserProfileSerializer(ModelSerializer):
     class Meta():
         model = UserProfile
-        fields = ('pk', 'username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined', 'photo', 'password')
+        fields = ('pk', 'username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined', 'photo', 'password', 'subjects')
         write_only_fields = ('password')
         read_only_fields = ('pk')
 
@@ -47,7 +47,7 @@ class SubjectSerializer(ModelSerializer):
     users = UserProfileSerializer
     class Meta:
         model = Subject
-        fields = ('pk', 'name', 'difficulty', 'university', 'users')
+        fields = ('pk', 'name', 'difficulty', 'university')
 
 
 class CommentSerializer(ModelSerializer):
