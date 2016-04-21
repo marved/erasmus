@@ -122,6 +122,15 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("POST", SESSION_PATH, null, form_params);
     };
 
+    this.addSubjectToUser = function(userId, subject) {
+        subject = subject || null;
+
+        var form_params = {
+            'subject': subject
+        };
+        return _http("PATCH", USERS_PATH + userId + "/", null, form_params);
+    };
+
     this.loadCities = function(cities, country) {
         var filterCities = [];
         for (var i=0; i<cities.length; i++) {
@@ -142,15 +151,13 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return filterUniversities;
     };
 
-    this.createSubject = function(name, university, users) {
+    this.createSubject = function(name, university) {
         name = name || "";
         university = university || null;
-        users = users || null;
 
         var form_params = {
             'name': name,
-            'university': university,
-            'users': users
+            'university': university
         };
         return _http("POST", SUBJECTS_PATH, null, form_params);
     };

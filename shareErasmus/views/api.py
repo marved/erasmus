@@ -1,3 +1,4 @@
+#encoding:utf-8
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.mixins import RetrieveModelMixin, ListModelMixin, CreateModelMixin, DestroyModelMixin, UpdateModelMixin
@@ -12,7 +13,7 @@ from shareErasmus.serializers import (CountrySerializer, CitySerializer, Univers
 
 from shareErasmus.validators import LoginFormValidator
 from shareErasmus.views.responses import (
-    http_400_bad_request, http_401_not_authorized,
+    http_200_ok, http_400_bad_request, http_401_not_authorized,
     INVALID_CREDENTIALS_ERROR_MSG, http_403_forbidden,
     USER_NOT_AUTHENTICATED_ERROR_MSG
 )
@@ -72,6 +73,19 @@ class UserProfileViewSet(CreateModelMixin,
         if not user.is_superuser:
             self.queryset = UserProfile.objects.filter(pk=user.pk)
         return super(UserProfileViewSet, self).update(request, *args, **kwargs)
+
+    def partial_update(self, request, *args, **kwargs):
+        # Actualmente solo funciona en el caso de petición para añadir una asignatura al usuario
+        subject = request.data.get("subject", None)
+        user_id = kwargs.get("pk", None)
+        try:
+            user = UserProfile.objects.get(pk=int(user_id))
+            user.subjects.add(subject)
+            user.save()
+            return http_200_ok()
+
+        except:
+            return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
 
 
 class SubjectViewSet(CreateModelMixin,

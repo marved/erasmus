@@ -108,20 +108,27 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
     var createSubjects = function(users) {
         for (var i=0; i<$scope.subjectsCreated.length; i++) {
             if (!($scope.subjectsCreated[i] == undefined || $scope.subjectsCreated[i] == "")) {
-                shareErasmusApi.createSubject($scope.subjectsCreated[i], $scope.universitySelected, users)
+                shareErasmusApi.createSubject($scope.subjectsCreated[i], $scope.universitySelected)
                     .then(function (response) {
-                        $scope.subjectsCreated = [];
+                        console.log("Asignatura creada con éxito.");
+                        shareErasmusApi.addSubjectToUser($scope.user.pk, response.data.pk)
+                            .then(function (response){
+                                console.log("Asignatura añadida con éxito al usuario.");
+                        }, function(response) {
+                            console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+                        });
+
                 }, function (response) {
                     console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
                 });
             }
         }
+        $scope.subjectsCreated = [];
     };
 
     $scope.saveSubjects = function() {
-        var users = [];
-        users.push($scope.user.pk);
-        createSubjects(users);
+        createSubjects();
+
     };
 
 }]);
