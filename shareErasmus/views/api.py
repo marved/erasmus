@@ -78,14 +78,14 @@ class UserProfileViewSet(CreateModelMixin,
         # Actualmente solo funciona en el caso de petición para añadir una asignatura al usuario
         subject = request.data.get("subject", None)
         user_id = kwargs.get("pk", None)
-        try:
-            user = UserProfile.objects.get(pk=int(user_id))
-            user.subjects.add(subject)
-            user.save()
-            return http_200_ok()
+        #try:
+        user = UserProfile.objects.get(pk=int(user_id))
+        user.subjects.add(subject)
+        user.save()
+        return http_200_ok()
 
-        except:
-            return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+        #except:
+         #   return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
 
 
 class SubjectViewSet(CreateModelMixin,

@@ -14,13 +14,13 @@
       <option value="" disabled selected>Seleccionar</option>
     </select>
     <div ng-show="universitySelected" class="input-group">
-      <label>Asignaturas:</label>
+      <label>Selecciona las asignaturas que has cursado:</label>
       <div class="checkbox" ng-repeat="subject in filterSubjects">
         <label>
           <input type="checkbox" checklist-value="subject.pk" checklist-model="subjectsSelected">{% verbatim %}{{ subject.name }}{% endverbatim %}
         </label>
       </div>
-      <label>Otras asignaturas:</label>
+      <label>Si no has encontrado alguna, puedes añadirla a continuación:</label>
       <div class="input-group">
         <input type="text" ng-model="subjectsCreated[0]" class="form-control" placeholder="Nombre">
         <input type="text" ng-model="subjectsCreated[1]" class="form-control" placeholder="Nombre">

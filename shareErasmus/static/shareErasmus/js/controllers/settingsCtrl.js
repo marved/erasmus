@@ -105,6 +105,17 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
         reloadFilterSubjects();
     };
 
+    var addSubjectsSelectedToUser = function() {
+        for (var i=0; i<$scope.subjectsSelected.length; i++) {
+            shareErasmusApi.addSubjectToUser($scope.user.pk, $scope.subjectsSelected[i])
+                .then(function (response){
+                    console.log("Asignatura añadida con éxito al usuario.");
+            }, function(response) {
+                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            });
+        }
+    };
+
     var createSubjects = function(users) {
         for (var i=0; i<$scope.subjectsCreated.length; i++) {
             if (!($scope.subjectsCreated[i] == undefined || $scope.subjectsCreated[i] == "")) {
@@ -123,12 +134,13 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
                 });
             }
         }
-        $scope.subjectsCreated = [];
     };
 
     $scope.saveSubjects = function() {
         createSubjects();
-
+        $scope.subjectsCreated = [];
+        addSubjectsSelectedToUser();
+        $scope.subjectsSelected = [];
     };
 
 }]);
