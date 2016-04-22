@@ -13,7 +13,7 @@ from shareErasmus.serializers import (CountrySerializer, CitySerializer, Univers
 
 from shareErasmus.validators import LoginFormValidator
 from shareErasmus.views.responses import (
-    http_200_ok, http_400_bad_request, http_401_not_authorized,
+    http_200_ok, http_201_created, http_400_bad_request, http_401_not_authorized,
     INVALID_CREDENTIALS_ERROR_MSG, http_403_forbidden,
     USER_NOT_AUTHENTICATED_ERROR_MSG
 )
@@ -30,6 +30,15 @@ class CountryViewSet(CreateModelMixin,
     queryset = Country.objects.all().order_by('name')
     serializer_class = CountrySerializer
 
+    def create(self, request, *args, **kwargs):
+        country_name = request.data.get("name", None);
+        country, created = Country.objects.get_or_create(name=country_name)
+        context = {"request": request}
+        serializer = CountrySerializer(country, context=context)
+        if created:
+            return http_201_created(serializer.data)
+
+        return http_200_ok(serializer.data)
 
 class CityViewSet(CreateModelMixin,
                     RetrieveModelMixin,
@@ -43,6 +52,21 @@ class CityViewSet(CreateModelMixin,
     queryset = City.objects.all().order_by('name')
     serializer_class = CitySerializer
 
+    def create(self, request, *args, **kwargs):
+        city_name = request.data.get("name", None);
+        country = request.data.get("country", None);
+        country_id = country.get("pk", None)
+        try:
+            country = Country.objects.get(pk=int(country_id))
+        except:
+            return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+        city, created = City.objects.get_or_create(name=str(city_name), country=country)
+        context = {"request": request}
+        serializer = CitySerializer(city, context=context)
+        if created:
+            return http_201_created(serializer.data)
+        return http_200_ok(serializer.data)
+
 class UniversityViewSet(CreateModelMixin,
                         RetrieveModelMixin,
                         DestroyModelMixin,
@@ -54,6 +78,21 @@ class UniversityViewSet(CreateModelMixin,
     """
     queryset = University.objects.all().order_by('name')
     serializer_class = UniversitySerializer
+
+    def create(self, request, *args, **kwargs):
+        university_name = request.data.get("name", None);
+        city = request.data.get("city", None);
+        city_id = city.get("pk", None);
+        try:
+            city = City.objects.get(pk=int(city_id))
+        except:
+            return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+        university, created = University.objects.get_or_create(name=university_name, city=city)
+        context = {"request": request}
+        serializer = UniversitySerializer(university, context=context)
+        if created:
+            return http_201_created(serializer.data)
+        return http_200_ok(serializer.data)
 
 
 class UserProfileViewSet(CreateModelMixin,

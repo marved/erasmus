@@ -90,6 +90,37 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("GET", SESSION_PATH);
     };
 
+    this.createCountry = function(name) {
+        name = name || "";
+
+        var form_params = {
+            'name': name
+        };
+        return _http("POST", COUNTRIES_PATH, null, form_params);
+    };
+
+    this.createCity = function(name, country) {
+        name = name || "";
+        country = country || null;
+
+        var form_params = {
+            'name': name,
+            'country': country
+        };
+        return _http("POST", CITIES_PATH, null, form_params);
+    };
+
+    this.createUniversity = function(name, city) {
+        name = name || "";
+        city = city || null;
+
+        var form_params = {
+            'name': name,
+            'city': city
+        };
+        return _http("POST", UNIVERSITIES_PATH, null, form_params);
+    };
+
     this.createUser = function(email, username, password) {
         email = email || null;
         username = username || null;

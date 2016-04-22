@@ -144,3 +144,64 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
     };
 
 }]);
+
+app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+
+    $scope.countryName = [];
+    $scope.country = [];
+    $scope.cityName = [];
+    $scope.city = [];
+    $scope.universityName = [];
+
+    shareErasmusApi.getCountries().then(function (response) {
+        $scope.countries = response.data;
+    });
+
+    shareErasmusApi.getCities().then(function (response) {
+        $scope.cities = response.data;
+    });
+
+    shareErasmusApi.getUniversities().then(function (response) {
+        $scope.universities = response.data;
+
+    });
+
+    var createUniversity = function() {
+        shareErasmusApi.createUniversity($scope.universityName, $scope.city)
+            .then(function (response){
+                console.log("Universidad creada con éxito.");
+                    $scope.countryName = [];
+                    $scope.cityName = [];
+                    $scope.universityName = [];
+            }, function(response) {
+                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            });
+    };
+
+    var createCity = function() {
+        shareErasmusApi.createCity($scope.cityName, $scope.country)
+            .then(function (response){
+                $scope.city = response.data;
+                createUniversity();
+                console.log("Ciudad creada con éxito.");
+            }, function(response) {
+                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            });
+    };
+
+    var createCountry = function() {
+        shareErasmusApi.createCountry($scope.countryName)
+            .then(function (response){
+                $scope.country = response.data;
+                createCity();
+                console.log("País creado con éxito.");
+            }, function(response) {
+                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            });
+    };
+
+    $scope.saveUniversity = function() {
+        createCountry();
+    };
+
+}]);

@@ -2,7 +2,7 @@
 {% block page_title %}my universities{% endblock %}
 {% block heading %}Mira y añade tus universidades{% endblock %}
 {% block page_body_content %}
-<div ng-controller="MyUniversitiesCtrl">
+<div>
   <div class="call-action call-action-boxed call-action-style2 no-descripton clearfix">
     <h4 class="primary">Busca una universidad antes de crearla. En caso de no existir, añádela completando los campos correspondientes.</h4>
   </div>
@@ -20,7 +20,7 @@
           </a>
         </h4>
       </div>
-      <div id="collapse-4" class="panel-collapse collapse">
+      <div id="collapse-4" class="panel-collapse collapse" ng-controller="MyUniversitiesCtrl">
         {% include 'components/settings/select-my-university-form.html' %}
       </div>
     </div>
@@ -36,7 +36,7 @@
           </a>
         </h4>
       </div>
-      <div id="collapse-5" class="panel-collapse collapse">
+      <div id="collapse-5" class="panel-collapse collapse" ng-controller="CreateUniversityCtrl">
         {% include 'components/settings/create-my-university-form.html' %}
       </div>
     </div>
