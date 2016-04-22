@@ -84,3 +84,11 @@ class MyUniversitiesView(View):
             return render(request, "pages/settings/my-universities.html")
         else:
             return render(request, "403.html")
+
+
+class MySubjectsView(View):
+    def get(self, request):
+        if request.user.is_authenticated():
+            return render(request, "pages/settings/my-subjects.html")
+        else:
+            return render(request, "403.html")
