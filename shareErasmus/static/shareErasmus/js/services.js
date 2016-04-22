@@ -153,11 +153,11 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("POST", SESSION_PATH, null, form_params);
     };
 
-    this.addSubjectToUser = function(userId, subject) {
-        subject = subject || null;
+    this.addSubjectsToUser = function(userId, subjects) {
+        subjects = subjects || null;
 
         var form_params = {
-            'subject': subject
+            'subjects': subjects
         };
         return _http("PATCH", USERS_PATH + userId + "/", null, form_params);
     };
