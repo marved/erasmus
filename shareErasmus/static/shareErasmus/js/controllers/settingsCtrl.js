@@ -34,7 +34,7 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
     $scope.subjects = [];
     $scope.filterSubjects = [];
     $scope.subjectsSelected = [];
-    $scope.subjectsCreated = [];
+    $scope.subjectsCreatedName = [];
 
 
     shareErasmusApi.getSession().then(function (response) {
@@ -109,36 +109,27 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
         shareErasmusApi.addSubjectsToUser($scope.user.pk, $scope.subjectsSelected)
             .then(function (response){
                 console.log("Asignaturas añadidas con éxito al usuario.");
+                $scope.subjectsSelected = [];
         }, function(response) {
             console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
         });
     };
 
     var createSubjects = function(users) {
-        for (var i=0; i<$scope.subjectsCreated.length; i++) {
-            if (!($scope.subjectsCreated[i] == undefined || $scope.subjectsCreated[i] == "")) {
-                shareErasmusApi.createSubject($scope.subjectsCreated[i], $scope.universitySelected)
-                    .then(function (response) {
-                        console.log("Asignatura creada con éxito.");
-                        shareErasmusApi.addSubjectsToUser($scope.user.pk, response.data.pk)
-                            .then(function (response){
-                                console.log("Asignatura añadida con éxito al usuario.");
-                        }, function(response) {
-                            console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
-                        });
-
-                }, function (response) {
-                    console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
-                });
-            }
-        }
+        shareErasmusApi.createSubjects($scope.subjectsCreatedName, $scope.universitySelected, $scope.user)
+            .then(function (response) {
+                console.log("Asignaturas creadas con éxito.");
+                $scope.subjectsCreatedName = [];
+        }, function (response) {
+            console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+        });
     };
 
     $scope.saveSubjects = function() {
-        createSubjects();
-        $scope.subjectsCreated = [];
-        addSubjectsSelectedToUser();
-        $scope.subjectsSelected = [];
+        if ($scope.subjectsCreatedName.length > 0)
+            createSubjects();
+        if ($scope.subjectsSelected.length > 0)
+            addSubjectsSelectedToUser();
     };
 
 }]);

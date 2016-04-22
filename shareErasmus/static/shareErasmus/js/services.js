@@ -182,13 +182,15 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return filterUniversities;
     };
 
-    this.createSubject = function(name, university) {
-        name = name || "";
+    this.createSubjects = function(names, university, user) {
+        names = names || null;
         university = university || null;
+        user = user || null;
 
         var form_params = {
-            'name': name,
-            'university': university
+            'names': names,
+            'university': university,
+            'user': user
         };
         return _http("POST", SUBJECTS_PATH, null, form_params);
     };

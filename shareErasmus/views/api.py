@@ -144,6 +144,27 @@ class SubjectViewSet(CreateModelMixin,
     queryset = Subject.objects.all().order_by('name')
     serializer_class = SubjectSerializer
 
+    def create(self, request, *args, **kwargs):
+        subjects_name = request.data.get("names", None)
+        university_id = request.data.get("university", None)
+        user = request.data.get("user", None)
+        user_id = user.get("pk", None)
+        #try:
+        user = UserProfile.objects.get(pk=user_id)
+        for subject_name in subjects_name:
+            try:
+                university = University.objects.get(pk=int(university_id))
+            except:
+                return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+            if subject_name != "" and subject_name != None:
+                subject, created = Subject.objects.get_or_create(name=subject_name, university=university)
+                user.subjects.add(subject)
+        user.save()
+        return http_201_created()
+
+        #except:
+         #   return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+
 
 class CommentViewSet(CreateModelMixin,
                     RetrieveModelMixin,
