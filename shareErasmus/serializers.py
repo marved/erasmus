@@ -18,17 +18,27 @@ class CitySerializer(ModelSerializer):
 
 
 class UniversitySerializer(ModelSerializer):
+    city = CitySerializer
     class Meta:
         model = University
-        fields = ('pk', 'name', 'city','description')
+        fields = ('pk', 'name', 'city', 'description', 'validation_subjects', 'contacts')
+
+
+class SubjectSerializer(ModelSerializer):
+    university = UniversitySerializer
+    class Meta:
+        model = Subject
+        fields = ('pk', 'name', 'difficulty', 'university')
 
 
 class UserProfileSerializer(ModelSerializer):
+    subjects = SubjectSerializer(many=True, required=False)
     class Meta():
         model = UserProfile
-        fields = ('pk', 'username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined', 'photo', 'password')
-        write_only_fields = ('password')
-        read_only_fields = ('pk')
+        fields = ('pk', 'username', 'first_name', 'last_name', 'email',
+                  'last_login', 'date_joined', 'photo', 'password', 'is_public_email', 'subjects')
+
+        read_only_fields = ('pk', 'date_joined')
 
     def create(self, validated_data):
         user = UserProfile.objects.create_user(
@@ -42,19 +52,11 @@ class UserProfileSerializer(ModelSerializer):
         return user
 
 
-class SubjectSerializer(ModelSerializer):
-    university = UniversitySerializer
-    users = UserProfileSerializer
-    class Meta:
-        model = Subject
-        fields = ('pk', 'name', 'score', 'university', 'users')
-
-
 class CommentSerializer(ModelSerializer):
     user = UserProfileSerializer
     university = UniversitySerializer
     subject = SubjectSerializer
     class Meta:
         model = Comment
-        fields = ('pk', 'user', 'title', 'body', 'dateTime', 'university', 'subject')
+        fields = ('pk', 'user', 'title', 'body', 'dateTime', 'university', 'subject', 'parent')
 

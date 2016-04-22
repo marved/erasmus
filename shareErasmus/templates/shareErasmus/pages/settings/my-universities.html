@@ -2,46 +2,48 @@
 {% block page_title %}my universities{% endblock %}
 {% block heading %}Mira y añade tus universidades{% endblock %}
 {% block page_body_content %}
-<div ng-controller="MyUniversitiesCtrl">
-  <a class="" ng-click="isCollapsed = !isCollapsed">>> Seleccionar universidad</a>
-  <hr>
-  <div uib-collapse="isCollapsed" >
-    <form role="form" class="contact-form" id="my-universities-form" method="post">
-      <div class="form-group well well-lg">
-      <label for="sel1">País:</label>
-      <select ng-change="changeSelectedCountry()" class="form-control" id="sel1" ng-model="countrySelected" ng-options="country.pk as country.name for country in countries">
-        <option value="" disabled selected>Seleccionar</option>
-      </select>
-      <label for="sel2">Ciudad:</label>
-      <select ng-change="changeSelectedCity()" class="form-control" id="sel2" ng-model="citySelected" ng-options="city.pk as city.name for city in filterCities">
-        <option value="" disabled selected>Seleccionar</option>
-      </select>
-      <label for="sel3">Universidad:</label>
-      <select ng-change="changeSelectedUniversity()" class="form-control" id="sel3" ng-model="universitySelected" ng-options="university.pk as university.name for university in filterUniversities">
-        <option value="" disabled selected>Seleccionar</option>
-      </select>
-      <div ng-show="universitySelected" class="input-group">
-        <label>Asignaturas:</label>
-        <div class="checkbox" ng-repeat="subject in filterSubjects">
-          <label>
-            <input type="checkbox" checklist-value="subject.pk" data-checklist-model="subjectsSelected">{% verbatim %}{{ subject.name }}{% endverbatim %}
-          </label>
-        </div>
-        <label>Otras asignaturas:</label>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <input type="checkbox" aria-label="Checkbox for following text input">
-          </span>
-          <input type="text" class="form-control" aria-label="Text input with checkbox">
-        </div>
+<div>
+  <div class="call-action call-action-boxed call-action-style2 no-descripton clearfix">
+    <h4 class="primary">Busca una universidad antes de crearla. En caso de no existir, añádela completando los campos correspondientes.</h4>
+  </div>
 
+  <!-- Accordion -->
+  <div class="panel-group" id="accordion">
+
+    <!-- Start Accordion 1 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-4" class="collapsed">
+            <i class="fa fa-angle-up control-icon"></i>
+            <i class="fa fa-search"></i> Buscar universidad
+          </a>
+        </h4>
       </div>
-
-      <div class="input-group">
-        <button type="submit" class="btn btn-default">Guardar</button>
+      <div id="collapse-4" class="panel-collapse collapse" ng-controller="MyUniversitiesCtrl">
+        {% include 'components/settings/select-my-university-form.html' %}
       </div>
     </div>
-    </form>
+    <!-- End Accordion 1 -->
+
+    <!-- Start Accordion 2 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-5" class="collapsed">
+            <i class="fa fa-angle-up control-icon"></i>
+            <i class="fa fa-plus-circle"></i> Crear universidad
+          </a>
+        </h4>
+      </div>
+      <div id="collapse-5" class="panel-collapse collapse" ng-controller="CreateUniversityCtrl">
+        {% include 'components/settings/create-my-university-form.html' %}
+      </div>
+    </div>
+    <!-- End Accordion 2 -->
+
   </div>
+  <!-- End Accordion -->
+
 </div>
 {% endblock %}

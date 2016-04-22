@@ -90,6 +90,37 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("GET", SESSION_PATH);
     };
 
+    this.createCountry = function(name) {
+        name = name || "";
+
+        var form_params = {
+            'name': name
+        };
+        return _http("POST", COUNTRIES_PATH, null, form_params);
+    };
+
+    this.createCity = function(name, country) {
+        name = name || "";
+        country = country || null;
+
+        var form_params = {
+            'name': name,
+            'country': country
+        };
+        return _http("POST", CITIES_PATH, null, form_params);
+    };
+
+    this.createUniversity = function(name, city) {
+        name = name || "";
+        city = city || null;
+
+        var form_params = {
+            'name': name,
+            'city': city
+        };
+        return _http("POST", UNIVERSITIES_PATH, null, form_params);
+    };
+
     this.createUser = function(email, username, password) {
         email = email || null;
         username = username || null;
@@ -122,6 +153,15 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("POST", SESSION_PATH, null, form_params);
     };
 
+    this.addSubjectsToUser = function(userId, subjects) {
+        subjects = subjects || null;
+
+        var form_params = {
+            'subjects': subjects
+        };
+        return _http("PATCH", USERS_PATH + userId + "/", null, form_params);
+    };
+
     this.loadCities = function(cities, country) {
         var filterCities = [];
         for (var i=0; i<cities.length; i++) {
@@ -142,6 +182,18 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return filterUniversities;
     };
 
+    this.createSubjects = function(names, university, user) {
+        names = names || null;
+        university = university || null;
+        user = user || null;
+
+        var form_params = {
+            'names': names,
+            'university': university,
+            'user': user
+        };
+        return _http("POST", SUBJECTS_PATH, null, form_params);
+    };
 
 
     this.getUrlParameter = function getUrlParameter(sParam) {

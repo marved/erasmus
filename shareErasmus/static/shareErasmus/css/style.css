@@ -5665,3 +5665,7 @@ ul.footer-nav li a:hover {
 .navbar-collapse {
     max-height: 340px;
 }
+
+.well, well-lg {
+    border-radius: 0px;
+}
