@@ -2,7 +2,7 @@
 {% block page_title %}my subjects{% endblock %}
 {% block heading %}Mis asignaturas cursadas{% endblock %}
 {% block page_body_content %}
-<div>
+<div ng-controller="UpdateSubjectCtrl">
   <!-- Accordion -->
   <div class="panel-group" id="accordion">
 {% for university in universities %}
@@ -13,13 +13,13 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{subject.pk}}" class="collapsed">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{subject.pk}}" ng-click="getSubject({{subject.pk}})" class="collapsed">
             <i class="fa fa-angle-up control-icon"></i>
             <i class="fa fa-book"></i> {{subject}}
           </a>
         </h4>
       </div>
-      <div id="collapse-{{subject.pk}}" class="panel-collapse collapse" ng-controller="">
+      <div id="collapse-{{subject.pk}}" class="panel-collapse collapse">
         {% include 'components/settings/subject-detail-form.html' %}
       </div>
     </div>

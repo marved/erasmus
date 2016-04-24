@@ -78,6 +78,10 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("GET", SUBJECTS_PATH);
     };
 
+    this.getSubject = function(subjectId) {
+        return _http("GET", SUBJECTS_PATH + subjectId + "/");
+    };
+
     this.getUsers = function() {
         return _http("GET", USERS_PATH);
     };
@@ -193,6 +197,15 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
             'user': user
         };
         return _http("POST", SUBJECTS_PATH, null, form_params);
+    };
+
+    this.updateInfoSubject = function(subjectId, infoSubject) {
+        infoSubject = infoSubject || "";
+
+        var form_params = {
+            'infoSubject': infoSubject
+        };
+        return _http("PATCH", SUBJECTS_PATH + subjectId + "/", null, form_params);
     };
 
 
