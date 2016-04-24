@@ -28,7 +28,7 @@ class SubjectSerializer(ModelSerializer):
     university = UniversitySerializer
     class Meta:
         model = Subject
-        fields = ('pk', 'name', 'difficulty', 'university')
+        fields = ('pk', 'name', 'difficulty', 'difficulty_comment', 'university')
 
 
 class UserProfileSerializer(ModelSerializer):

@@ -1,0 +1,37 @@
+{% extends 'base-settings.html' %}
+{% block page_title %}my subjects{% endblock %}
+{% block heading %}Mis asignaturas cursadas{% endblock %}
+{% block page_body_content %}
+<div ng-controller="UpdateSubjectCtrl">
+  <div class="call-action call-action-boxed call-action-style2 no-descripton clearfix">
+    <h4 class="primary">Si has cursado alguna asignatura que no encuentras en esta lista, añádela desde <a href="/settings/universities">aquí</a>.</h4>
+  </div>
+  <!-- Accordion -->
+  <div class="panel-group" id="accordion">
+{% for university in universities %}
+  <h4>{{university}}:</h4>
+  {% for subject in subjects %}
+    {% if subject.university.name == university %}
+    <!-- Start Accordion -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{subject.pk}}" ng-click="getSubject({{subject.pk}})" class="collapsed">
+            <i class="fa fa-angle-up control-icon"></i>
+            <i class="fa fa-book"></i> {{subject}}
+          </a>
+        </h4>
+      </div>
+      <div id="collapse-{{subject.pk}}" class="panel-collapse collapse">
+        {% include 'components/settings/subject-detail-form.html' %}
+      </div>
+    </div>
+    <!-- End Accordion -->
+    {% endif %}
+  {% endfor %}
+
+{% endfor %}
+  </div>
+  <!-- End Accordion -->
+</div>
+{% endblock %}

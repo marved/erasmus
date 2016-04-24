@@ -17,8 +17,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from shareErasmus.views.views import (
     HomeView, SignView, ContactView, UniversitiesView,
-    AccountView, MyUniversitiesView, UniversityDetailView,
-    SubjectDetailView)
+    AccountView, MyUniversitiesView, MySubjectsView,
+    UniversityDetailView, SubjectDetailView)
 from shareErasmus.views.api import (CountryViewSet, CityViewSet, UniversityViewSet, UserProfileViewSet,
                                     SubjectViewSet, CommentViewSet, SessionAPIView)
 from rest_framework import routers
@@ -43,6 +43,7 @@ urlpatterns = [
     url(r'^contact$', ContactView.as_view()),
     url(r'^settings/account$', AccountView.as_view()),
     url(r'^settings/universities$', MyUniversitiesView.as_view()),
+    url(r'^settings/subjects', MySubjectsView.as_view()),
 
     url(r'^logout$', 'shareErasmus.views.do_logout'),
 

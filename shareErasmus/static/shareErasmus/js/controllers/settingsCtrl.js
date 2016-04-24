@@ -194,3 +194,25 @@ app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', function ($
     };
 
 }]);
+
+app.controller('UpdateSubjectCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+
+    $scope.subject = null;
+    $scope.infoSubject = "";
+    $scope.getSubject = function(subjectId) {
+        shareErasmusApi.getSubject(subjectId).then(function (response) {
+            $scope.subject = response.data;
+            $scope.infoSubject = $scope.subject.difficulty_comment;
+        });
+    };
+
+    $scope.updateSubject = function() {
+        shareErasmusApi.updateInfoSubject($scope.subject.pk, $scope.infoSubject)
+            .then(function (response){
+                console.log("Información de la asignatura actualizada con éxito.");
+            }, function(response) {
+                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            });
+    };
+
+}]);
