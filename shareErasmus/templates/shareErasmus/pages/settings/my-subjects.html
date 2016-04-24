@@ -3,6 +3,32 @@
 {% block heading %}Mis asignaturas cursadas{% endblock %}
 {% block page_body_content %}
 <div>
-  
+  <!-- Accordion -->
+  <div class="panel-group" id="accordion">
+{% for university in universities %}
+  <h4>{{university}}:</h4>
+  {% for subject in subjects %}
+    {% if subject.university.name == university %}
+    <!-- Start Accordion -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{subject.pk}}" class="collapsed">
+            <i class="fa fa-angle-up control-icon"></i>
+            <i class="fa fa-book"></i> {{subject}}
+          </a>
+        </h4>
+      </div>
+      <div id="collapse-{{subject.pk}}" class="panel-collapse collapse" ng-controller="">
+        {% include 'components/settings/subject-detail-form.html' %}
+      </div>
+    </div>
+    <!-- End Accordion -->
+    {% endif %}
+  {% endfor %}
+
+{% endfor %}
+  </div>
+  <!-- End Accordion -->
 </div>
 {% endblock %}
