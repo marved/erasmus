@@ -134,6 +134,36 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
 
 }]);
 
+app.controller('EditUniversityCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+
+    $scope.university = null;
+    $scope.description = "";
+    $scope.validationSubjects = "";
+    $scope.contacts = "";
+
+    $scope.getUniversity = function(universityId) {
+        shareErasmusApi.getUniversity(universityId).then(function (response) {
+            $scope.university = response.data;
+            $scope.description = $scope.university.description;
+            $scope.validationSubjects = $scope.university.validation_subjects;
+            $scope.contacts = $scope.university.contacts;
+        });
+    };
+
+    $scope.updateUniversity = function() {
+        shareErasmusApi.updateInfoUniversity($scope.university.pk,
+                                            $scope.description,
+                                            $scope.validationSubjects,
+                                            $scope.contacts)
+            .then(function (response){
+                console.log("Información de la universidad actualizada con éxito.");
+            }, function(response) {
+                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            });
+    };
+
+}]);
+
 app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
 
     $scope.countryName = [];

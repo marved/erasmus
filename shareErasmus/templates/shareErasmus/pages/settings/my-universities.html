@@ -3,6 +3,28 @@
 {% block heading %}Mira y añade tus universidades{% endblock %}
 {% block page_body_content %}
 <div>
+  <!-- Accordion -->
+  <div class="panel-group" ng-controller="EditUniversityCtrl">
+    {% for university in universities %}
+    <!-- Start Accordion -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-university-{{university.pk}}" ng-click="getUniversity({{university.pk}})" class="collapsed">
+            <i class="fa fa-angle-up control-icon"></i>
+            <i class="fa fa-university"></i> {{university.name}}
+          </a>
+        </h4>
+      </div>
+      <div id="collapse-university-{{university.pk}}" class="panel-collapse collapse">
+        {% include 'components/settings/edit-my-university-form.html' %}
+      </div>
+    </div>
+    <!-- End Accordion -->
+    {% endfor %}
+  </div>
+  <!-- End Accordion -->
+
   <div class="call-action call-action-boxed call-action-style2 no-descripton clearfix">
     <h4 class="primary">Busca una universidad antes de crearla. En caso de no existir, añádela completando los campos
       correspondientes.<br/>Después, selecciona las asignaturas que hayas cursado.
