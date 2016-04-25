@@ -50,8 +50,10 @@ class SubjectDetailView(View):
             try:
                 subject = Subject.objects.get(pk=subject_id)
                 if subject.university.pk == int(university_id):
+                    difficulty_comments = subject.difficulty_comment.split("\n")
                     context = {
-                        'subject': subject
+                        'subject': subject,
+                        'difficulty_comments': difficulty_comments
                     }
                     return render(request, "pages/subject-detail.html", context)
             except:
