@@ -83,7 +83,24 @@ class AccountView(View):
 class MyUniversitiesView(View):
     def get(self, request):
         if request.user.is_authenticated():
-            return render(request, "pages/settings/my-universities.html")
+            user_id = request.user.pk
+            user = UserProfile.objects.get(pk=user_id)
+            subjects = user.subjects.all()
+            universitiesName = []
+            for subject in subjects:
+                universitiesName.append(str(subject.university.name))
+
+            universitiesName = list(set(universitiesName))
+            universities = []
+            for universityName in universitiesName:
+                try:
+                    universities.append(University.objects.get(name=universityName))
+                except:
+                    pass
+            context = {
+                'universities': universities
+            }
+            return render(request, "pages/settings/my-universities.html", context)
         else:
             return render(request, "403.html")
 

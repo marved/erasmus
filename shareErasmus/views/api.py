@@ -94,6 +94,23 @@ class UniversityViewSet(CreateModelMixin,
             return http_201_created(serializer.data)
         return http_200_ok(serializer.data)
 
+    def partial_update(self, request, *args, **kwargs):
+        description = request.data.get("description", None)
+        validation_subjects = request.data.get("validationSubjects", None)
+        contacts = request.data.get("contacts", None)
+        university_id = kwargs.get("pk", None)
+        try:
+            university = University.objects.get(pk=int(university_id))
+        except:
+            return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+        university.description = str(description)
+        university.validation_subjects = str(validation_subjects)
+        university.contacts = str(contacts)
+        university.save()
+        context = {"request": request}
+        serializer = UniversitySerializer(university, context=context)
+        return http_200_ok(serializer.data)
+
 
 class UserProfileViewSet(CreateModelMixin,
                     RetrieveModelMixin,

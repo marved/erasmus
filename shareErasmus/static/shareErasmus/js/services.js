@@ -74,6 +74,10 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("GET", UNIVERSITIES_PATH);
     };
 
+    this.getUniversity = function(universityId) {
+        return _http("GET", UNIVERSITIES_PATH + universityId + "/");
+    };
+
     this.getSubjects = function() {
         return _http("GET", SUBJECTS_PATH);
     };
@@ -123,6 +127,19 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
             'city': city
         };
         return _http("POST", UNIVERSITIES_PATH, null, form_params);
+    };
+
+    this.updateInfoUniversity = function(universityId, description, validationSubjects, contacts) {
+        description = description || "";
+        validationSubjects = validationSubjects || "";
+        contacts = contacts || "";
+
+        var form_params = {
+            'description': description,
+            'validationSubjects': validationSubjects,
+            'contacts': contacts
+        };
+        return _http("PATCH", UNIVERSITIES_PATH + universityId + "/", null, form_params);
     };
 
     this.createUser = function(email, username, password) {
