@@ -22,11 +22,11 @@
 <!-- End Page Banner -->
 
 <!-- Start Content -->
-<div id="content" ng-controller="UniversitiesCtrl">
+<div id="content" ng-controller="UniversityDetailCtrl">
   <div class="container">
     <div class="row sidebar-page">
       <!--Left Page Content-->
-      <div class="col-md-3 page-content">
+      <div class="col-md-4 page-content">
 
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Información general</span></h4>
@@ -39,6 +39,21 @@
             </ul>
           </div>
         </div>
+
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Contactos</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in contacts %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/universities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
 
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Cultura</span></h4>
@@ -74,6 +89,21 @@
       <div class="col-md-6 page-content">
 
         <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Descripción general de la universidad</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in description %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/universities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
         <h4 class="classic-title"><span>Asignaturas</span></h4>
         <!-- Start Subject -->
         {% for subject in subjects %}
@@ -84,6 +114,20 @@
         {% endfor %}
         <!-- End Subject -->
 
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Convalidaciones de asignaturas</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in validation_subjects %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/universities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
 
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Turismo</span></h4>
@@ -94,30 +138,10 @@
           <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
           <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
           <!-- Call Action Button -->
-          <a href="" data-toggle="modal" data-target="#myModal">+Editar</a>
+          <a href="#">+Editar</a>
         </div>
         <!-- End Call Action -->
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-          <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-              </div>
-              <div class="modal-body">
-                <textarea class="form-control" rows="5" id="comment"></textarea>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default">Guardar</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <!-- End Modal -->
 
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Alojamientos</span></h4>
@@ -137,7 +161,7 @@
       <!-- End Center Page Content-->
 
       <!--Right Page Content-->
-      <div class="col-md-3 sidebar right-sidebar">
+      <div class="col-md-2 sidebar right-sidebar">
 
         <!-- Categories Widget -->
         <div class="widget widget-categories">

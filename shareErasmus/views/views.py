@@ -29,10 +29,16 @@ class UniversityDetailView(View):
         if university_id:
             try:
                 university = University.objects.get(pk=university_id)
+                description = university.description.split("\n")
+                validation_subjects = university.validation_subjects.split("\n")
+                contacts = university.contacts.split("\n")
                 subjects = Subject.objects.all().filter(university=university_id)
                 context = {
                     'university': university,
-                    'subjects': subjects
+                    'subjects': subjects,
+                    'description': description,
+                    'validation_subjects': validation_subjects,
+                    'contacts': contacts
                 }
                 return render(request, "pages/university-detail.html", context)
             except:
