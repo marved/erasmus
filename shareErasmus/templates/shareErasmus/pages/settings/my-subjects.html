@@ -7,7 +7,7 @@
     <h4 class="primary">Si has cursado alguna asignatura que no encuentras en esta lista, añádela desde <a href="/settings/universities">aquí</a>.</h4>
   </div>
   <!-- Accordion -->
-  <div class="panel-group" id="accordion">
+  <div class="panel-group" id="accordion-subjects">
 {% for university in universities %}
   <h4>{{university}}:</h4>
   {% for subject in subjects %}
@@ -16,13 +16,13 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{subject.pk}}" ng-click="getSubject({{subject.pk}})" class="collapsed">
+          <a data-toggle="collapse" data-parent="#accordion-subjects" href="#collapse-subject-{{subject.pk}}" ng-click="getSubject({{subject.pk}})" class="collapsed">
             <i class="fa fa-angle-up control-icon"></i>
             <i class="fa fa-book"></i> {{subject}}
           </a>
         </h4>
       </div>
-      <div id="collapse-{{subject.pk}}" class="panel-collapse collapse">
+      <div id="collapse-subject-{{subject.pk}}" class="panel-collapse collapse">
         {% include 'components/settings/subject-detail-form.html' %}
       </div>
     </div>

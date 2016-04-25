@@ -4,13 +4,13 @@
 {% block page_body_content %}
 <div>
   <!-- Accordion -->
-  <div class="panel-group" ng-controller="EditUniversityCtrl">
+  <div class="panel-group" ng-controller="EditUniversityCtrl" id="accordion-universities">
     {% for university in universities %}
     <!-- Start Accordion -->
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-university-{{university.pk}}" ng-click="getUniversity({{university.pk}})" class="collapsed">
+          <a data-toggle="collapse" data-parent="#accordion-universities" href="#collapse-university-{{university.pk}}" ng-click="getUniversity({{university.pk}})" class="collapsed">
             <i class="fa fa-angle-up control-icon"></i>
             <i class="fa fa-university"></i> {{university.name}}
           </a>
