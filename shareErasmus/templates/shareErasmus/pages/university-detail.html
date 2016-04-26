@@ -41,7 +41,7 @@
         </div>
 
         <!-- Classic Heading -->
-        <h4 class="classic-title"><span>Contactos</span></h4>
+        <h4 class="classic-title"><span>Contactos en la universidad</span></h4>
         <!-- Start Call Action -->
         <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
           <!-- Call Action Text -->
@@ -60,25 +60,58 @@
         <!-- Start Call Action -->
         <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
           <!-- Call Action Text -->
-          <p>Lugar de interés 1</p>
-          <p>Lugar de interés 2</p>
-          <p>Lugar de interés 3</p>
-          <p>Lugar de interés 4</p>
+          {% for paragraph in info_city.culture %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
           <!-- Call Action Button -->
-          <a href="#">+Editar</a>
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
         </div>
         <!-- End Call Action -->
 
         <!-- Classic Heading -->
-        <h4 class="classic-title"><span>Vida estudiantil</span></h4>
+        <h4 class="classic-title"><span>Precios</span></h4>
         <!-- Start Call Action -->
         <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
           <!-- Call Action Text -->
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
-          <p>At vero eos et accusamus et iusto odio dignissimos</p>
-          <p>At vero eos et accusamus</p>
+          {% for paragraph in info_city.prices %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
           <!-- Call Action Button -->
-          <a href="#">+Editar</a>
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Salir por la noche</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in info_city.nightlife %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>El tiempo</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in info_city.weather %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
         </div>
         <!-- End Call Action -->
 
@@ -130,15 +163,17 @@
         <!-- End Call Action -->
 
         <!-- Classic Heading -->
-        <h4 class="classic-title"><span>Turismo</span></h4>
+        <h4 class="classic-title"><span>Vida estudiantil</span></h4>
         <!-- Start Call Action -->
         <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
           <!-- Call Action Text -->
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+          {% for paragraph in info_city.student_life %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
           <!-- Call Action Button -->
-          <a href="#">+Editar</a>
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
         </div>
         <!-- End Call Action -->
 
@@ -148,12 +183,28 @@
         <!-- Start Call Action -->
         <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
           <!-- Call Action Text -->
-          <p>alojamiento 1</p>
-          <p>alojamiento 2</p>
-          <p>alojamiento 3</p>
-          <p>alojamiento 4</p>
+          {% for paragraph in info_city.lodging %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
           <!-- Call Action Button -->
-          <a href="#">+Editar</a>
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
+        <h4 id="city-information-interest" class="classic-title"><span>Información interesante</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in info_city.information_interest %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
         </div>
         <!-- End Call Action -->
 
@@ -171,28 +222,22 @@
               <a href="#">Descripción general</a>
             </li>
             <li>
-              <a href="#">Enlaces de interés</a>
+              <a href="#city-information-interest">Información interesante</a>
             </li>
             <li>
               <a href="#">Alojamientos</a>
             </li>
             <li>
+              <a href="#">Precios</a>
+            </li>
+            <li>
               <a href="#">Vida estudiantil</a>
             </li>
             <li>
-              <a href="#">Turismo</a>
-            </li>
-            <li>
-              <a href="#">Salir</a>
+              <a href="#">Salir por la noche</a>
             </li>
             <li>
               <a href="#">Cultura</a>
-            </li>
-            <li>
-              <a href="#">Recomendaciones</a>
-            </li>
-            <li>
-              <a href="#">Precios</a>
             </li>
             <li>
               <a href="#">Tiempo</a>
@@ -200,22 +245,6 @@
           </ul>
         </div>
 
-        <!-- Tags Widget -->
-        <div class="widget widget-tags">
-          <h4 class="classic-title"><span>Información de la ciudad</span></h4>
-          <div class="tagcloud">
-            <a href="#">Descripción general</a>
-            <a href="#">Enlaces de interés</a>
-            <a href="#">Alojamientos</a>
-            <a href="#">Vida estudiantil</a>
-            <a href="#">Turismo</a>
-            <a href="#">Salir</a>
-            <a href="#">Cultura</a>
-            <a href="#">Recomendaciones</a>
-            <a href="#">Precios</a>
-            <a href="#">Tiempo</a>
-          </div>
-        </div>
 
       </div>
       <!--End right Page Content-->
