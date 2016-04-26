@@ -225,7 +225,7 @@ app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', function ($
 
 }]);
 
-app.controller('UpdateSubjectCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('EditSubjectCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
 
     $scope.subject = null;
     $scope.infoSubject = "";
@@ -240,6 +240,37 @@ app.controller('UpdateSubjectCtrl', ['$scope', 'shareErasmusApi', function ($sco
         shareErasmusApi.updateInfoSubject($scope.subject.pk, $scope.infoSubject)
             .then(function (response){
                 console.log("Información de la asignatura actualizada con éxito.");
+            }, function(response) {
+                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            });
+    };
+
+}]);
+
+app.controller('EditCityCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+
+    $scope.city = null;
+    $scope.infoCity = {description: "", lodging: "", prices: "",
+                        weather: "", studentLife: "", culture: "",
+                        nightlife: "", informationInterest: ""};
+    $scope.getCity = function(cityId) {
+        shareErasmusApi.getCity(cityId).then(function (response) {
+            $scope.city = response.data;
+            $scope.infoCity.description = $scope.city.description;
+            $scope.infoCity.lodging = $scope.city.lodging;
+            $scope.infoCity.prices = $scope.city.prices;
+            $scope.infoCity.weather = $scope.city.weather;
+            $scope.infoCity.studentLife = $scope.city.student_life;
+            $scope.infoCity.culture = $scope.city.culture;
+            $scope.infoCity.nightlife = $scope.city.nightlife;
+            $scope.infoCity.informationInterest = $scope.city.information_interest;
+        });
+    };
+
+    $scope.updateCity = function() {
+        shareErasmusApi.updateInfoCity($scope.city.pk, $scope.infoCity)
+            .then(function (response){
+                console.log("Información de la ciudad actualizada con éxito.");
             }, function(response) {
                 console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
             });
