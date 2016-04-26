@@ -1,0 +1,28 @@
+{% extends 'base-settings.html' %}
+{% block page_title %}my cities{% endblock %}
+{% block heading %}Añade información de las ciudades donde has estudiado{% endblock %}
+{% block page_body_content %}
+<div ng-controller="EditCityCtrl">
+  <!-- Accordion -->
+  <div class="panel-group" id="accordion-cities">
+    {% for city in cities %}
+    <!-- Start Accordion -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion-cities" href="#collapse-city-{{city.pk}}" ng-click="getCity({{city.pk}})" class="collapsed">
+            <i class="fa fa-angle-up control-icon"></i>
+            <i class="fa fa-map-signs"></i> {{city.name}}
+          </a>
+        </h4>
+      </div>
+      <div id="collapse-city-{{city.pk}}" class="panel-collapse collapse">
+        {% include 'components/settings/edit-my-city-form.html' %}
+      </div>
+    </div>
+    <!-- End Accordion -->
+    {% endfor %}
+  </div>
+  <!-- End Accordion -->
+</div>
+{% endblock %}

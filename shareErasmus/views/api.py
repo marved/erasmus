@@ -67,6 +67,34 @@ class CityViewSet(CreateModelMixin,
             return http_201_created(serializer.data)
         return http_200_ok(serializer.data)
 
+    def partial_update(self, request, *args, **kwargs):
+        infoCity = request.data.get("infoCity", None)
+        description = infoCity.get("description", None)
+        lodging = infoCity.get("lodging", None)
+        prices = infoCity.get("prices", None)
+        weather = infoCity.get("weather", None)
+        student_life = infoCity.get("studentLife", None)
+        culture = infoCity.get("culture", None)
+        nightlife = infoCity.get("nightlife", None)
+        information_interest = infoCity.get("informationInterest", None)
+        city_id = kwargs.get("pk", None)
+        try:
+            city = City.objects.get(pk=int(city_id))
+        except:
+            return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+        city.description = str(description)
+        city.lodging = str(lodging)
+        city.prices = str(prices)
+        city.weather = str(weather)
+        city.student_life = str(student_life)
+        city.culture = str(culture)
+        city.nightlife = str(nightlife)
+        city.information_interest = str(information_interest)
+        city.save()
+        context = {"request": request}
+        serializer = CitySerializer(city, context=context)
+        return http_200_ok(serializer.data)
+
 class UniversityViewSet(CreateModelMixin,
                         RetrieveModelMixin,
                         DestroyModelMixin,

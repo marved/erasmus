@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View
-from shareErasmus.models import University, Subject, UserProfile
+from shareErasmus.models import University, Subject, UserProfile, City
 
 
 class HomeView(View):
@@ -121,5 +121,35 @@ class MySubjectsView(View):
                 'universities': universities
             }
             return render(request, "pages/settings/my-subjects.html", context)
+        else:
+            return render(request, "403.html")
+
+
+class MyCitiesView(View):
+    def get(self, request):
+        if request.user.is_authenticated():
+            user_id = request.user.pk
+            user = UserProfile.objects.get(pk=user_id)
+            subjects = user.subjects.all()
+            universitiesName = []
+            for subject in subjects:
+                universitiesName.append(str(subject.university.name))
+
+            universitiesName = list(set(universitiesName))
+            universities = []
+            for universityName in universitiesName:
+                try:
+                    universities.append(University.objects.get(name=universityName))
+                except:
+                    pass
+
+            cities = []
+            for university in universities:
+                cities.append(university.city)
+            cities = list(set(cities))
+            context = {
+                'cities': cities
+            }
+            return render(request, "pages/settings/my-cities.html", context)
         else:
             return render(request, "403.html")
