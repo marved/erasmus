@@ -75,7 +75,6 @@ class CityViewSet(CreateModelMixin,
         prices = infoCity.get("prices", None)
         mobile_phone = infoCity.get("mobilePhone", None)
         weather = infoCity.get("weather", None)
-        w = weather.encode("utf-8")
         student_life = infoCity.get("studentLife", None)
         nightlife = infoCity.get("nightlife", None)
         bank_account = infoCity.get("bankAccount", None)
@@ -144,13 +143,13 @@ class UniversityViewSet(CreateModelMixin,
             university = University.objects.get(pk=int(university_id))
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-        university.description = str(description)
-        university.validation_subjects = str(validation_subjects)
-        university.contacts = str(contacts)
+        university.description = description.encode("utf-8")
+        university.validation_subjects = validation_subjects.encode("utf-8")
+        university.contacts = contacts.encode("utf-8")
         university.save()
         context = {"request": request}
         serializer = UniversitySerializer(university, context=context)
-        return http_200_ok(serializer.data)
+        return http_200_ok()
 
 
 class UserProfileViewSet(CreateModelMixin,
@@ -230,11 +229,11 @@ class SubjectViewSet(CreateModelMixin,
             subject = Subject.objects.get(pk=int(subject_id))
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-        subject.difficulty_comment = str(infoSubject)
+        subject.difficulty_comment = infoSubject.encode("utf-8")
         subject.save()
         context = {"request": request}
         serializer = SubjectSerializer(subject, context=context)
-        return http_200_ok(serializer.data)
+        return http_200_ok()
 
 
 
