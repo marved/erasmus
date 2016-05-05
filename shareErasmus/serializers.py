@@ -12,9 +12,10 @@ class CitySerializer(ModelSerializer):
     country = CountrySerializer
     class Meta:
         model = City
-        fields = ('pk', 'name', 'country', 'description',
-                  'prices', 'weather', 'student_life', 'culture',
-                  'lodging', 'nightlife', 'information_interest')
+        fields = ('pk', 'name', 'country', 'description', 'lodging',
+                  'transport', 'prices', 'mobile_phone', 'weather',
+                  'student_life', 'nightlife', 'bank_account', 'restaurants',
+                  'shopping', 'culture', 'tourism', 'information_interest')
 
 
 class UniversitySerializer(ModelSerializer):

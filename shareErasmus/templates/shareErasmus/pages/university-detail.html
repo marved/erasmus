@@ -56,6 +56,21 @@
         <!-- End Call Action -->
 
         <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Transporte</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in info_city.transport %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
         <h4 class="classic-title"><span>Cultura</span></h4>
         <!-- Start Call Action -->
         <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
@@ -106,6 +121,66 @@
         <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
           <!-- Call Action Text -->
           {% for paragraph in info_city.weather %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Cuentas bancarias</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in info_city.bank_account %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Dónde comer</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in info_city.restaurants %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Dónde comprar</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in info_city.shopping %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Turismo fuera de la ciudad</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in info_city.tourism %}
           <p>- {{paragraph}}</p>
           {% endfor %}
           <!-- Call Action Button -->
@@ -194,7 +269,22 @@
         <!-- End Call Action -->
 
         <!-- Classic Heading -->
-        <h4 id="city-information-interest" class="classic-title"><span>Información interesante</span></h4>
+        <h4 class="classic-title"><span>Telefonía móvil</span></h4>
+        <!-- Start Call Action -->
+        <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
+          <!-- Call Action Text -->
+          {% for paragraph in info_city.mobile_phone %}
+          <p>- {{paragraph}}</p>
+          {% endfor %}
+          <!-- Call Action Button -->
+          <a href="/settings/cities">
+            <i class="fa fa-edit"></i> Editar
+          </a>
+        </div>
+        <!-- End Call Action -->
+
+        <!-- Classic Heading -->
+        <h4 id="city-information-interest" class="classic-title"><span>Otra información interesante</span></h4>
         <!-- Start Call Action -->
         <div class="call-action call-action-boxed call-action-style1 no-descripton clearfix">
           <!-- Call Action Text -->
@@ -222,13 +312,19 @@
               <a href="#">Descripción general</a>
             </li>
             <li>
-              <a href="#city-information-interest">Información interesante</a>
-            </li>
-            <li>
               <a href="#">Alojamientos</a>
             </li>
             <li>
+              <a href="#">Transporte</a>
+            </li>
+            <li>
               <a href="#">Precios</a>
+            </li>
+            <li>
+              <a href="#">Telefonía móvil</a>
+            </li>
+            <li>
+              <a href="#">El clima</a>
             </li>
             <li>
               <a href="#">Vida estudiantil</a>
@@ -237,10 +333,22 @@
               <a href="#">Salir por la noche</a>
             </li>
             <li>
+              <a href="#">Cuentas bancarias</a>
+            </li>
+            <li>
+              <a href="#">Dónde comer</a>
+            </li>
+            <li>
+              <a href="#">Dónde comprar</a>
+            </li>
+            <li>
               <a href="#">Cultura</a>
             </li>
             <li>
-              <a href="#">Tiempo</a>
+              <a href="#">Turismo fuera de la ciudad</a>
+            </li>
+            <li>
+              <a href="#city-information-interest">Otra información interesante</a>
             </li>
           </ul>
         </div>

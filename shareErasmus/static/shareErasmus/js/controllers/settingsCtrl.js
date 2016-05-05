@@ -250,19 +250,27 @@ app.controller('EditSubjectCtrl', ['$scope', 'shareErasmusApi', function ($scope
 app.controller('EditCityCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
 
     $scope.city = null;
-    $scope.infoCity = {description: "", lodging: "", prices: "",
-                        weather: "", studentLife: "", culture: "",
-                        nightlife: "", informationInterest: ""};
+    $scope.infoCity = {description: "", lodging: "", transport: "",
+                        prices: "", mobilePhone: "", weather: "",
+                        studentLife: "", nightlife: "", bankAccount: "",
+                        restaurants: "", shopping: "", culture: "",
+                        tourism: "", informationInterest: ""};
     $scope.getCity = function(cityId) {
         shareErasmusApi.getCity(cityId).then(function (response) {
             $scope.city = response.data;
             $scope.infoCity.description = $scope.city.description;
             $scope.infoCity.lodging = $scope.city.lodging;
+            $scope.infoCity.transport = $scope.city.transport;
             $scope.infoCity.prices = $scope.city.prices;
+            $scope.infoCity.mobilePhone = $scope.city.mobile_phone;
             $scope.infoCity.weather = $scope.city.weather;
             $scope.infoCity.studentLife = $scope.city.student_life;
-            $scope.infoCity.culture = $scope.city.culture;
             $scope.infoCity.nightlife = $scope.city.nightlife;
+            $scope.infoCity.bankAccount = $scope.city.bank_account;
+            $scope.infoCity.restaurants = $scope.city.restaurants;
+            $scope.infoCity.shopping = $scope.city.shopping;
+            $scope.infoCity.culture = $scope.city.culture;
+            $scope.infoCity.tourism = $scope.city.tourism;
             $scope.infoCity.informationInterest = $scope.city.information_interest;
         });
     };

@@ -32,11 +32,17 @@ class UniversityDetailView(View):
                 description = university.description.split("\n")
                 info_city = {'description': university.city.description.split("\n"),
                              'lodging': university.city.lodging.split("\n"),
+                             'transport': university.city.transport.split("\n"),
                              'prices': university.city.prices.split("\n"),
+                             'mobile_phone': university.city.mobile_phone.split("\n"),
                              'weather': university.city.weather.split("\n"),
                              'student_life': university.city.student_life.split("\n"),
-                             'culture': university.city.culture.split("\n"),
                              'nightlife': university.city.nightlife.split("\n"),
+                             'bank_account': university.city.bank_account.split("\n"),
+                             'restaurants': university.city.restaurants.split("\n"),
+                             'shopping': university.city.shopping.split("\n"),
+                             'culture': university.city.culture.split("\n"),
+                             'tourism': university.city.tourism.split("\n"),
                              'information_interest': university.city.information_interest.split("\n")
                 };
                 validation_subjects = university.validation_subjects.split("\n")

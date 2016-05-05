@@ -71,29 +71,41 @@ class CityViewSet(CreateModelMixin,
         infoCity = request.data.get("infoCity", None)
         description = infoCity.get("description", None)
         lodging = infoCity.get("lodging", None)
+        transport = infoCity.get("transport", None)
         prices = infoCity.get("prices", None)
+        mobile_phone = infoCity.get("mobilePhone", None)
         weather = infoCity.get("weather", None)
         student_life = infoCity.get("studentLife", None)
-        culture = infoCity.get("culture", None)
         nightlife = infoCity.get("nightlife", None)
+        bank_account = infoCity.get("bankAccount", None)
+        restaurants = infoCity.get("restaurants", None)
+        shopping = infoCity.get("shopping", None)
+        culture = infoCity.get("culture", None)
+        tourism = infoCity.get("tourism", None)
         information_interest = infoCity.get("informationInterest", None)
         city_id = kwargs.get("pk", None)
         try:
             city = City.objects.get(pk=int(city_id))
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-        city.description = str(description)
-        city.lodging = str(lodging)
-        city.prices = str(prices)
-        city.weather = str(weather)
-        city.student_life = str(student_life)
-        city.culture = str(culture)
-        city.nightlife = str(nightlife)
-        city.information_interest = str(information_interest)
+        city.description = description.encode("utf-8")
+        city.lodging = lodging.encode("utf-8")
+        city.transport = transport.encode("utf-8")
+        city.prices = prices.encode("utf-8")
+        city.mobile_phone = mobile_phone.encode("utf-8")
+        city.weather = weather.encode("utf-8")
+        city.student_life = student_life.encode("utf-8")
+        city.nightlife = nightlife.encode("utf-8")
+        city.bank_account = bank_account.encode("utf-8")
+        city.restaurants = restaurants.encode("utf-8")
+        city.shopping = shopping.encode("utf-8")
+        city.culture = culture.encode("utf-8")
+        city.tourism = tourism.encode("utf-8")
+        city.information_interest = information_interest.encode("utf-8")
         city.save()
         context = {"request": request}
         serializer = CitySerializer(city, context=context)
-        return http_200_ok(serializer.data)
+        return http_200_ok()
 
 class UniversityViewSet(CreateModelMixin,
                         RetrieveModelMixin,
@@ -131,13 +143,13 @@ class UniversityViewSet(CreateModelMixin,
             university = University.objects.get(pk=int(university_id))
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-        university.description = str(description)
-        university.validation_subjects = str(validation_subjects)
-        university.contacts = str(contacts)
+        university.description = description.encode("utf-8")
+        university.validation_subjects = validation_subjects.encode("utf-8")
+        university.contacts = contacts.encode("utf-8")
         university.save()
         context = {"request": request}
         serializer = UniversitySerializer(university, context=context)
-        return http_200_ok(serializer.data)
+        return http_200_ok()
 
 
 class UserProfileViewSet(CreateModelMixin,
@@ -217,11 +229,11 @@ class SubjectViewSet(CreateModelMixin,
             subject = Subject.objects.get(pk=int(subject_id))
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-        subject.difficulty_comment = str(infoSubject)
+        subject.difficulty_comment = infoSubject.encode("utf-8")
         subject.save()
         context = {"request": request}
         serializer = SubjectSerializer(subject, context=context)
-        return http_200_ok(serializer.data)
+        return http_200_ok()
 
 
 

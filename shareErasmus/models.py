@@ -33,6 +33,12 @@ class City(models.Model):
     lodging = models.CharField(max_length=4000, blank=True)
     nightlife = models.CharField(max_length=3000, blank=True)
     information_interest = models.CharField(max_length=3000, blank=True)
+    transport = models.CharField(max_length=3000, blank=True)
+    mobile_phone = models.CharField(max_length=3000, blank=True)
+    bank_account = models.CharField(max_length=3000, blank=True)
+    restaurants = models.CharField(max_length=3000, blank=True)
+    shopping = models.CharField(max_length=3000, blank=True)
+    tourism = models.CharField(max_length=4000, blank=True)
 
     def __unicode__(self):
         return self.name

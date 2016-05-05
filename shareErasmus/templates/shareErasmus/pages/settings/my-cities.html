@@ -3,6 +3,11 @@
 {% block heading %}Añade información de las ciudades donde has estudiado{% endblock %}
 {% block page_body_content %}
 <div ng-controller="EditCityCtrl">
+  <div class="call-action call-action-boxed call-action-style2 no-descripton clearfix">
+    <h4 class="primary">Aquí podrás añadir o modificar información sobre los diferentes temas que se proponen de una ciudad.
+    Si ves que lo que quieres escribir ya está, no lo repitas, aunque puedes complementarlo con más información o reescribiéndolo,
+    pero trata de no borrar nada escrito por otro compañero.</h4>
+  </div>
   <!-- Accordion -->
   <div class="panel-group" id="accordion-cities">
     {% for city in cities %}
