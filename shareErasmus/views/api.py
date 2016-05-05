@@ -151,6 +151,17 @@ class UniversityViewSet(CreateModelMixin,
         serializer = UniversitySerializer(university, context=context)
         return http_200_ok()
 
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `username` query parameter in the URL.
+        """
+        queryset = University.objects.all().order_by('name')
+        name = self.request.query_params.get('name', None)
+        if name is not None:
+            queryset = queryset.filter(name__contains=name)
+        return queryset
+
 
 class UserProfileViewSet(CreateModelMixin,
                     RetrieveModelMixin,

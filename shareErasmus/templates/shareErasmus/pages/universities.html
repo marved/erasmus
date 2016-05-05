@@ -34,10 +34,17 @@
 
         <!-- Search Widget -->
         <div class="widget widget-search">
-          <form action="#">
-            <input type="search" placeholder="Introduzca el nombre o parte del nombre de una universidad" />
-            <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-          </form>
+
+            <angucomplete-alt id="members"
+              placeholder="Buscar universidad"
+              pause="200"
+              selected-object="selectedFilterUniversity"
+              remote-url="http://192.168.56.160:1234/api/1.0/universities/?name="
+              title-field="name"
+              minlength="1"
+              input-changed="universityFiltered"
+              input-class="form-control form-control-small"/>
+
         </div>
 
         <div ng-controller="UniversitiesCtrl">
