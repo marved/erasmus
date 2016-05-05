@@ -1,21 +1,34 @@
 <div>
   <form role="form" ng-submit="updateCity()" class="contact-form" id="city-detail-form">
     <div class="form-group well well-lg">
-      <label>Añade o modifica la descripción de la ciudad:</label>
+      <label>Descripción de la ciudad:</label>
       <textarea name="message" rows="7" ng-model="infoCity.description"></textarea>
-      <label>Añade o modifica información sobre alojamiento en la ciudad:</label>
+      <label>Información sobre alojamiento en la ciudad (residencias, pisos, agencias, etc):</label>
       <textarea name="message" rows="7" ng-model="infoCity.lodging"></textarea>
-      <label>Añade o modifica información sobre precios en la ciudad:</label>
+      <label>Información sobre el transporte por la ciudad (Transporte público, taxis, etc):</label>
+      <textarea name="message" rows="7" ng-model="infoCity.transport"></textarea>
+      <label>Información sobre los precios en la ciudad (precios de cualquier cosa que te parezca relevante):</label>
       <textarea name="message" rows="7" ng-model="infoCity.prices"></textarea>
-      <label>Añade o modifica información sobre la climatología en la ciudad:</label>
+      <label>Información sobre la telefonía móvil (recomendaciones de compañías baratas, prepago, internet móvil, etc):</label>
+      <textarea name="message" rows="7" ng-model="infoCity.mobilePhone"></textarea>
+      <label>Información sobre la climatología en la ciudad:</label>
       <textarea name="message" rows="7" ng-model="infoCity.weather"></textarea>
-      <label>Añade o modifica información sobre el estilo de vida de un estudiante en la ciudad:</label>
+      <label>Información sobre el estilo de vida de un estudiante en la ciudad(puedes incluir lugares de ocio):</label>
       <textarea name="message" rows="7" ng-model="infoCity.studentLife"></textarea>
-      <label>Añade o modifica información sobre monumentos o lugares que visitar:</label>
-      <textarea name="message" rows="7" ng-model="infoCity.culture"></textarea>
-      <label>Añade o modifica información sobre la vida nocturna en la ciudad:</label>
+      <label>Información sobre la vida nocturna en la ciudad(discotecas, pubs, etc):</label>
       <textarea name="message" rows="7" ng-model="infoCity.nightlife"></textarea>
-      <label>Añade otra información que creas relevante sobre la ciudad:</label>
+      <label>Información sobre bancos o cajeros en la ciudad (recomendaciones de abrir cuenta en un banco o en otro, dónde
+        no cobran comisión por sacar dinero, etc):</label>
+      <textarea name="message" rows="7" ng-model="infoCity.bankAccount"></textarea>
+      <label>Información sobre restaurantes o bares recomendados en la ciudad:</label>
+      <textarea name="message" rows="7" ng-model="infoCity.restaurants"></textarea>
+      <label>Información sobre dónde comprar en la ciudad (supermercados, tiendas de ropa, etc):</label>
+      <textarea name="message" rows="7" ng-model="infoCity.shopping"></textarea>
+      <label>Información sobre monumentos o lugares que visitar en la ciudad:</label>
+      <textarea name="message" rows="7" ng-model="infoCity.culture"></textarea>
+      <label>Información sobre lugares interesantes que visitar fuera de la ciudad:</label>
+      <textarea name="message" rows="7" ng-model="infoCity.tourism"></textarea>
+      <label>Otra información que creas relevante sobre la ciudad:</label>
       <textarea name="message" rows="7" ng-model="infoCity.informationInterest"></textarea>
       <div class="input-group">
         <button type="submit" class="btn btn-default">Guardar</button>
