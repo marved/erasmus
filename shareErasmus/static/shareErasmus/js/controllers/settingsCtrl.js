@@ -12,6 +12,7 @@ app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', function ($scope, sh
                                     $scope.user.email,
                                     $scope.user.first_name,
                                     $scope.user.last_name,
+                                    $scope.user.is_public_email,
                                     $scope.user.password)
             .then(function (response) {
                 $scope.user =  response.data;
