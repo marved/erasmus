@@ -158,8 +158,11 @@ class UniversityViewSet(CreateModelMixin,
         """
         queryset = University.objects.all().order_by('name')
         name = self.request.query_params.get('name', None)
+        city = self.request.query_params.get('city', None)
         if name is not None:
             queryset = queryset.filter(name__contains=name)
+        if city is not None:
+            queryset = queryset.filter(city=city)
         return queryset
 
 

@@ -82,12 +82,12 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("GET", UNIVERSITIES_PATH + universityId + "/");
     };
 
-    this.getUniversityFilter = function(universityId, name) {
-        name = name || "";
+    this.getUniversityFilter = function(city) {
+        city = city || null;
         var query_params = {
-            'name': name
+            'city': city
         };
-        return _http("GET", UNIVERSITIES_PATH + universityId + "/", query_params);
+        return _http("GET", UNIVERSITIES_PATH, query_params);
     };
 
     this.getSubjects = function() {
