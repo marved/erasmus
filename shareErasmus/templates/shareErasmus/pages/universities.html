@@ -34,16 +34,14 @@
 
         <!-- Search Widget -->
         <div class="widget widget-search">
-
-            <angucomplete-alt id="members"
-              placeholder="Buscar universidad"
-              pause="200"
-              selected-object="selectedFilterUniversity"
-              remote-url="http://192.168.56.160:1234/api/1.0/universities/?name="
-              title-field="name"
-              minlength="1"
-              input-changed="universityFiltered"
-              input-class="form-control form-control-small"/>
+          <angucomplete-alt id="members"
+            placeholder="Buscar universidad"
+            pause="200"
+            selected-object="selectedFilterObject"
+            remote-url="http://192.168.56.160:1234/api/1.0/universities/?name="
+            title-field="name"
+            minlength="1"
+            input-class="form-control form-control-small"/>
 
         </div>
 
@@ -72,7 +70,9 @@
           </div>
         </div>
 
-
+<div class="input-group">
+        <button type="" ng-click="restoreFilter()" class="btn btn-default">Restaurar</button>
+      </div>
         <!-- Divider -->
         <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
         <h4>Ordenar por: <span class="head-line"></span></h4>
