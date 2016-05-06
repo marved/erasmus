@@ -38,7 +38,7 @@
             placeholder="Buscar universidad"
             pause="200"
             selected-object="selectedFilterObject"
-            remote-url="http://192.168.56.160:1234/api/1.0/universities/?name="
+            remote-url="/api/1.0/universities/?name="
             title-field="name"
             minlength="1"
             input-class="form-control form-control-small"/>
@@ -70,9 +70,9 @@
           </div>
         </div>
 
-<div class="input-group">
-        <button type="" ng-click="restoreFilter()" class="btn btn-default">Restaurar</button>
-      </div>
+        <div class="input-group" ng-show="withFilter">
+          <button type="" ng-click="restoreFilter()" class="btn-system btn-large">Mostrar todas las universidades</button>
+        </div>
         <!-- Divider -->
         <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
         <h4>Ordenar por: <span class="head-line"></span></h4>
