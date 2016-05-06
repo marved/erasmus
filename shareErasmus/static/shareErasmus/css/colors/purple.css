@@ -386,3 +386,7 @@ ul.post-meta li a:hover {
 .dot1, .dot2 {
     background-color: #6a3da3;
 }
+
+.angucomplete-selected-row {
+    background-color: #6a3da3;
+}

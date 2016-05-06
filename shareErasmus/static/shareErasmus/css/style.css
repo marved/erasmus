@@ -1101,7 +1101,7 @@ input[type="submit"] {
 .widget-search input[type="search"],
 .contact-form input[type="text"],
 .contact-form input[type="email"],
-.contact-form input[type="password"],
+.contact-form input[type="checkbox"],
 .contact-form textarea,
 .contact-form select,
 #respond input[type="text"],
@@ -1128,7 +1128,7 @@ input[type="submit"] {
 .widget-search input[type="search"]:focus,
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
-.contact-form input[type="password"]:focus,
+.contact-form input[type="checkbox"]:focus,
 .contact-form textarea:focus,
 .contact-form select:focus,
 #respond input[type="text"]:focus,
@@ -5664,8 +5664,4 @@ ul.footer-nav li a:hover {
 
 .navbar-collapse {
     max-height: 340px;
-}
-
-.well, well-lg {
-    border-radius: 0px;
 }
