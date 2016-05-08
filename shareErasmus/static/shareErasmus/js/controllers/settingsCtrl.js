@@ -67,6 +67,7 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
             $scope.filterSubjects = [];
             return;
         }
+        console.log($scope.countrySelected);
         $scope.filterCities = shareErasmusApi.loadCities($scope.cities, $scope.countrySelected);
 
     };

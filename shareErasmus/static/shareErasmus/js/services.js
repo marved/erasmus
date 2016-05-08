@@ -208,7 +208,7 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
     this.loadCities = function(cities, country) {
         var filterCities = [];
         for (var i=0; i<cities.length; i++) {
-            if (!~filterCities.indexOf(cities[i].name) && cities[i].country == country) {
+            if (!~filterCities.indexOf(cities[i]) && cities[i].country.pk == country) {
                 filterCities.push(cities[i]);
             }
         }
@@ -218,7 +218,7 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
     this.loadUniversities = function(universities, city) {
         var filterUniversities = [];
         for (var i=0; i<universities.length; i++) {
-            if (!~filterUniversities.indexOf(universities[i].name) && universities[i].city == city) {
+            if (!~filterUniversities.indexOf(universities[i]) && universities[i].city.pk == city) {
                 filterUniversities.push(universities[i]);
             }
         }
