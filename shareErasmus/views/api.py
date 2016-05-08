@@ -60,7 +60,7 @@ class CityViewSet(CreateModelMixin,
             country = Country.objects.get(pk=int(country_id))
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-        city, created = City.objects.get_or_create(name=str(city_name), country=country)
+        city, created = City.objects.get_or_create(name=city_name.encode("utf-8"), country=country)
         context = {"request": request}
         serializer = CitySerializer(city, context=context)
         if created:
@@ -150,6 +150,20 @@ class UniversityViewSet(CreateModelMixin,
         context = {"request": request}
         serializer = UniversitySerializer(university, context=context)
         return http_200_ok()
+
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `username` query parameter in the URL.
+        """
+        queryset = University.objects.all().order_by('name')
+        name = self.request.query_params.get('name', None)
+        city = self.request.query_params.get('city', None)
+        if name is not None:
+            queryset = queryset.filter(name__contains=name)
+        if city is not None:
+            queryset = queryset.filter(city=city)
+        return queryset
 
 
 class UserProfileViewSet(CreateModelMixin,

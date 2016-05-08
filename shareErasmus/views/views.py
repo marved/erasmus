@@ -15,11 +15,7 @@ class SignView(View):
 
 class UniversitiesView(View):
     def get(self, request):
-        universities = University.objects.all().order_by('name')
-        context = {
-            'universities': universities
-        }
-        return render(request, "pages/universities.html", context)
+        return render(request, "pages/universities.html")
 
 
 class UniversityDetailView(View):

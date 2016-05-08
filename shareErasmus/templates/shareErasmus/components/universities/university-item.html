@@ -1,19 +1,19 @@
 <div class="item-table highlight-plan">
   <div class="plan-name">
-    <h3>{{university.name}}</h3>
+    <h3>{% verbatim %}{{university.name}}{% endverbatim %}</h3>
   </div>
   <div class="plan-price">
     <div class="price-value"><span></span></div>
   </div>
   <div class="plan-list">
     <ul>
-      <li><strong>{{university.city}}</strong></li>
-      <li><strong>{{university.city.country}}</strong></li>
+      <li><strong>{% verbatim %}{{university.city.name}}{% endverbatim %}</strong></li>
+      <li><strong>{% verbatim %}{{university.city.country.name}}{% endverbatim %}</strong></li>
       <li><strong>X</strong> Estudiantes</li>
     </ul>
   </div>
   <div class="plan-signup">
-    <a href="/universities/{{university.pk}}" class="btn-system btn-small border-btn">Visitar</a>
+    <a href="/universities/{% verbatim %}{{university.pk}}{% endverbatim %}" class="btn-system btn-small border-btn">Visitar</a>
   </div>
 </div>
 

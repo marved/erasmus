@@ -33,39 +33,21 @@
         <h4 class="classic-title"><span>Encuentra tu universidad</span></h4>
 
         <!-- Search Widget -->
-        <div class="widget widget-search">
-          <form action="#">
-            <input type="search" placeholder="Introduzca el nombre o parte del nombre de una universidad" />
-            <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-          </form>
+        <div class="widget widget-search contact-form">
+          <angucomplete-alt id="members"
+            placeholder="Buscar universidad"
+            pause="200"
+            selected-object="selectedFilterObject"
+            remote-url="/api/1.0/universities/?name="
+            title-field="name"
+            minlength="1"
+            input-class="form-control form-control-small"/>
+
         </div>
 
-        <div ng-controller="UniversitiesCtrl">
-          <a class="" ng-click="isCollapsed = !isCollapsed">>> Búsqueda avanzada</a>
-          <hr>
-          <div uib-collapse="isCollapsed" >
-            <div class="form-group well well-lg">
-                    <label for="sel1">País:</label>
-                    <select class="form-control" id="sel1">
-                      <option></option>
-                      <option>España</option>
-                      <option>Francia</option>
-                      <option>Portugal</option>
-                      <option>Italia</option>
-                    </select>
-                    <label for="sel2">Ciudad:</label>
-                    <select class="form-control" id="sel2">
-                      <option></option>
-                      <option>Madrid</option>
-                      <option>París</option>
-                      <option>Lisboa</option>
-                      <option>Roma</option>
-                    </select>
-                  </div>
-          </div>
+        <div class="input-group" ng-show="withFilter">
+          <button type="" ng-click="restoreFilter()" class="btn-system btn-large">Mostrar todas las universidades</button>
         </div>
-
-
         <!-- Divider -->
         <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
         <h4>Ordenar por: <span class="head-line"></span></h4>
@@ -76,11 +58,9 @@
 
         <!-- Universities list -->
         <div class="row item-tables">
-          {% for university in universities %}
-          <div class="col-md-4 col-sm-4 item-university">
+          <div class="col-md-4 col-sm-4 item-university" ng-repeat="university in universities">
             {% include 'components/universities/university-item.html' %}
           </div>
-          {% endfor %}
         </div>
         <!-- End universities list -->
 
@@ -93,49 +73,15 @@
       <div class="col-md-3 sidebar right-sidebar">
 
 
-        <!-- Popular Posts widget -->
-        <div class="widget widget-popular-posts">
-          <h4>Popular Post <span class="head-line"></span></h4>
-          <ul>
-            <li>
-              <div class="widget-thumb">
-                <a href="#"><img src="images/blog-mini-01.jpg" alt="" /></a>
-              </div>
-              <div class="widget-content">
-                <h5><a href="#">How To Download The Google Fonts Catalog</a></h5>
-                <span>Jul 29 2013</span>
-              </div>
-              <div class="clearfix"></div>
-            </li>
-            <li>
-              <div class="widget-thumb">
-                <a href="#"><img src="images/blog-mini-02.jpg" alt="" /></a>
-              </div>
-              <div class="widget-content">
-                <h5><a href="#">How To Download The Google Fonts Catalog</a></h5>
-                <span>Jul 29 2013</span>
-              </div>
-              <div class="clearfix"></div>
-            </li>
-            <li>
-              <div class="widget-thumb">
-                <a href="#"><img src="images/blog-mini-03.jpg" alt="" /></a>
-              </div>
-              <div class="widget-content">
-                <h5><a href="#">How To Download The Google Fonts Catalog</a></h5>
-                <span>Jul 29 2013</span>
-              </div>
-              <div class="clearfix"></div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Video Widget -->
-        <div class="widget">
-          <h4>Video <span class="head-line"></span></h4>
-          <div>
-            <iframe src="http://player.vimeo.com/video/63322694?byline=0&amp;portrait=0&amp;badge=0" width="800" height="450"></iframe>
-          </div>
+        <div class="form-group well well-lg contact-form">
+          <label>País:</label>
+          <select ng-change="changeSelectedCountry()" class="form-control" ng-model="countrySelected" ng-options="country.pk as country.name for country in countries">
+            <option value="" selected>Seleccionar</option>
+          </select>
+          <label>Ciudad:</label>
+          <select ng-change="changeSelectedCity()" class="form-control" ng-model="citySelected" ng-options="city.pk as city.name for city in cities">
+            <option value=""selected>Seleccionar</option>
+          </select>
         </div>
 
         <!-- Tags Widget -->

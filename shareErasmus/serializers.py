@@ -9,7 +9,7 @@ class CountrySerializer(ModelSerializer):
 
 
 class CitySerializer(ModelSerializer):
-    country = CountrySerializer
+    country = CountrySerializer(required=True)
     class Meta:
         model = City
         fields = ('pk', 'name', 'country', 'description', 'lodging',
@@ -19,7 +19,7 @@ class CitySerializer(ModelSerializer):
 
 
 class UniversitySerializer(ModelSerializer):
-    city = CitySerializer
+    city = CitySerializer(required=True)
     class Meta:
         model = University
         fields = ('pk', 'name', 'city', 'description', 'validation_subjects', 'contacts')
