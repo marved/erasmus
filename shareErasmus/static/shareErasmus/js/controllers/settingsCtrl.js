@@ -1,4 +1,4 @@
-app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.user = {};
 
@@ -16,6 +16,7 @@ app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', function ($scope, sh
                                     $scope.user.password)
             .then(function (response) {
                 $scope.user =  response.data;
+                Notification.success('Datos actualizados con éxito');
                 console.log("Datos actualizados con éxito.");
         });
     };
