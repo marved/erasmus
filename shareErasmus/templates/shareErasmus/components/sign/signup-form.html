@@ -1,0 +1,13 @@
+<form class="form-signin contact-form" id="create_account_form" ng-submit="createUserSend()" method="post">
+  {% csrf_token %}
+  <!-- Classic Heading -->
+  <h2 class="form-signin-heading classic-title"><span>Registrarse</span></h2>
+  <input ng-model="user.register_email" type="email" id="register-email" class="form-control" name="register_email" placeholder="Correo electrónico" required>
+  <input ng-model="user.register_username" type="text" id="register-username" class="form-control" name="register_username" placeholder="Nombre de usuario" required>
+  <input ng-model="user.register_password" type="password" id="register-password" class="form-control" name="register_password" placeholder="Contraseña" required>
+  <input ng-model="user.register_repeat_password" type="password" id="registerPasswordRepeat" class="form-control" placeholder="Confirmar contraseña" required>
+  <div class="checkbox">
+      <label><input ng-model="confirm_privacy_policy" id="confirm-privacy-policy" type="checkbox">Confirmo que he leído y que acepto la <a target="_blank" href="/privacy_policy">política de privacidad.</a></label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" name="create_account">Crear cuenta</button>
+</form>

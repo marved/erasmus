@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from shareErasmus.models import University, Subject, UserProfile, City
 
@@ -10,7 +10,10 @@ class HomeView(View):
 
 class SignView(View):
     def get(self, request):
-        return render(request, "pages/sign.html")
+        if request.user.is_authenticated():
+            return redirect("/")
+        else:
+            return render(request, "pages/sign.html")
 
 
 class UniversitiesView(View):
