@@ -3,37 +3,12 @@
 {% block content %}
 <div class="container">
   <div class="col-sm-5" ng-controller="SignInCtrl">
-    <form class="form-signin contact-form" id="form-signin" ng-submit="signInSend()" method="post">
-      {% csrf_token %}
-      <!-- Classic Heading -->
-      <h2 class="form-signin-heading classic-title"><span>Iniciar sesión</span></h2>
-      <input ng-model="user.username" type="text" id="login-username" class="form-control" name="login_username" placeholder="Nombre de usuario" required>
-      <input ng-model="user.password" type="password" id="loginPassword" class="form-control" name="login_password" placeholder="Contraseña" required>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="remember-me"> Recordarme
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Entrar</button>
-      <a href="/request_password_reset">¿Olvidaste la contraseña?</a>
-    </form>
+    {% include 'components/sign/signin-form.html' %}
   </div>
   <div class="col-sm-1 middle-border"></div>
   <div class="col-sm-1"></div>
   <div class="col-sm-5" ng-controller="SignUpCtrl">
-    <form class="form-signin contact-form" id="create_account_form" ng-submit="createUserSend()" method="post">
-      {% csrf_token %}
-      <!-- Classic Heading -->
-      <h2 class="form-signin-heading classic-title"><span>Registrarse</span></h2>
-      <input ng-model="user.register_email" type="email" id="register-email" class="form-control" name="register_email" placeholder="Correo electrónico" required>
-      <input ng-model="user.register_username" type="text" id="register-username" class="form-control" name="register_username" placeholder="Nombre de usuario" required>
-      <input ng-model="user.register_password" type="password" id="register-password" class="form-control" name="register_password" placeholder="Contraseña" required>
-      <input ng-model="user.register_repeat_password" type="password" id="registerPasswordRepeat" class="form-control" placeholder="Confirmar contraseña" required>
-      <div class="checkbox">
-          <label><input ng-model="confirm_privacy_policy" id="confirm-privacy-policy" type="checkbox">Confirmo que he leído y que acepto la <a target="_blank" href="/privacy_policy">política de privacidad.</a></label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" name="create_account">Crear cuenta</button>
-    </form>
+    {% include 'components/sign/signup-form.html' %}
   </div>
 </div>
 {% endblock %}
