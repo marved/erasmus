@@ -102,7 +102,10 @@ class MyUniversitiesView(View):
     def get(self, request):
         if request.user.is_authenticated():
             user_id = request.user.pk
-            user = UserProfile.objects.get(pk=user_id)
+            try:
+                user = UserProfile.objects.get(pk=user_id)
+            except:
+                return render(request, "403.html")
             subjects = user.subjects.all()
             universitiesName = []
             for subject in subjects:
