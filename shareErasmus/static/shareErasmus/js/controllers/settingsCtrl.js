@@ -17,12 +17,13 @@ app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', 'Notification', func
             .then(function (response) {
                 $scope.user =  response.data;
                 Notification.success('Datos actualizados con éxito');
-                console.log("Datos actualizados con éxito.");
+        }, function(response) {
+            Notification.error("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
         });
     };
 }]);
 
-app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.user = {};
     $scope.countries = [];
@@ -68,7 +69,6 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
             $scope.filterSubjects = [];
             return;
         }
-        console.log($scope.countrySelected);
         $scope.filterCities = shareErasmusApi.loadCities($scope.cities, $scope.countrySelected);
 
     };
@@ -111,28 +111,29 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
     var addSubjectsSelectedToUser = function() {
         shareErasmusApi.addSubjectsToUser($scope.user.pk, $scope.subjectsSelected)
             .then(function (response){
-                console.log("Asignaturas añadidas con éxito al usuario.");
+                Notification.success("Asignaturas añadidas con éxito");
                 $scope.subjectsSelected = [];
         }, function(response) {
-            console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            Notification.error("Algo falló en su solicitud. Por favor, inténtelo más tarde");
         });
     };
 
     var createSubjects = function(users) {
         shareErasmusApi.createSubjects($scope.subjectsCreatedName, $scope.universitySelected, $scope.user)
             .then(function (response) {
-                console.log("Asignaturas creadas con éxito.");
+                Notification.success("Asignaturas creadas con éxito");
                 $scope.subjectsCreatedName = [];
+                if ($scope.subjectsSelected.length > 0)
+                    addSubjectsSelectedToUser();
         }, function (response) {
-            console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            Notification.error("Algo falló al intentar crear asignaturas. Por favor, recargue la página e inténtelo más tarde");
         });
     };
 
     $scope.saveSubjects = function() {
-        if ($scope.subjectsCreatedName.length > 0)
+        if ($scope.subjectsCreatedName.length > 0){
             createSubjects();
-        if ($scope.subjectsSelected.length > 0)
-            addSubjectsSelectedToUser();
+        }
     };
 
 }]);

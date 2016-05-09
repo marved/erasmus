@@ -106,7 +106,7 @@ class MyUniversitiesView(View):
             subjects = user.subjects.all()
             universitiesName = []
             for subject in subjects:
-                universitiesName.append(str(subject.university.name))
+                universitiesName.append(subject.university.name.encode("utf-8"))
 
             universitiesName = list(set(universitiesName))
             universities = []
@@ -131,7 +131,7 @@ class MySubjectsView(View):
             subjects = user.subjects.all()
             universities = []
             for subject in subjects:
-                universities.append(str(subject.university.name))
+                universities.append(subject.university.name)
 
             universities = list(set(universities))
             context = {
@@ -151,7 +151,7 @@ class MyCitiesView(View):
             subjects = user.subjects.all()
             universitiesName = []
             for subject in subjects:
-                universitiesName.append(str(subject.university.name))
+                universitiesName.append(subject.university.name)
 
             universitiesName = list(set(universitiesName))
             universities = []
