@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import RedirectView
 from shareErasmus.views.views import (
     HomeView, SignView, ContactView, UniversitiesView,
     AccountView, MyUniversitiesView, MySubjectsView,
@@ -43,8 +44,9 @@ urlpatterns = [
     url(r'^contact$', ContactView.as_view()),
     url(r'^settings/account$', AccountView.as_view()),
     url(r'^settings/universities$', MyUniversitiesView.as_view()),
-    url(r'^settings/subjects', MySubjectsView.as_view()),
-    url(r'^settings/cities', MyCitiesView.as_view()),
+    url(r'^settings/subjects$', MySubjectsView.as_view()),
+    url(r'^settings/cities$', MyCitiesView.as_view()),
+    url(r'^settings$', RedirectView.as_view(url='settings/account')),
 
     url(r'^logout$', 'shareErasmus.views.do_logout'),
 
