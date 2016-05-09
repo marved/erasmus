@@ -1,4 +1,4 @@
-app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.user = {};
 
@@ -16,12 +16,14 @@ app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', function ($scope, sh
                                     $scope.user.password)
             .then(function (response) {
                 $scope.user =  response.data;
-                console.log("Datos actualizados con éxito.");
+                Notification.success('Datos actualizados con éxito');
+        }, function(response) {
+            Notification.error("Algo falló al intentar actualizar la información de la cuenta. Por favor, inténtelo más tarde");
         });
     };
 }]);
 
-app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.user = {};
     $scope.countries = [];
@@ -67,7 +69,6 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
             $scope.filterSubjects = [];
             return;
         }
-        console.log($scope.countrySelected);
         $scope.filterCities = shareErasmusApi.loadCities($scope.cities, $scope.countrySelected);
 
     };
@@ -110,33 +111,34 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($sc
     var addSubjectsSelectedToUser = function() {
         shareErasmusApi.addSubjectsToUser($scope.user.pk, $scope.subjectsSelected)
             .then(function (response){
-                console.log("Asignaturas añadidas con éxito al usuario.");
+                Notification.success("Asignaturas añadidas con éxito");
                 $scope.subjectsSelected = [];
         }, function(response) {
-            console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            Notification.error("Algo falló en su solicitud. Por favor, inténtelo más tarde");
         });
     };
 
     var createSubjects = function(users) {
         shareErasmusApi.createSubjects($scope.subjectsCreatedName, $scope.universitySelected, $scope.user)
             .then(function (response) {
-                console.log("Asignaturas creadas con éxito.");
+                Notification.success("Asignaturas creadas con éxito");
                 $scope.subjectsCreatedName = [];
+                if ($scope.subjectsSelected.length > 0)
+                    addSubjectsSelectedToUser();
         }, function (response) {
-            console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+            Notification.error("Algo falló al intentar crear asignaturas. Por favor, recargue la página e inténtelo más tarde");
         });
     };
 
     $scope.saveSubjects = function() {
-        if ($scope.subjectsCreatedName.length > 0)
+        if ($scope.subjectsCreatedName.length > 0){
             createSubjects();
-        if ($scope.subjectsSelected.length > 0)
-            addSubjectsSelectedToUser();
+        }
     };
 
 }]);
 
-app.controller('EditUniversityCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('EditUniversityCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.university = null;
     $scope.description = "";
@@ -158,15 +160,15 @@ app.controller('EditUniversityCtrl', ['$scope', 'shareErasmusApi', function ($sc
                                             $scope.validationSubjects,
                                             $scope.contacts)
             .then(function (response){
-                console.log("Información de la universidad actualizada con éxito.");
+                Notification.success("Información de la universidad actualizada con éxito");
             }, function(response) {
-                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+                Notification.error("Algo falló al intentar actualizar información de la universidad. Por favor, inténtelo más tarde")
             });
     };
 
 }]);
 
-app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.countryName = [];
     $scope.country = [];
@@ -190,12 +192,12 @@ app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', function ($
     var createUniversity = function() {
         shareErasmusApi.createUniversity($scope.universityName, $scope.city)
             .then(function (response){
-                console.log("Universidad creada con éxito.");
+                Notification.success("Universidad creada con éxito");
                     $scope.countryName = [];
                     $scope.cityName = [];
                     $scope.universityName = [];
             }, function(response) {
-                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+                Notification.error("Algo falló al intentar crear una nueva universidad. Por favor, inténtelo más tarde");
             });
     };
 
@@ -204,9 +206,8 @@ app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', function ($
             .then(function (response){
                 $scope.city = response.data;
                 createUniversity();
-                console.log("Ciudad creada con éxito.");
             }, function(response) {
-                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+                Notification.error("Algo falló al guardar la ciudad. Por favor, inténtelo más tarde");
             });
     };
 
@@ -215,9 +216,8 @@ app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', function ($
             .then(function (response){
                 $scope.country = response.data;
                 createCity();
-                console.log("País creado con éxito.");
             }, function(response) {
-                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+                Notification.error("Algo falló al guardar el país. Por favor, inténtelo más tarde");
             });
     };
 
@@ -227,7 +227,7 @@ app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', function ($
 
 }]);
 
-app.controller('EditSubjectCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('EditSubjectCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.subject = null;
     $scope.infoSubject = "";
@@ -241,15 +241,15 @@ app.controller('EditSubjectCtrl', ['$scope', 'shareErasmusApi', function ($scope
     $scope.updateSubject = function() {
         shareErasmusApi.updateInfoSubject($scope.subject.pk, $scope.infoSubject)
             .then(function (response){
-                console.log("Información de la asignatura actualizada con éxito.");
+                Notification.success("Información de la asignatura actualizada con éxito");
             }, function(response) {
-                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+                Notification.error("Algo falló al actualizar información de la asignatura. Por favor, inténtelo más tarde");
             });
     };
 
 }]);
 
-app.controller('EditCityCtrl', ['$scope', 'shareErasmusApi', function ($scope, shareErasmusApi){
+app.controller('EditCityCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.city = null;
     $scope.infoCity = {description: "", lodging: "", transport: "",
@@ -280,9 +280,9 @@ app.controller('EditCityCtrl', ['$scope', 'shareErasmusApi', function ($scope, s
     $scope.updateCity = function() {
         shareErasmusApi.updateInfoCity($scope.city.pk, $scope.infoCity)
             .then(function (response){
-                console.log("Información de la ciudad actualizada con éxito.");
+                Notification.success("Información de la ciudad actualizada con éxito");
             }, function(response) {
-                console.log("Algo falló en su solicitud. Por favor, inténtelo más tarde.");
+                Notification.error("Algo falló al actualizar información de la ciudad. Por favor, inténtelo más tarde");
             });
     };
 

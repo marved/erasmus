@@ -1,5 +1,6 @@
+#encoding:utf-8
 from shareErasmus.models import University, UserProfile, Subject, Comment, Country, City
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, ValidationError
 
 
 class CountrySerializer(ModelSerializer):
@@ -42,6 +43,9 @@ class UserProfileSerializer(ModelSerializer):
         read_only_fields = ('pk', 'date_joined')
 
     def create(self, validated_data):
+        user = UserProfile.objects.filter(email=validated_data['email'])
+        if user:
+            raise ValidationError("email")
         user = UserProfile.objects.create_user(
             username=validated_data['username'],
             email=validated_data['email']
