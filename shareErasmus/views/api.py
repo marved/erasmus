@@ -60,7 +60,7 @@ class CityViewSet(CreateModelMixin,
             country = Country.objects.get(pk=int(country_id))
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-        city, created = City.objects.get_or_create(name=city_name.encode("utf-8"), country=country)
+        city, created = City.objects.get_or_create(name=city_name, country=country)
         context = {"request": request}
         serializer = CitySerializer(city, context=context)
         if created:
