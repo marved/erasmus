@@ -114,7 +114,7 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', 'Notification
                 Notification.success("Asignaturas añadidas con éxito");
                 $scope.subjectsSelected = [];
         }, function(response) {
-            Notification.error("Algo falló en su solicitud. Por favor, inténtelo más tarde");
+            Notification.error("Algo falló al guardar las asignaturas seleccionadas. Por favor, inténtelo más tarde");
         });
     };
 
@@ -133,6 +133,9 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', 'Notification
     $scope.saveSubjects = function() {
         if ($scope.subjectsCreatedName.length > 0){
             createSubjects();
+        }else {
+            if ($scope.subjectsSelected.length > 0)
+                    addSubjectsSelectedToUser();
         }
     };
 
