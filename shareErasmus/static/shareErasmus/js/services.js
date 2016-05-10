@@ -7,9 +7,11 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
     var USERS_PATH = "/api/1.0/users/";
     var COMMENTS_PATH = "/api/1.0/comments/";
     var SESSION_PATH = "/api/1.0/session/";
+    var PLACES_MAPS_PATH = "https://maps.googleapis.com/maps/api/place/textsearch/";
 
     var X_CSRF_TOKEN_HEADER_NAME = "X-CSRFToken";
     var COOKIE_HEADER_NAME = "Cookie";
+    var keyGeocodeMaps = "AIzaSyCQw6oD2Yt-0C_Cq9N_mxBLgZmNgUKejrk"
 
     var config = {
         headers:  {
@@ -112,6 +114,17 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
 
     this.getSession = function() {
         return _http("GET", SESSION_PATH);
+    };
+
+    this.getLatLngGoogleMaps = function(query) {
+        query = query || "";
+
+        var query_params = {
+            'query': query,
+            'key': keyGeocodeMaps
+        };
+
+        return _http("GET", PLACES_MAPS_PATH+"json", query_params);
     };
 
     this.createCountry = function(name) {
