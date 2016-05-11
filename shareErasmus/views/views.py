@@ -83,7 +83,14 @@ class SubjectDetailView(View):
         return render(request, "404.html")
 
 
-
+class UserProfileView(View):
+    def get(self, request, **kwargs):
+        username = kwargs.get("username", None)
+        try:
+            user = UserProfile.objects.get(username=username)
+        except:
+            return render(request, "404.html")
+        return render(request, "pages/user-profile.html")
 
 
 class ContactView(View):

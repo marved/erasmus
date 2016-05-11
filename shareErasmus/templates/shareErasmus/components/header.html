@@ -99,7 +99,8 @@
           </li>
           <li><a ng-class="{ active: isActive('/contact')}" href="/contact">Contacto</a>
           <li ng-show="isAuthenticated">
-            <a href="">{% verbatim %}{{user.username}}{% endverbatim %}</a>
+            <a ng-class="{ active: isActive('/users/{{user.username}}')}"
+               href="/users/{% verbatim %}{{user.username}}{% endverbatim %}">{% verbatim %}{{user.username}}{% endverbatim %}</a>
             <ul class="dropdown">
               <li><a href="/settings/account">Mi cuenta</a>
               </li>

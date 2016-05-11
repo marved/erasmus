@@ -102,6 +102,10 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("GET", USERS_PATH);
     };
 
+    this.getUser = function(userId) {
+        return _http("GET", USERS_PATH + userId + "/");
+    };
+
     this.getComments = function() {
         return _http("GET", COMMENTS_PATH);
     };
