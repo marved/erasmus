@@ -79,7 +79,7 @@
         </a>
       </div>
       <div class="navbar-collapse collapse">
-        <!-- Stat Search -->
+        <!-- Stat Search 
         <div class="search-side">
           <a class="show-search"><i class="fa fa-search"></i></a>
           <div class="search-form">
@@ -107,6 +107,8 @@
               </li>
               <li><a href="/settings/subjects">Mis asignaturas</a>
               </li>
+              <li><a href="/settings/cities">Mis ciudades</a>
+              </li>
               <li><a href="/logout">Cerrar sesión</a>
               </li>
             </ul>
@@ -122,12 +124,12 @@
     <!-- Mobile Menu Start -->
     <ul class="wpb-mobile-menu">
       <li>
-        <a class="active" href="/">Inicio</a>
+        <a  ng-class="{ active: isActive('/')}" href="/">Inicio</a>
       </li>
       <li>
-        <a href="/universities">Universidades</a>
+        <a ng-class="{ active: isActive('/universities')}" href="/universities">Universidades</a>
       </li>
-      <li><a href="/contact">Contacto</a>
+      <li><a ng-class="{ active: isActive('/contact')}" href="/contact">Contacto</a>
       <li ng-show="isAuthenticated">
         <a href="">{% verbatim %}{{user.username}}{% endverbatim %}</a>
         <ul class="dropdown">
@@ -135,12 +137,16 @@
           </li>
           <li><a href="/settings/universities">Mis universidades</a>
           </li>
+          <li><a href="/settings/subjects">Mis asignaturas</a>
+          </li>
+          <li><a href="/settings/cities">Mis ciudades</a>
+          </li>
           <li><a href="/logout">Cerrar sesión</a>
           </li>
         </ul>
       </li>
       <li ng-show="!isAuthenticated">
-        <a href="/sign">Iniciar Sesión/Registrarse</a>
+        <a ng-class="{ active: isActive('/sign')}" href="/sign">Iniciar Sesión/Registrarse</a>
       </li>
     </ul>
     <!-- Mobile Menu End -->
