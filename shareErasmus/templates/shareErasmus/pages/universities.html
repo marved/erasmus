@@ -50,12 +50,12 @@
         </div>
         <!-- Divider -->
         <div class="hr5" style="margin-top:30px; margin-bottom:45px;"></div>
-        <h4>Ordenar por: <span class="head-line"></span></h4>
+<!--        <h4>Ordenar por: <span class="head-line"></span></h4>
         <label class="radio-inline"><input type="radio" name="optradio">Nombre</label>
         <label class="radio-inline"><input type="radio" name="optradio">País</label>
         <label class="radio-inline"><input type="radio" name="optradio">Ciudad</label>
         <label class="radio-inline"><input type="radio" name="optradio">Número de estudiantes</label>
-
+-->
         <!-- Universities list -->
         <div class="row item-tables">
           <div class="col-md-4 col-sm-4 item-university" ng-repeat="university in universities">
@@ -72,34 +72,19 @@
       <!--Sidebar-->
       <div class="col-md-3 sidebar right-sidebar">
 
+        <!-- Classic Heading -->
+        <h4 class="classic-title"><span>Búsqueda por ciudad</span></h4>
 
         <div class="form-group well well-lg contact-form">
-          <label>País:</label>
+<!--          <label>País:</label>
           <select ng-change="changeSelectedCountry()" class="form-control" ng-model="countrySelected" ng-options="country.pk as country.name for country in countries">
             <option value="" selected>Seleccionar</option>
           </select>
+-->
           <label>Ciudad:</label>
           <select ng-change="changeSelectedCity()" class="form-control" ng-model="citySelected" ng-options="city.pk as city.name for city in cities">
             <option value=""selected>Seleccionar</option>
           </select>
-        </div>
-
-        <!-- Tags Widget -->
-        <div class="widget widget-tags">
-          <h4>Tags <span class="head-line"></span></h4>
-          <div class="tagcloud">
-            <a href="#">Portfolio</a>
-            <a href="#">Theme</a>
-            <a href="#">Mobile</a>
-            <a href="#">Design</a>
-            <a href="#">Wordpress</a>
-            <a href="#">Jquery</a>
-            <a href="#">CSS</a>
-            <a href="#">Modern</a>
-            <a href="#">Theme</a>
-            <a href="#">Icons</a>
-            <a href="#">Google</a>
-          </div>
         </div>
 
       </div>
