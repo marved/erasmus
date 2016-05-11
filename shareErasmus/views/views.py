@@ -46,7 +46,7 @@ class UniversityDetailView(View):
                 };
                 validation_subjects = university.validation_subjects.split("\n")
                 contacts = university.contacts.split("\n")
-                subjects = Subject.objects.all().filter(university=university_id)
+                subjects = Subject.objects.all().filter(university=university_id).order_by('name')
                 context = {
                     'university': university,
                     'subjects': subjects,

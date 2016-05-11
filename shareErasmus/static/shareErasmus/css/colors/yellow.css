@@ -390,3 +390,11 @@ ul.post-meta li a:hover {
 .angucomplete-selected-row {
     background-color: #f8ba01;
 }
+
+.university-detail-information {
+    border: 1px solid #f8ba01;
+    box-shadow: 0 0 25px rgba(248, 186, 1,0.3) inset;
+    -o-box-shadow: 0 0 25px rgba(248, 186, 1,.3) inset;
+    -moz-box-shadow: 0 0 25px rgba(248, 186, 1,.3) inset;
+    -webkit-box-shadow: 0 0 25px rgba(248, 186, 1, .3) inset;
+}

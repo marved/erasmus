@@ -5667,3 +5667,35 @@ ul.footer-nav li a:hover {
 .navbar-collapse {
     max-height: 340px;
 }
+
+/* University detail*/
+.university-detail-subjects-list {
+    overflow-y: scroll;
+    max-height: 402px;
+}
+
+.university-detail-subject-boxed {
+    padding: 15px 20px;
+}
+
+.university-detail-subject {
+    background: #f8f8f8;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 0 25px rgba(0,0,0,.04) inset;
+    -o-box-shadow: 0 0 25px rgba(0,0,0,.04) inset;
+    -moz-box-shadow: 0 0 25px rgba(0,0,0,.04) inset;
+    -webkit-box-shadow: 0 0 25px rgba(0,0,0,.04) inset;
+}
+
+.university-detail-city, .university-detail {
+    padding-top: 56px;
+}
+
+.university-detail-information-boxed, .university-detail-city-boxed {
+    padding: 14px 16px;
+}
+
+.city-information-tittle {
+    line-height: 30px;
+}
+
