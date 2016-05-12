@@ -1,4 +1,5 @@
 {% extends 'base-pages.html' %}
+{% load staticfiles %}
 {% block page_title %}Usuario{% endblock %}
 {% block page_body_content %}
 <!-- Start Page Banner -->
@@ -6,7 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h2>Usuario</h2>
+        <h2>{{user.username}}</h2>
       </div>
       <div class="col-md-6">
         <ul class="breadcrumbs">
@@ -21,7 +22,73 @@
 <!-- Start Content -->
 <div id="content" ng-controller="UserProfileCtrl">
   <div class="container">
-PÁGINA DE USUARIO
+    <!-- Start Team Members -->
+    <div class="row">
+
+      <!-- Start Member -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="team-member">
+          <!-- Member Photo, Name & Position -->
+          <div class="member-photo">
+            <img alt="" src="{% static '/static/shareErasmus/images/avatar.png' %}" />
+            <div class="member-name">{{user.first_name}} {{user.last_name}}
+            {% if user.is_public_email %}
+              <span>{{user.email}}</span>
+            {% endif %}
+            </div>
+          </div>
+          <!-- Member Words -->
+          <div class="member-info">
+          </div>
+          <!-- Member Social Links -->
+          <div class="member-socail">
+            <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+            <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+            <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+            <a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
+            <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <div class="tabs-section">
+          <!-- Nav Tabs -->
+          <ul class="nav nav-tabs">
+            {% for university in universities %}
+            <li><a href="#user-university-{{university.pk}}" data-toggle="tab" ng-click="changeUniversity({{university.pk}})"><i class="fa fa-university"></i>{{university.name}}</a></li>
+            {% endfor %}
+          </ul>
+
+          <!-- Tab panels -->
+          <div class="tab-content">
+            {% for university in universities %}
+            <!-- Tab Content 1 -->
+            <div ng-class="{ in: isActive({{university.pk}}), active: isActive({{university.pk}})}" class="tab-pane fade" id="university-{{university.pk}}">
+              <!-- Classic Heading -->
+              <h4 class="classic-title"><span>Asignaturas cursadas en <strong class="accent-color">{{university.name}}</strong></span></h4>
+              <!-- Start Subjects -->
+              <div class="university-detail-subjects-list">
+              {% for subject in subjects %}
+                {% if subject.university.pk == university.pk %}
+                <div class="call-action university-detail-subject-boxed university-detail-subject no-descripton clearfix">
+                  <div class="button-side"><a href="/universities/{{university.pk}}/{{subject.pk}}" class="btn-system border-btn btn-medium">Ver</a></div>
+                  <h2 class="primary">{{subject.name}}</h2>
+                </div>
+                {% endif %}
+              {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+          <!-- End Tab Panels -->
+        </div>
+      </div>
+      <!-- End Member -->
+
+    </div>
+    <!-- End Team Members -->
   </div>
 </div>
 <!-- End Content -->
