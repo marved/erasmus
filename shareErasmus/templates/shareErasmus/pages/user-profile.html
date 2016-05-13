@@ -30,7 +30,7 @@
         <div class="team-member">
           <!-- Member Photo, Name & Position -->
           <div class="member-photo">
-            <img alt="" src="{% static '/static/shareErasmus/images/avatar.png' %}" />
+            <img alt="" src="{% static '/static/shareErasmus/images/nophoto.png' %}" />
             <div class="member-name">{{user.first_name}} {{user.last_name}}
             {% if user.is_public_email %}
               <span>{{user.email}}</span>
