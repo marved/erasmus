@@ -1,9 +1,11 @@
 app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.user = {};
+    $scope.checked = false;
 
     shareErasmusApi.getSession().then(function (response) {
         $scope.user = response.data;
+        $scope.checked = $scope.user.is_public_email;
     });
 
     $scope.updateUserSend = function() {

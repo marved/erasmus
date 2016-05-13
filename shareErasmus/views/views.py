@@ -83,7 +83,33 @@ class SubjectDetailView(View):
         return render(request, "404.html")
 
 
+class UserProfileView(View):
+    def get(self, request, **kwargs):
+        username = kwargs.get("username", None)
+        try:
+            user = UserProfile.objects.get(username=username)
+        except:
+            return render(request, "404.html")
 
+        subjects = user.subjects.all()
+        universitiesName = []
+        for subject in subjects:
+            universitiesName.append(subject.university.name.encode("utf-8"))
+
+        universitiesName = list(set(universitiesName))
+        universities = []
+        for universityName in universitiesName:
+            try:
+                universities.append(University.objects.get(name=universityName))
+            except:
+                pass
+
+        context = {
+                'user': user,
+                'universities': universities,
+                'subjects': subjects
+            }
+        return render(request, "pages/user-profile.html", context)
 
 
 class ContactView(View):

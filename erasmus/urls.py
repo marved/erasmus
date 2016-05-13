@@ -20,7 +20,7 @@ from shareErasmus.views.views import (
     HomeView, SignView, ContactView, UniversitiesView,
     AccountView, MyUniversitiesView, MySubjectsView,
     MyCitiesView, UniversityDetailView, SubjectDetailView,
-    PrivacyPolicyView)
+    UserProfileView, PrivacyPolicyView)
 from shareErasmus.views.api import (CountryViewSet, CityViewSet, UniversityViewSet, UserProfileViewSet,
                                     SubjectViewSet, CommentViewSet, SessionAPIView)
 from rest_framework import routers
@@ -49,6 +49,7 @@ urlpatterns = [
     url(r'^settings/cities$', MyCitiesView.as_view()),
     url(r'^settings$', RedirectView.as_view(url='settings/account')),
     url(r'^privacy_policy$', PrivacyPolicyView.as_view()),
+    url(r'^users/(?P<username>.+)$', UserProfileView.as_view()),
 
     url(r'^logout$', 'shareErasmus.views.do_logout'),
 
