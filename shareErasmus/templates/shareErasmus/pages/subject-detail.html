@@ -27,8 +27,10 @@
   <div class="container">
     <div class="row blog-post-page">
       <div class="col-md-9 blog-box">
+        {% if subect.credits_ects != None %}
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Número de créditos:  <strong>{{subject.credits_ects}}</strong></span></h4>
+        {% endif %}
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Dificultad de la asignatura</span></h4>
         <!-- Single Testimonial -->
@@ -38,7 +40,7 @@
             <p>- {{comment}}</p>
             {% endfor %}
             <a href="/settings/subjects">
-              <i class="fa fa-plus"></i> Editar
+              <i class="fa fa-edit"></i> Editar
             </a>
           </div>
         </div>

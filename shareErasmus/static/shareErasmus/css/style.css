@@ -5665,6 +5665,11 @@ ul.footer-nav li a:hover {
     max-height: 340px;
 }
 
+/* My subjects*/
+.my-subjects-university-tittle {
+    margin: 10px 0;
+}
+
 /* University detail*/
 .university-detail-subjects-list {
     overflow-y: scroll;

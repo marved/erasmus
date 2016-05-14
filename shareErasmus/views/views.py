@@ -160,12 +160,12 @@ class MySubjectsView(View):
         if request.user.is_authenticated():
             user_id = request.user.pk
             user = UserProfile.objects.get(pk=user_id)
-            subjects = user.subjects.all()
+            subjects = user.subjects.all().order_by('name')
             universities = []
             for subject in subjects:
                 universities.append(subject.university.name)
 
-            universities = list(set(universities))
+            universities = sorted(list(set(universities)))
             context = {
                 'subjects': subjects,
                 'universities': universities
@@ -196,7 +196,7 @@ class MyCitiesView(View):
             cities = []
             for university in universities:
                 cities.append(university.city)
-            cities = list(set(cities))
+            cities = sorted(list(set(cities)))
             context = {
                 'cities': cities
             }
