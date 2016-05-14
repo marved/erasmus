@@ -237,13 +237,15 @@ class SubjectViewSet(CreateModelMixin,
          #   return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
 
     def partial_update(self, request, *args, **kwargs):
-        infoSubject = request.data.get("infoSubject", None)
+        difficulty = request.data.get("difficulty", None)
+        credits_ects = request.data.get("creditsEcts", None)
         subject_id = kwargs.get("pk", None)
         try:
             subject = Subject.objects.get(pk=int(subject_id))
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-        subject.difficulty_comment = infoSubject.encode("utf-8")
+        subject.difficulty_comment = difficulty.encode("utf-8")
+        subject.credits_ects = credits_ects
         subject.save()
         context = {"request": request}
         serializer = SubjectSerializer(subject, context=context)

@@ -58,6 +58,7 @@ class Subject(models.Model):
     difficulty = models.CharField(max_length=1, choices=hardness_choices, blank=True)
     university = models.ForeignKey(University)
     difficulty_comment = models.TextField(max_length=6000, blank=True)
+    credits_ects = models.IntegerField(blank=True, null=True)
 
     def __unicode__(self):
         return self.name

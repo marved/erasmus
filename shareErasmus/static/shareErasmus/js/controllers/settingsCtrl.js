@@ -235,16 +235,18 @@ app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', 'Notificati
 app.controller('EditSubjectCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.subject = null;
-    $scope.infoSubject = "";
+    $scope.difficulty = "";
+    $scope.creditsEcts = "";
     $scope.getSubject = function(subjectId) {
         shareErasmusApi.getSubject(subjectId).then(function (response) {
             $scope.subject = response.data;
-            $scope.infoSubject = $scope.subject.difficulty_comment;
+            $scope.difficulty = $scope.subject.difficulty_comment;
+            $scope.creditsEcts = $scope.subject.credits_ects;
         });
     };
 
     $scope.updateSubject = function() {
-        shareErasmusApi.updateInfoSubject($scope.subject.pk, $scope.infoSubject)
+        shareErasmusApi.updateInfoSubject($scope.subject.pk, $scope.difficulty, $scope.creditsEcts)
             .then(function (response){
                 Notification.success("Información de la asignatura actualizada con éxito");
             }, function(response) {

@@ -242,11 +242,13 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("POST", SUBJECTS_PATH, null, form_params);
     };
 
-    this.updateInfoSubject = function(subjectId, infoSubject) {
-        infoSubject = infoSubject || "";
+    this.updateInfoSubject = function(subjectId, difficulty, creditsEcts) {
+        difficulty = difficulty || "";
+        creditsEcts = creditsEcts || "";
 
         var form_params = {
-            'infoSubject': infoSubject
+            'difficulty': difficulty,
+            'creditsEcts': creditsEcts
         };
         return _http("PATCH", SUBJECTS_PATH + subjectId + "/", null, form_params);
     };
