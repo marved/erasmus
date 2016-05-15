@@ -42,11 +42,11 @@
 
         <div class="university-detail">
           <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Contactos en la universidad</span></h4>
+          <h4 class="classic-title"><span>Descripción de la universidad</span></h4>
           <!-- Start Call Action -->
           <div class="call-action university-detail-information-boxed university-detail-information no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in contacts %}
+            {% for paragraph in description %}
             <p>- {{paragraph}}</p>
             {% endfor %}
             <!-- Call Action Button -->
@@ -57,170 +57,17 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-description" class="university-detail-city">
+        <div class="university-detail">
           <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Descripción general de la ciudad</span></h4>
+          <h4 class="classic-title"><span>Contactos en la universidad</span></h4>
           <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+          <div class="call-action university-detail-information-boxed university-detail-information no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.description %}
+            {% for paragraph in contacts %}
             <p>- {{paragraph}}</p>
             {% endfor %}
             <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-transport" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Transporte</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.transport %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-culture" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Cultura</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.culture %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-prices" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Precios</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.prices %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-nightlife" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Salir por la noche</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.nightlife %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-weather" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>El clima</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.weather %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-bank-account" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Cuentas bancarias</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.bank_account %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-restaurants" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Dónde comer</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.restaurants %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-shopping" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Dónde comprar</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.shopping %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-tourism" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Turismo fuera de la ciudad</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.tourism %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
+            <a href="/settings/universities">
               <i class="fa fa-edit"></i> Editar
             </a>
           </div>
@@ -250,23 +97,6 @@
 
         <div class="university-detail">
           <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Descripción de la universidad</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-information-boxed university-detail-information no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in description %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/universities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div class="university-detail">
-          <!-- Classic Heading -->
           <h4 class="classic-title"><span>Convalidaciones de asignaturas</span></h4>
           <!-- Start Call Action -->
           <div class="call-action university-detail-information-boxed university-detail-information no-descripton clearfix">
@@ -282,74 +112,6 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-student-life" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Vida estudiantil</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.student_life %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-          </div>
-
-        <div id="city-lodging" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Alojamientos</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.lodging %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-mobile-phone" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Telefonía móvil</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.mobile_phone %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
-        <div id="city-information-interest" class="university-detail-city">
-          <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Otra información de interés</span></h4>
-          <!-- Start Call Action -->
-          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
-            <!-- Call Action Text -->
-            {% for paragraph in info_city.information_interest %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
-            <!-- Call Action Button -->
-            <a href="/settings/cities">
-              <i class="fa fa-edit"></i> Editar
-            </a>
-          </div>
-          <!-- End Call Action -->
-        </div>
-
       </div>
       <!-- End Center Page Content-->
 
@@ -358,7 +120,7 @@
 
         <!-- Categories Widget -->
         <div class="widget widget-categories">
-          <h4 class="classic-title city-information-tittle"><span>Información de la ciudad</span></h4>
+          <h4 class="classic-title"><span><a href="#city-about">Sobre la ciudad</a></span></h4>
           <ul>
             <li>
               <a href="#city-description">Descripción general</a>
@@ -405,13 +167,266 @@
           </ul>
         </div>
 
-
       </div>
       <!--End right Page Content-->
-
     </div>
+
+    <!--City information-->
+    <div class="row sidebar-page">
+      <!-- Classic Heading -->
+      <h2 id="city-about" class="classic-title university-city-title"><span>Sobre la ciudad</span></h4>
+      <div class="col-md-5 page-content">
+
+        <div id="city-description" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Descripción general de la ciudad</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.description %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-transport" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Transporte</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.transport %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-weather" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>El clima</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.weather %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-nightlife" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Salir por la noche</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.nightlife %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-bank-account" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Cuentas bancarias</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.bank_account %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-shopping" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Dónde comprar</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.shopping %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-tourism" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Turismo fuera de la ciudad</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.tourism %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+      </div>
+
+      <div class="col-md-5 page-content">
+
+        <div id="city-lodging" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Alojamientos</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.lodging %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-prices" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Precios</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.prices %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-mobile-phone" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Telefonía móvil</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.mobile_phone %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-student-life" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Vida estudiantil</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.student_life %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-restaurants" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Dónde comer</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.restaurants %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-culture" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Cultura</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.culture %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+        <div id="city-information-interest" class="university-detail-city">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Otra información de interés</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            {% for paragraph in info_city.information_interest %}
+            <p>- {{paragraph}}</p>
+            {% endfor %}
+            <!-- Call Action Button -->
+            <a href="/settings/cities">
+              <i class="fa fa-edit"></i> Editar
+            </a>
+          </div>
+          <!-- End Call Action -->
+        </div>
+
+      </div>
+
+      <div class="col-md-2 sidebar right-sidebar">
+
+      </div>
+    </div>
+
     <div class="row blog-post-page">
-      <div class="col-md-9 blog-box">
+      <div class="col-md-12 blog-box">
 
         <!-- Start Comment Area -->
         <div id="comments">

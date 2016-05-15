@@ -28,38 +28,40 @@ class UniversityDetailView(View):
         if university_id:
             try:
                 university = University.objects.get(pk=university_id)
-                description = university.description.split("\n")
-                info_city = {'description': university.city.description.split("\n"),
-                             'lodging': university.city.lodging.split("\n"),
-                             'transport': university.city.transport.split("\n"),
-                             'prices': university.city.prices.split("\n"),
-                             'mobile_phone': university.city.mobile_phone.split("\n"),
-                             'weather': university.city.weather.split("\n"),
-                             'student_life': university.city.student_life.split("\n"),
-                             'nightlife': university.city.nightlife.split("\n"),
-                             'bank_account': university.city.bank_account.split("\n"),
-                             'restaurants': university.city.restaurants.split("\n"),
-                             'shopping': university.city.shopping.split("\n"),
-                             'culture': university.city.culture.split("\n"),
-                             'tourism': university.city.tourism.split("\n"),
-                             'information_interest': university.city.information_interest.split("\n")
-                };
-                validation_subjects = university.validation_subjects.split("\n")
-                contacts = university.contacts.split("\n")
-                subjects = Subject.objects.all().filter(university=university_id).order_by('name')
-                context = {
-                    'university': university,
-                    'subjects': subjects,
-                    'description': description,
-                    'validation_subjects': validation_subjects,
-                    'contacts': contacts,
-                    'info_city': info_city
-                }
-                return render(request, "pages/university-detail.html", context)
             except:
-                pass
+                return render(request, "404.html")
 
-        return render(request, "404.html")
+            description = university.description.split("\n")
+            info_city = {'description': university.city.description.split("\n"),
+                         'lodging': university.city.lodging.split("\n"),
+                         'transport': university.city.transport.split("\n"),
+                         'prices': university.city.prices.split("\n"),
+                         'mobile_phone': university.city.mobile_phone.split("\n"),
+                         'weather': university.city.weather.split("\n"),
+                         'student_life': university.city.student_life.split("\n"),
+                         'nightlife': university.city.nightlife.split("\n"),
+                         'bank_account': university.city.bank_account.split("\n"),
+                         'restaurants': university.city.restaurants.split("\n"),
+                         'shopping': university.city.shopping.split("\n"),
+                         'culture': university.city.culture.split("\n"),
+                         'tourism': university.city.tourism.split("\n"),
+                         'information_interest': university.city.information_interest.split("\n")
+            };
+            validation_subjects = university.validation_subjects.split("\n")
+            contacts = university.contacts.split("\n")
+            subjects = Subject.objects.all().filter(university=university_id).order_by('name')
+            context = {
+                'university': university,
+                'subjects': subjects,
+                'description': description,
+                'validation_subjects': validation_subjects,
+                'contacts': contacts,
+                'info_city': info_city
+            }
+            return render(request, "pages/university-detail.html", context)
+
+        else:
+            return render(request, "404.html")
 
 
 class SubjectDetailView(View):

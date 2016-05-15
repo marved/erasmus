@@ -5689,7 +5689,7 @@ ul.footer-nav li a:hover {
     -webkit-box-shadow: 0 0 25px rgba(0,0,0,.04) inset;
 }
 
-.university-detail-city, .university-detail {
+.university-detail-city, .university-detail, .university-city-title {
     padding-top: 56px;
 }
 
@@ -5697,7 +5697,6 @@ ul.footer-nav li a:hover {
     padding: 14px 16px;
 }
 
-.city-information-tittle {
-    line-height: 30px;
+.university-city-title {
+    text-align: center;
 }
-
