@@ -7,7 +7,6 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
     var USERS_PATH = "/api/1.0/users/";
     var COMMENTS_PATH = "/api/1.0/comments/";
     var SESSION_PATH = "/api/1.0/session/";
-    var PLACES_MAPS_PATH = "https://maps.googleapis.com/maps/api/place/textsearch/";
 
     var X_CSRF_TOKEN_HEADER_NAME = "X-CSRFToken";
     var COOKIE_HEADER_NAME = "Cookie";
