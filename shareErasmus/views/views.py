@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from shareErasmus.models import University, Subject, UserProfile, City
-
+from shareErasmus.views.maps import getLatLngData
 
 class HomeView(View):
     def get(self, request):
@@ -30,6 +30,12 @@ class UniversityDetailView(View):
                 university = University.objects.get(pk=university_id)
             except:
                 return render(request, "404.html")
+
+            if university.latitude == None or university.longitude == None:
+                latLng = getLatLngData(university.name, university.city.name)
+                university.latitude = latLng['lat']
+                university.longitude = latLng['lng']
+                university.save()
 
             description = university.description.split("\n")
             info_city = {'description': university.city.description.split("\n"),

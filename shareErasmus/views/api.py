@@ -17,6 +17,7 @@ from shareErasmus.views.responses import (
     INVALID_CREDENTIALS_ERROR_MSG, http_403_forbidden,
     USER_NOT_AUTHENTICATED_ERROR_MSG
 )
+from shareErasmus.views.maps import getLatLngData
 
 class CountryViewSet(CreateModelMixin,
                     RetrieveModelMixin,
@@ -128,6 +129,12 @@ class UniversityViewSet(CreateModelMixin,
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
         university, created = University.objects.get_or_create(name=university_name, city=city)
+        if created:
+            latLng = getLatLngData(university.name, university.city.name)
+            university.latitude = latLng['lat']
+            university.longitude = latLng['lng']
+            university.save()
+
         context = {"request": request}
         serializer = UniversitySerializer(university, context=context)
         if created:

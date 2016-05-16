@@ -49,6 +49,8 @@ class University(models.Model):
     description = models.CharField(max_length=3000, blank=True)
     validation_subjects = models.CharField(max_length=4000, blank=True)
     contacts = models.CharField(max_length=3000, blank=True)
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
 
     def __unicode__(self):
         return self.name

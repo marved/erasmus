@@ -5676,6 +5676,7 @@ ul.footer-nav li a:hover {
 .university-detail-subjects-list {
     overflow-y: scroll;
     max-height: 402px;
+    margin-top: 29px;
 }
 
 .university-detail-subject-boxed {
@@ -5701,4 +5702,9 @@ ul.footer-nav li a:hover {
 
 .university-city-title {
     text-align: center;
+}
+
+.university-detail-map {
+    width: 360px;
+    height: 300px;
 }
