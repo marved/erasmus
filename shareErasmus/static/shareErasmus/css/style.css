@@ -5705,6 +5705,11 @@ ul.footer-nav li a:hover {
 }
 
 .university-detail-map {
-    width: 360px;
+    width: 100%;
     height: 300px;
+}
+
+.university-map {
+    width: 100%;
+    height: 200px;
 }

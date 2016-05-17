@@ -3,13 +3,14 @@ app.controller('UniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scop
     $scope.isCollapsed = true;
     $scope.withFilter = false;
     $scope.universities = [];
+    $scope.universitiesMaps = [];
     $scope.selectedFilterObject = null;
     $scope.selectedFilterUniversity = null;
     $scope.cities = [];
     $scope.countries = [];
     $scope.countrySelected = null;
     $scope.citySelected = null;
-
+    $scope.a = null;
     shareErasmusApi.getCities().then(function (response) {
         $scope.cities = response.data;
     });
@@ -20,6 +21,7 @@ app.controller('UniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scop
 
     shareErasmusApi.getUniversities().then(function (response) {
         $scope.universities = response.data;
+        setTimeout(function(){$scope.initMap()}, 100);
     });
 
     $scope.$watch("selectedFilterObject",function(newValue,oldValue) {
@@ -46,12 +48,27 @@ app.controller('UniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scop
     };
 
     $scope.changeSelectedCity = function() {
-        console.log($scope.citySelected);
         shareErasmusApi.getUniversityFilter($scope.citySelected).then(function (response) {
             $scope.universities = response.data;
-            console.log(response.data);
             $scope.withFilter = true;
         });
+    };
+
+    $scope.initMap = function() {
+        for (var i=0; i<$scope.universities.length; i++) {
+            // Create a map object and specify the DOM element for display.
+            var mapElement = document.getElementById("university-"+$scope.universities[i].pk+"-map");
+            if( null === mapElement ) {
+                console.log("ss");
+                continue;
+              }
+            var map = new google.maps.Map(mapElement, {
+            center: {lat: $scope.universities[i].latitude, lng: $scope.universities[i].longitude},
+            scrollwheel: false,
+            zoom: 14,
+            mapTypeId: google.maps.MapTypeId.TERRAIN
+            });
+        }
     };
 
 
