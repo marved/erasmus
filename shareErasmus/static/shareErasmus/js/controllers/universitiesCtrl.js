@@ -31,6 +31,7 @@ app.controller('UniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scop
                 $scope.universities = [];
                 $scope.universities.push(response.data);
                 $scope.withFilter = true;
+                setTimeout(function(){$scope.initMap()}, 50);
             });
           return;
         }
@@ -40,6 +41,7 @@ app.controller('UniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scop
         $scope.withFilter = false;
         shareErasmusApi.getUniversities().then(function (response) {
             $scope.universities = response.data;
+            setTimeout(function(){$scope.initMap()}, 50);
         });
     };
 
@@ -50,6 +52,7 @@ app.controller('UniversitiesCtrl', ['$scope', 'shareErasmusApi', function ($scop
     $scope.changeSelectedCity = function() {
         shareErasmusApi.getUniversityFilter($scope.citySelected).then(function (response) {
             $scope.universities = response.data;
+            setTimeout(function(){$scope.initMap()}, 50);
             $scope.withFilter = true;
         });
     };
