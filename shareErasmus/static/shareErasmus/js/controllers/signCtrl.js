@@ -7,29 +7,35 @@ app.controller('SignUpCtrl', ['$scope', 'shareErasmusApi', 'Notification', funct
             Notification.warning("Debes aceptar la política de privacidad");
             $("#confirm-privacy-policy").focus();
             return;
-        }
-        shareErasmusApi.createUser($scope.user.register_email, $scope.user.register_username, $scope.user.register_password)
-            .then(function (response) {
-                $scope.user = {"register_email": "", "register_username": "", "register_password": "", "register_repeat_password": ""};
-                Notification.success("Cuenta creada con éxito");
-        }, function (response) {
-                if (response.data.hasOwnProperty('email')) {
-                    Notification.error("El correo electrónico ya existe");
-                    $("#register-email").focus();
-                } else if (response.data.hasOwnProperty('username')){
-                    Notification.warning(response.data.username[0]);
-                    $("#email-or-phone-number").focus();
-                } else if (response.data.hasOwnProperty('password')){
-                    Notification.warning(response.data.password[0]);
-                    $("#register-password").focus();
-                } else if (response.data[0] == "email"){
-                    Notification.warning("El correo electrónico ya está registrado");
-                } else {
-                    console.log(response.data);
-                    Notification.error("Algo falló al crear la cuenta. Por favor, inténtelo más tarde");
+        }else if ($scope.user.register_password != $scope.user.register_repeat_password) {
+          Notification.error("Las contraseñas deben coincidir");
+          return;
+        }else {
+            shareErasmusApi.createUser($scope.user.register_email, $scope.user.register_username, $scope.user.register_password)
+                .then(function (response) {
+                    $scope.user = {"register_email": "", "register_username": "", "register_password": "", "register_repeat_password": ""};
+                    Notification.success("Cuenta creada con éxito");
+            }, function (response) {
+                    if (response.data.hasOwnProperty('email')) {
+                        Notification.error("El correo electrónico ya existe");
+                        $("#register-email").focus();
+                    } else if (response.data.hasOwnProperty('username')){
+                        Notification.warning(response.data.username[0]);
+                        $("#email-or-phone-number").focus();
+                    } else if (response.data.hasOwnProperty('password')){
+                        Notification.warning(response.data.password[0]);
+                        $("#register-password").focus();
+                    } else if (response.data[0] == "email"){
+                        Notification.warning("El correo electrónico ya está registrado");
+                    } else {
+                        console.log(response.data);
+                        Notification.error("Algo falló al crear la cuenta. Por favor, inténtelo más tarde");
 
-                }
-        });
+                    }
+            });
+        }
+
+
     };
 }]);
 
