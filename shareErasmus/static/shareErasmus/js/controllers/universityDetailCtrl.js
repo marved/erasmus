@@ -28,4 +28,8 @@ app.controller('UniversityDetailCtrl', ['$scope', 'shareErasmusApi', 'Notificati
       });
     };
 
+    $scope.WithInformation = function() {
+
+    };
+
 }]);

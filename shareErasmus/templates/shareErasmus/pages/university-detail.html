@@ -48,9 +48,9 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-information-boxed university-detail-information no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in description %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+
+             {{university.description|safe}}
+
             <!-- Call Action Button -->
             <a href="/settings/universities">
               <i class="fa fa-edit"></i> Editar
@@ -103,9 +103,9 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-information-boxed university-detail-information no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in validation_subjects %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+
+            <p ng-bind-html="university.validation_subjects|textToHtml"></p>
+
             <!-- Call Action Button -->
             <a href="/settings/universities">
               <i class="fa fa-edit"></i> Editar
@@ -167,6 +167,7 @@
               <a href="#city-information-interest">Otra información de interés</a>
             </li>
           </ul>
+          <a href="#" class="  border-btn btn-gray"><i class="fa fa-plus-circle"></i> Mostrar todo</a>
         </div>
 
       </div>
@@ -176,7 +177,7 @@
     <!--City information-->
     <div class="row sidebar-page">
       <!-- Classic Heading -->
-      <h2 id="city-about" class="classic-title university-city-title"><span>Sobre la ciudad</span></h4>
+      <h2 id="city-about" class="classic-title university-city-title"><span>Sobre la ciudad</span></h2>
       <div class="col-md-5 page-content">
 
         <div id="city-description" class="university-detail-city">
@@ -307,9 +308,9 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.lodging %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+
+            <p>- {{university.city.lodging}}</p>
+
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
