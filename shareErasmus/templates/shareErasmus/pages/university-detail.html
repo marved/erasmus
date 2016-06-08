@@ -48,9 +48,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-information-boxed university-detail-information no-descripton clearfix">
             <!-- Call Action Text -->
-
-             {{university.description|safe}}
-
+             <p ng-bind-html="university.description|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/universities">
               <i class="fa fa-edit"></i> Editar
@@ -65,9 +63,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-information-boxed university-detail-information no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in contacts %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.contacts|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/universities">
               <i class="fa fa-edit"></i> Editar
@@ -103,9 +99,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-information-boxed university-detail-information no-descripton clearfix">
             <!-- Call Action Text -->
-
             <p ng-bind-html="university.validation_subjects|textToHtml"></p>
-
             <!-- Call Action Button -->
             <a href="/settings/universities">
               <i class="fa fa-edit"></i> Editar
@@ -186,9 +180,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.description %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.description|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -203,9 +195,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.transport %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.transport|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -220,9 +210,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.weather %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.weather|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -237,9 +225,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.nightlife %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.nightlife|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -254,9 +240,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.bank_account %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.bank_account|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -271,9 +255,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.shopping %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.shopping|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -288,9 +270,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.tourism %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.tourism|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -308,9 +288,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-
-            <p>- {{university.city.lodging}}</p>
-
+            <p ng-bind-html="university.city.lodging|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -325,9 +303,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.prices %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.prices|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -342,9 +318,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.mobile_phone %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.mobile_phone|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -359,9 +333,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.student_life %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.student_life|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -376,9 +348,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.restaurants %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.restaurants|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -393,9 +363,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.culture %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.culture|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
@@ -410,9 +378,7 @@
           <!-- Start Call Action -->
           <div class="call-action university-detail-city-boxed call-action-style1 no-descripton clearfix">
             <!-- Call Action Text -->
-            {% for paragraph in info_city.information_interest %}
-            <p>- {{paragraph}}</p>
-            {% endfor %}
+            <p ng-bind-html="university.city.information_interest|textToHtml"></p>
             <!-- Call Action Button -->
             <a href="/settings/cities">
               <i class="fa fa-edit"></i> Editar
