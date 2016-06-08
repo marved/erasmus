@@ -21,7 +21,7 @@ app.filter('textToHtml', ['$sce', 'htmlEscapeFilter', function($sce, htmlEscapeF
 
         var output = '';
         $.each(input.split("\n"), function(key, paragraph) {
-            output += '<p>- ' + paragraph + '</p>';
+            output += '<p>' + paragraph + '</p>';
         });
 
         return $sce.trustAsHtml(output);
