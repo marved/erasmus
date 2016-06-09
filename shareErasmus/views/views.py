@@ -59,8 +59,7 @@ class SubjectDetailView(View):
                 if subject.university.pk == int(university_id):
                     difficulty_comments = subject.difficulty_comment.split("\n")
                     context = {
-                        'subject': subject,
-                        'difficulty_comments': difficulty_comments
+                        'subject': subject
                     }
                     return render(request, "pages/subject-detail.html", context)
             except:
