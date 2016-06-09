@@ -58,11 +58,7 @@ class UniversityDetailView(View):
             subjects = Subject.objects.all().filter(university=university_id).order_by('name')
             context = {
                 'university': university,
-                'subjects': subjects,
-                'description': description,
-                'validation_subjects': validation_subjects,
-                'contacts': contacts,
-                'info_city': info_city
+                'subjects': subjects
             }
             return render(request, "pages/university-detail.html", context)
 

@@ -5700,6 +5700,12 @@ ul.footer-nav li a:hover {
     padding: 14px 16px;
 }
 
+.university-detail-information-boxed p, .university-detail-city-boxed p {
+    text-align: justify;
+    margin-bottom: 8px;
+    text-indent: 30px;
+}
+
 .university-city-title {
     text-align: center;
 }
