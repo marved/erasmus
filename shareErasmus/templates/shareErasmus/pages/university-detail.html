@@ -118,50 +118,51 @@
         <div class="widget widget-categories">
           <h4 class="classic-title"><span><a href="#city-about">Sobre la ciudad</a></span></h4>
           <ul>
-            <li>
+            <li ng-show="withInformation(university.city.description) || showAll">
               <a href="#city-description">Descripción general</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.lodging) || showAll">
               <a href="#city-lodging">Alojamientos</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.transport) || showAll">
               <a href="#city-transport">Transporte</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.prices) || showAll">
               <a href="#city-prices">Precios</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.mobile_phone) || showAll">
               <a href="#city-mobile-phone">Telefonía móvil</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.weather) || showAll">
               <a href="#city-weather">El clima</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.student_life) || showAll">
               <a href="#city-student-life">Vida estudiantil</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.nightlife) || showAll">
               <a href="#city-nightlife">Salir por la noche</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.bank_account) || showAll">
               <a href="#city-bank-account">Cuentas bancarias</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.restaurants) || showAll">
               <a href="#city-restaurants">Dónde comer</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.shopping) || showAll">
               <a href="#city-shopping">Dónde comprar</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.culture) || showAll">
               <a href="#city-culture">Cultura</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.tourism) || showAll">
               <a href="#city-tourism">Turismo fuera de la ciudad</a>
             </li>
-            <li>
+            <li ng-show="withInformation(university.city.information_interest) || showAll">
               <a href="#city-information-interest">Otra información de interés</a>
             </li>
           </ul>
-          <a href="#" class="  border-btn btn-gray"><i class="fa fa-plus-circle"></i> Mostrar todo</a>
+          <a ng-click="isShowedAllCategories()" ng-show="!showAll" href="" class="border-btn btn-gray"><i class="fa fa-plus-circle"></i> Mostrar todo</a>
+          <a ng-click="isShowedAllCategories()" ng-show="showAll" href="" class="border-btn btn-gray"><i class="fa fa-plus-circle"></i> Ocultar categorías sin información</a>
         </div>
 
       </div>
@@ -174,7 +175,7 @@
       <h2 id="city-about" class="classic-title university-city-title"><span>Sobre la ciudad</span></h2>
       <div class="col-md-5 page-content">
 
-        <div id="city-description" class="university-detail-city">
+        <div ng-show="withInformation(university.city.description) || showAll" id="city-description" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Descripción general de la ciudad</span></h4>
           <!-- Start Call Action -->
@@ -189,7 +190,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-transport" class="university-detail-city">
+        <div ng-show="withInformation(university.city.transport) || showAll" id="city-transport" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Transporte</span></h4>
           <!-- Start Call Action -->
@@ -204,7 +205,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-weather" class="university-detail-city">
+        <div ng-show="withInformation(university.city.weather) || showAll" id="city-weather" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>El clima</span></h4>
           <!-- Start Call Action -->
@@ -219,7 +220,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-nightlife" class="university-detail-city">
+        <div ng-show="withInformation(university.city.nightlife) || showAll" id="city-nightlife" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Salir por la noche</span></h4>
           <!-- Start Call Action -->
@@ -234,7 +235,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-bank-account" class="university-detail-city">
+        <div ng-show="withInformation(university.city.bank_account) || showAll" id="city-bank-account" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Cuentas bancarias</span></h4>
           <!-- Start Call Action -->
@@ -249,7 +250,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-shopping" class="university-detail-city">
+        <div ng-show="withInformation(university.city.shopping) || showAll" id="city-shopping" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Dónde comprar</span></h4>
           <!-- Start Call Action -->
@@ -264,7 +265,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-tourism" class="university-detail-city">
+        <div ng-show="withInformation(university.city.tourism) || showAll" id="city-tourism" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Turismo fuera de la ciudad</span></h4>
           <!-- Start Call Action -->
@@ -282,7 +283,7 @@
 
       <div class="col-md-5 page-content">
 
-        <div id="city-lodging" class="university-detail-city">
+        <div ng-show="withInformation(university.city.lodging) || showAll" id="city-lodging" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Alojamientos</span></h4>
           <!-- Start Call Action -->
@@ -297,7 +298,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-prices" class="university-detail-city">
+        <div ng-show="withInformation(university.city.prices) || showAll" id="city-prices" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Precios</span></h4>
           <!-- Start Call Action -->
@@ -312,7 +313,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-mobile-phone" class="university-detail-city">
+        <div ng-show="withInformation(university.city.mobile_phone) || showAll" id="city-mobile-phone" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Telefonía móvil</span></h4>
           <!-- Start Call Action -->
@@ -327,7 +328,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-student-life" class="university-detail-city">
+        <div ng-show="withInformation(university.city.student_life) || showAll" id="city-student-life" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Vida estudiantil</span></h4>
           <!-- Start Call Action -->
@@ -342,7 +343,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-restaurants" class="university-detail-city">
+        <div ng-show="withInformation(university.city.restaurants) || showAll" id="city-restaurants" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Dónde comer</span></h4>
           <!-- Start Call Action -->
@@ -357,7 +358,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-culture" class="university-detail-city">
+        <div ng-show="withInformation(university.city.culture) || showAll" id="city-culture" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Cultura</span></h4>
           <!-- Start Call Action -->
@@ -372,7 +373,7 @@
           <!-- End Call Action -->
         </div>
 
-        <div id="city-information-interest" class="university-detail-city">
+        <div ng-show="withInformation(university.city.information_interest) || showAll" id="city-information-interest" class="university-detail-city">
           <!-- Classic Heading -->
           <h4 class="classic-title"><span>Otra información de interés</span></h4>
           <!-- Start Call Action -->

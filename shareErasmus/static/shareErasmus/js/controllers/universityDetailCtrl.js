@@ -3,6 +3,7 @@ app.controller('UniversityDetailCtrl', ['$scope', 'shareErasmusApi', 'Notificati
     var url = document.URL.split('/');
     $scope.universityId = url[url.length-1];
     $scope.university = null;
+    $scope.showAll = false;
 
     shareErasmusApi.getUniversity($scope.universityId).then(function (response) {
         $scope.university = response.data;
@@ -28,8 +29,12 @@ app.controller('UniversityDetailCtrl', ['$scope', 'shareErasmusApi', 'Notificati
       });
     };
 
-    $scope.WithInformation = function() {
+    $scope.withInformation = function(text) {
+        return ((text != undefined) && (text!=""));
+    };
 
+    $scope.isShowedAllCategories = function() {
+        $scope.showAll = !$scope.showAll;
     };
 
 }]);
