@@ -31,18 +31,34 @@
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Número de créditos:  <strong>{% verbatim %}{{subject.credits_ects}}{% endverbatim %}</strong></span></h4>
 
-        <!-- Classic Heading -->
-        <h4 class="classic-title"><span>Descripción de la asignatura</span></h4>
-        <!-- Single Testimonial -->
-        <div class="classic-testimonials">
-          <div class="testimonial-content subject-detail-information">
-            <p ng-bind-html="subject.difficulty_comment|textToHtml"></p>
+        <div class="subject-detail">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Descripción de la asignatura</span></h4>
+          <!-- Single Testimonial -->
+          <div class="classic-testimonials">
+            <div class="subject-detail-information-boxed university-detail-information  no-descripton clearfix">
+              <p ng-bind-html="subject.description|textToHtml"></p>
+              <a href="/settings/subjects">
+                <i class="fa fa-edit"></i> Editar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="subject-detail">
+          <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Convalidaciones</span></h4>
+          <!-- Start Call Action -->
+          <div class="call-action subject-detail-information-boxed call-action-style1 no-descripton clearfix">
+            <!-- Call Action Text -->
+            <p ng-bind-html="subject.validation_subjects|textToHtml"></p>
+            <!-- Call Action Button -->
             <a href="/settings/subjects">
               <i class="fa fa-edit"></i> Editar
             </a>
           </div>
+          <!-- End Call Action -->
         </div>
-        <!-- End Testimonial -->
 
         <!-- Start Comment Area
         <div id="comments">

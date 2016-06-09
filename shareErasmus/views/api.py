@@ -143,7 +143,6 @@ class UniversityViewSet(CreateModelMixin,
 
     def partial_update(self, request, *args, **kwargs):
         description = request.data.get("description", None)
-        validation_subjects = request.data.get("validationSubjects", None)
         contacts = request.data.get("contacts", None)
         university_id = kwargs.get("pk", None)
         try:
@@ -151,7 +150,6 @@ class UniversityViewSet(CreateModelMixin,
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
         university.description = description.encode("utf-8")
-        university.validation_subjects = validation_subjects.encode("utf-8")
         university.contacts = contacts.encode("utf-8")
         university.save()
         context = {"request": request}
@@ -244,14 +242,16 @@ class SubjectViewSet(CreateModelMixin,
          #   return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
 
     def partial_update(self, request, *args, **kwargs):
-        difficulty = request.data.get("difficulty", None)
+        description = request.data.get("description", None)
+        validation_subjects = request.data.get("validationSubjects", None)
         credits_ects = request.data.get("creditsEcts", None)
         subject_id = kwargs.get("pk", None)
         try:
             subject = Subject.objects.get(pk=int(subject_id))
         except:
             return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-        subject.difficulty_comment = difficulty.encode("utf-8")
+        subject.description = description.encode("utf-8")
+        subject.validation_subjects = validation_subjects.encode("utf-8")
         subject.credits_ects = credits_ects
         subject.save()
         context = {"request": request}

@@ -2,20 +2,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-VERY_HARD = '1'
-HARD = '2'
-REGULAR = '3'
-EASY = '4'
-VERY_EASY = '5'
-hardness_choices = (
-         (VERY_EASY,'Muy fácil'),
-         (EASY,'fácil'),
-         (REGULAR,'Normal'),
-         (HARD,'difícil'),
-         (VERY_HARD,'Muy difícil')
-
-)
-
 class Country(models.Model):
     name = models.CharField(max_length=150)
 
@@ -47,7 +33,6 @@ class University(models.Model):
     name = models.CharField(max_length=150, unique=True)
     city = models.ForeignKey(City)
     description = models.CharField(max_length=3000, blank=True)
-    validation_subjects = models.CharField(max_length=4000, blank=True)
     contacts = models.CharField(max_length=3000, blank=True)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
@@ -57,9 +42,9 @@ class University(models.Model):
 
 class Subject(models.Model):
     name = models.CharField(max_length=150)
-    difficulty = models.CharField(max_length=1, choices=hardness_choices, blank=True)
     university = models.ForeignKey(University)
-    difficulty_comment = models.TextField(max_length=6000, blank=True)
+    description = models.TextField(max_length=6000, blank=True)
+    validation_subjects = models.CharField(max_length=4000, blank=True)
     credits_ects = models.IntegerField(blank=True, null=True)
 
     def __unicode__(self):
