@@ -400,3 +400,7 @@ ul.post-meta li a:hover {
     -moz-box-shadow: 0 0 25px rgba(253, 182, 85,.3) inset;
     -webkit-box-shadow: 0 0 25px rgba(253, 182, 85, .3) inset;
 }
+
+.menu-settings a.active {
+    color: #fdb655;
+}

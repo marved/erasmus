@@ -399,3 +399,7 @@ ul.post-meta li a:hover {
     -moz-box-shadow: 0 0 25px rgba(11, 181, 134,.3) inset;
     -webkit-box-shadow: 0 0 25px rgba(11, 181, 134, .3) inset;
 }
+
+.menu-settings a.active {
+    color: #0bb586;
+}

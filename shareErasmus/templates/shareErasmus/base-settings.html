@@ -2,30 +2,30 @@
 {% block page_title %}{% endblock %}
 {% block content %}
 <!-- Start Content -->
-<div id="content">
+<div id="content" ng-controller="SettingsCtrl">
   <div class="container">
     <div class="row sidebar-page">
       <!--Sidebar-->
       <div class="col-md-3 sidebar left-sidebar">
 
         <!-- Categories Widget -->
-        <div class="widget widget-categories">
+        <div class="widget widget-categories menu-settings">
           <h4>Configuración <span class="head-line"></span></h4>
           <ul>
             <li>
-              <a href="/settings/account">Cuenta</a>
+              <a ng-class="{ active: isActive('/settings/account')}" href="/settings/account">Cuenta</a>
             </li>
 <!--            <li>
               <a href="#">Contraseña</a>
             </li>-->
             <li>
-              <a href="/settings/universities">Mis universidades</a>
+              <a ng-class="{ active: isActive('/settings/universities')}" href="/settings/universities">Mis universidades</a>
             </li>
             <li>
-              <a href="/settings/subjects">Mis asignaturas</a>
+              <a ng-class="{ active: isActive('/settings/subjects')}" href="/settings/subjects">Mis asignaturas</a>
             </li>
             <li>
-              <a href="/settings/cities">Mis ciudades</a>
+              <a ng-class="{ active: isActive('/settings/cities')}" href="/settings/cities">Mis ciudades</a>
             </li>
           </ul>
         </div>

@@ -1,3 +1,11 @@
+app.controller('SettingsCtrl', ['$scope', function ($scope){
+
+    $scope.isActive = function (viewLocation) {
+        return viewLocation === window.location.pathname;
+    };
+
+}]);
+
 app.controller('AccountCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.user = {};
