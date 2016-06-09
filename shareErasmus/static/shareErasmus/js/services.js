@@ -154,14 +154,12 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("POST", UNIVERSITIES_PATH, null, form_params);
     };
 
-    this.updateInfoUniversity = function(universityId, description, validationSubjects, contacts) {
+    this.updateInfoUniversity = function(universityId, description, contacts) {
         description = description || "";
-        validationSubjects = validationSubjects || "";
         contacts = contacts || "";
 
         var form_params = {
             'description': description,
-            'validationSubjects': validationSubjects,
             'contacts': contacts
         };
         return _http("PATCH", UNIVERSITIES_PATH + universityId + "/", null, form_params);
@@ -242,12 +240,14 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("POST", SUBJECTS_PATH, null, form_params);
     };
 
-    this.updateInfoSubject = function(subjectId, difficulty, creditsEcts) {
-        difficulty = difficulty || "";
+    this.updateInfoSubject = function(subjectId, description, validationSubjects, creditsEcts) {
+        description = description || "";
+        validationSubjects = validationSubjects || "";
         creditsEcts = creditsEcts || null;
 
         var form_params = {
-            'difficulty': difficulty,
+            'description': description,
+            'validationSubjects': validationSubjects,
             'creditsEcts': creditsEcts
         };
         return _http("PATCH", SUBJECTS_PATH + subjectId + "/", null, form_params);

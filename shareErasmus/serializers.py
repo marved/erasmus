@@ -23,14 +23,14 @@ class UniversitySerializer(ModelSerializer):
     city = CitySerializer(required=True)
     class Meta:
         model = University
-        fields = ('pk', 'name', 'city', 'description', 'validation_subjects', 'contacts', 'latitude', 'longitude')
+        fields = ('pk', 'name', 'city', 'description', 'contacts', 'latitude', 'longitude')
 
 
 class SubjectSerializer(ModelSerializer):
     university = UniversitySerializer(required=True)
     class Meta:
         model = Subject
-        fields = ('pk', 'name', 'difficulty', 'difficulty_comment', 'university', 'credits_ects')
+        fields = ('pk', 'name', 'description', 'university', 'validation_subjects', 'credits_ects')
 
 
 class UserProfileSerializer(ModelSerializer):

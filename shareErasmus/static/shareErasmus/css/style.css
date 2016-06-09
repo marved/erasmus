@@ -5696,11 +5696,15 @@ ul.footer-nav li a:hover {
     padding-top: 56px;
 }
 
-.university-detail-information-boxed, .university-detail-city-boxed {
+.subject-detail {
+    padding-top: 20px;
+}
+
+.university-detail-information-boxed, .university-detail-city-boxed, .subject-detail-information-boxed {
     padding: 14px 16px;
 }
 
-.university-detail-information-boxed p, .university-detail-city-boxed p, .subject-detail-information p{
+.university-detail-information-boxed p, .university-detail-city-boxed p, .subject-detail-information-boxed p{
     text-align: justify;
     margin-bottom: 8px;
     text-indent: 30px;

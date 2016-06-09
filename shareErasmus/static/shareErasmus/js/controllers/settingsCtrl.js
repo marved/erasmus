@@ -155,23 +155,18 @@ app.controller('EditUniversityCtrl', ['$scope', 'shareErasmusApi', 'Notification
 
     $scope.university = null;
     $scope.description = "";
-    $scope.validationSubjects = "";
     $scope.contacts = "";
 
     $scope.getUniversity = function(universityId) {
         shareErasmusApi.getUniversity(universityId).then(function (response) {
             $scope.university = response.data;
             $scope.description = $scope.university.description;
-            $scope.validationSubjects = $scope.university.validation_subjects;
             $scope.contacts = $scope.university.contacts;
         });
     };
 
     $scope.updateUniversity = function() {
-        shareErasmusApi.updateInfoUniversity($scope.university.pk,
-                                            $scope.description,
-                                            $scope.validationSubjects,
-                                            $scope.contacts)
+        shareErasmusApi.updateInfoUniversity($scope.university.pk, $scope.description, $scope.contacts)
             .then(function (response){
                 Notification.success("Información de la universidad actualizada con éxito");
             }, function(response) {
@@ -243,18 +238,20 @@ app.controller('CreateUniversityCtrl', ['$scope', 'shareErasmusApi', 'Notificati
 app.controller('EditSubjectCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
 
     $scope.subject = null;
-    $scope.difficulty = "";
+    $scope.description = "";
+    $scope.validationSubjects = "";
     $scope.creditsEcts = "";
     $scope.getSubject = function(subjectId) {
         shareErasmusApi.getSubject(subjectId).then(function (response) {
             $scope.subject = response.data;
-            $scope.difficulty = $scope.subject.difficulty_comment;
+            $scope.description = $scope.subject.description;
+            $scope.validationSubjects = $scope.subject.validationSubjects;
             $scope.creditsEcts = $scope.subject.credits_ects;
         });
     };
 
     $scope.updateSubject = function() {
-        shareErasmusApi.updateInfoSubject($scope.subject.pk, $scope.difficulty, $scope.creditsEcts)
+        shareErasmusApi.updateInfoSubject($scope.subject.pk, $scope.description, $scope.validationSubjects ,$scope.creditsEcts)
             .then(function (response){
                 Notification.success("Información de la asignatura actualizada con éxito");
             }, function(response) {
