@@ -244,7 +244,7 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
 
     this.updateInfoSubject = function(subjectId, difficulty, creditsEcts) {
         difficulty = difficulty || "";
-        creditsEcts = creditsEcts || "";
+        creditsEcts = creditsEcts || null;
 
         var form_params = {
             'difficulty': difficulty,

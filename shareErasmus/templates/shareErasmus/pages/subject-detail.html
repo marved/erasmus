@@ -27,17 +27,17 @@
   <div class="container">
     <div class="row blog-post-page">
       <div class="col-md-9 blog-box">
-        {% if subect.credits_ects != None %}
+
         <!-- Classic Heading -->
-        <h4 class="classic-title"><span>Número de créditos:  <strong>{{subject.credits_ects}}</strong></span></h4>
-        {% endif %}
+        <h4 class="classic-title"><span>Número de créditos:  <strong>{% verbatim %}{{subject.credits_ects}}{% endverbatim %}</strong></span></h4>
+
         <!-- Classic Heading -->
         <h4 class="classic-title"><span>Dificultad de la asignatura</span></h4>
         <!-- Single Testimonial -->
         <div class="classic-testimonials">
-          <div class="testimonial-content">
+          <div class="testimonial-content subject-detail-information">
             {% for comment in difficulty_comments %}
-            <p>- {{comment}}</p>
+            <p>{{comment}}</p>
             {% endfor %}
             <a href="/settings/subjects">
               <i class="fa fa-edit"></i> Editar
