@@ -75,7 +75,7 @@ class UserProfileView(View):
         except:
             return render(request, "404.html")
 
-        subjects = user.subjects.all()
+        subjects = user.subjects.all().order_by('name')
         universitiesName = []
         for subject in subjects:
             universitiesName.append(subject.university.name.encode("utf-8"))
