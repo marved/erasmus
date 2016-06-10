@@ -1,0 +1,331 @@
+.
+├── ./arbol.txt
+├── ./data
+│   └── ./data/universities.json
+├── ./db.sqlite3
+├── ./erasmus
+│   ├── ./erasmus/__init__.py
+│   ├── ./erasmus/__init__.pyc
+│   ├── ./erasmus/settings.py
+│   ├── ./erasmus/settings.pyc
+│   ├── ./erasmus/urls.py
+│   ├── ./erasmus/urls.pyc
+│   ├── ./erasmus/wsgi.py
+│   └── ./erasmus/wsgi.pyc
+├── ./manage.py
+├── ./nohup.out
+├── ./provision.sh
+├── ./README.md
+├── ./shareErasmus
+│   ├── ./shareErasmus/admin.py
+│   ├── ./shareErasmus/admin.pyc
+│   ├── ./shareErasmus/__init__.py
+│   ├── ./shareErasmus/__init__.pyc
+│   ├── ./shareErasmus/migrations
+│   │   ├── ./shareErasmus/migrations/0001_initial.py
+│   │   ├── ./shareErasmus/migrations/0001_initial.pyc
+│   │   ├── ./shareErasmus/migrations/0002_auto_20160420_1913.py
+│   │   ├── ./shareErasmus/migrations/0002_auto_20160420_1913.pyc
+│   │   ├── ./shareErasmus/migrations/0003_auto_20160421_1603.py
+│   │   ├── ./shareErasmus/migrations/0003_auto_20160421_1603.pyc
+│   │   ├── ./shareErasmus/migrations/0004_auto_20160421_1605.py
+│   │   ├── ./shareErasmus/migrations/0004_auto_20160421_1605.pyc
+│   │   ├── ./shareErasmus/migrations/0005_subject_difficulty_comment.py
+│   │   ├── ./shareErasmus/migrations/0005_subject_difficulty_comment.pyc
+│   │   ├── ./shareErasmus/migrations/0006_auto_20160504_1756.py
+│   │   ├── ./shareErasmus/migrations/0006_auto_20160504_1756.pyc
+│   │   ├── ./shareErasmus/migrations/0007_subject_credits_ects.py
+│   │   ├── ./shareErasmus/migrations/0007_subject_credits_ects.pyc
+│   │   ├── ./shareErasmus/migrations/0008_auto_20160516_1816.py
+│   │   ├── ./shareErasmus/migrations/0008_auto_20160516_1816.pyc
+│   │   ├── ./shareErasmus/migrations/0009_auto_20160609_1942.py
+│   │   ├── ./shareErasmus/migrations/0009_auto_20160609_1942.pyc
+│   │   ├── ./shareErasmus/migrations/0010_remove_university_validation_subjects.py
+│   │   ├── ./shareErasmus/migrations/0010_remove_university_validation_subjects.pyc
+│   │   ├── ./shareErasmus/migrations/__init__.py
+│   │   └── ./shareErasmus/migrations/__init__.pyc
+│   ├── ./shareErasmus/models.py
+│   ├── ./shareErasmus/models.pyc
+│   ├── ./shareErasmus/serializers.py
+│   ├── ./shareErasmus/serializers.pyc
+│   ├── ./shareErasmus/static
+│   │   └── ./shareErasmus/static/shareErasmus
+│   │       ├── ./shareErasmus/static/shareErasmus/asset
+│   │       │   ├── ./shareErasmus/static/shareErasmus/asset/css
+│   │       │   │   └── ./shareErasmus/static/shareErasmus/asset/css/bootstrap.min.css
+│   │       │   └── ./shareErasmus/static/shareErasmus/asset/js
+│   │       │       ├── ./shareErasmus/static/shareErasmus/asset/js/angular.min.js
+│   │       │       ├── ./shareErasmus/static/shareErasmus/asset/js/bootstrap.min.js
+│   │       │       └── ./shareErasmus/static/shareErasmus/asset/js/ui-bootstrap-tpls-1.2.5.min.js
+│   │       ├── ./shareErasmus/static/shareErasmus/css
+│   │       │   ├── ./shareErasmus/static/shareErasmus/css/angucomplete-alt.css
+│   │       │   ├── ./shareErasmus/static/shareErasmus/css/angular-ui-notification.css
+│   │       │   ├── ./shareErasmus/static/shareErasmus/css/animate.css
+│   │       │   ├── ./shareErasmus/static/shareErasmus/css/colors
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/beige.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/blue.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/cyan.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/green.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/jade.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/orange.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/peach.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/pink.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/purple.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/red.css
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/css/colors/sky-blue.css
+│   │       │   │   └── ./shareErasmus/static/shareErasmus/css/colors/yellow.css
+│   │       │   ├── ./shareErasmus/static/shareErasmus/css/font-awesome.min.css
+│   │       │   ├── ./shareErasmus/static/shareErasmus/css/normalize.css
+│   │       │   ├── ./shareErasmus/static/shareErasmus/css/responsive.css
+│   │       │   ├── ./shareErasmus/static/shareErasmus/css/sign.css
+│   │       │   ├── ./shareErasmus/static/shareErasmus/css/slicknav.css
+│   │       │   └── ./shareErasmus/static/shareErasmus/css/style.css
+│   │       ├── ./shareErasmus/static/shareErasmus/fonts
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/FontAwesome.otf
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/fontawesome-webfont.eot
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/fontawesome-webfont.svg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/fontawesome-webfont.ttf
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/fontawesome-webfont.woff
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/fontawesome-webfont.woff2
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/glyphicons-halflings-regular.eot
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/glyphicons-halflings-regular.svg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/glyphicons-halflings-regular.ttf
+│   │       │   ├── ./shareErasmus/static/shareErasmus/fonts/glyphicons-halflings-regular.woff
+│   │       │   └── ./shareErasmus/static/shareErasmus/fonts/glyphicons-halflings-regular.woff2
+│   │       ├── ./shareErasmus/static/shareErasmus/images
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/about-01.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/about-02.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/about-03.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/avatar.png
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/favicon.png
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/footer-shareErasmus.png
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/logo-shareErasmus.png
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/map.png
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/nophoto.png
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/parallax
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/parallax/bg-01.jpg
+│   │       │   │   └── ./shareErasmus/static/shareErasmus/images/parallax/bg-02.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/patterns
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/10.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/11.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/12.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/13.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/14.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/1.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/2.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/3.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/4.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/5.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/6.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/7.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/patterns/8.png
+│   │       │   │   └── ./shareErasmus/static/shareErasmus/images/patterns/9.png
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/portfolio
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/10.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/11.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/12.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/1.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/2.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/3.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/4.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/5.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/6.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/7.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/8.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/9.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/port-1.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/port-2.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/port-3.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/port-4.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/port-5.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/port-6.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/port-7.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/port-8.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/port-9.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/portfolio-img1.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/portfolio-img2.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/portfolio-img3.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/portfolio-img4.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio/portfolio-img5.jpg
+│   │       │   │   └── ./shareErasmus/static/shareErasmus/images/portfolio/portfolio-img6.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/10.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/11.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/12.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/1.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/2.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/3.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/4.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/5.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/6.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/7.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/8.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/9.png
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/port-1.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/port-2.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/port-3.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/port-4.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/port-5.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/port-6.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/port-7.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/port-8.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/port-9.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/portfolio-img1.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/portfolio-img2.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/portfolio-img3.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/portfolio-img4.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/portfolio-1/portfolio-img5.jpg
+│   │       │   │   └── ./shareErasmus/static/shareErasmus/images/portfolio-1/portfolio-img6.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/slide-01-bg.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/slide-02-bg - Copy.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/slide-02-bg--.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/slide-02-bg.jpg
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/slide-03-image-02.png
+│   │       │   ├── ./shareErasmus/static/shareErasmus/images/slider
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/slider/bg1.jpg
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/images/slider/bg2.jpg
+│   │       │   │   └── ./shareErasmus/static/shareErasmus/images/slider/bg3.jpg
+│   │       │   └── ./shareErasmus/static/shareErasmus/images/testimonials-bg.jpg
+│   │       ├── ./shareErasmus/static/shareErasmus/js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/angucomplete-alt.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/angular-cookies.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/angular-ui-notification.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/app.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/contact.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/controllers
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/js/controllers/headerCtrl.js
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/js/controllers/settingsCtrl.js
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/js/controllers/signCtrl.js
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/js/controllers/subjectDetailCtrl.js
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/js/controllers/universitiesCtrl.js
+│   │       │   │   ├── ./shareErasmus/static/shareErasmus/js/controllers/universityDetailCtrl.js
+│   │       │   │   └── ./shareErasmus/static/shareErasmus/js/controllers/userProfileCtrl.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/count-to.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/directives
+│   │       │   │   └── ./shareErasmus/static/shareErasmus/js/directives/checklist-model.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/filters.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/googleAnalytics.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery-2.1.4.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.appear.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.easypiechart.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.easypiechart.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.fitvids.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.isotope.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.isotope.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.lettering.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery-migrate-1.2.1.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.migrate.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.nicescroll.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.nicescroll.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.parallax.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.slicknav.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/jquery.textillate.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/less-2.5.1.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/mediaelement-and-player.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/modernizrr.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/nivo-lightbox.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/nivo-lightbox.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/owl.carousel.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/owl.carousel.min.js
+│   │       │   ├── ./shareErasmus/static/shareErasmus/js/script.js
+│   │       │   └── ./shareErasmus/static/shareErasmus/js/services.js
+│   │       └── ./shareErasmus/static/shareErasmus/lib
+│   │           ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/css
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/css/bootstrap.css
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/css/bootstrap.css.map
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css.map
+│   │           │   │   └── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/fonts
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/fonts/glyphicons-halflings-regular.eot
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/fonts/glyphicons-halflings-regular.svg
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/fonts/glyphicons-halflings-regular.ttf
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/fonts/glyphicons-halflings-regular.woff
+│   │           │   │   └── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/fonts/glyphicons-halflings-regular.woff2
+│   │           │   └── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/js
+│   │           │       ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/js/bootstrap.js
+│   │           │       ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js
+│   │           │       └── ./shareErasmus/static/shareErasmus/lib/bootstrap-3.3.5-dist/js/npm.js
+│   │           ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/bower.json
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/CHANGE.md
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/composer.json
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/css
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/css/star-rating.css
+│   │           │   │   └── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/css/star-rating.min.css
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/examples
+│   │           │   │   └── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/examples/index.html
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/img
+│   │           │   │   └── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/img/loading.gif
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/js
+│   │           │   │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/js/star-rating.js
+│   │           │   │   └── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/js/star-rating.min.js
+│   │           │   ├── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/LICENSE.md
+│   │           │   └── ./shareErasmus/static/shareErasmus/lib/bootstrap-star-rating-master/README.md
+│   │           └── ./shareErasmus/static/shareErasmus/lib/responsee-all
+│   │               ├── ./shareErasmus/static/shareErasmus/lib/responsee-all/css
+│   │               │   └── ./shareErasmus/static/shareErasmus/lib/responsee-all/css/responsee.css
+│   │               ├── ./shareErasmus/static/shareErasmus/lib/responsee-all/font
+│   │               │   ├── ./shareErasmus/static/shareErasmus/lib/responsee-all/font/mfglabsiconset-webfont.eot
+│   │               │   ├── ./shareErasmus/static/shareErasmus/lib/responsee-all/font/mfglabsiconset-webfont.svg
+│   │               │   ├── ./shareErasmus/static/shareErasmus/lib/responsee-all/font/mfglabsiconset-webfont.ttf
+│   │               │   └── ./shareErasmus/static/shareErasmus/lib/responsee-all/font/mfglabsiconset-webfont.woff
+│   │               ├── ./shareErasmus/static/shareErasmus/lib/responsee-all/index-business.html
+│   │               └── ./shareErasmus/static/shareErasmus/lib/responsee-all/js
+│   │                   ├── ./shareErasmus/static/shareErasmus/lib/responsee-all/js/responsee.js
+│   │                   └── ./shareErasmus/static/shareErasmus/lib/responsee-all/js/responsee.js~
+│   ├── ./shareErasmus/templates
+│   │   └── ./shareErasmus/templates/shareErasmus
+│   │       ├── ./shareErasmus/templates/shareErasmus/403.html
+│   │       ├── ./shareErasmus/templates/shareErasmus/404.html
+│   │       ├── ./shareErasmus/templates/shareErasmus/base.html
+│   │       ├── ./shareErasmus/templates/shareErasmus/base-pages.html
+│   │       ├── ./shareErasmus/templates/shareErasmus/base-settings.html
+│   │       ├── ./shareErasmus/templates/shareErasmus/components
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/components/footer.html
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/components/header.html
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/components/settings
+│   │       │   │   ├── ./shareErasmus/templates/shareErasmus/components/settings/create-my-university-form.html
+│   │       │   │   ├── ./shareErasmus/templates/shareErasmus/components/settings/edit-account-form.html
+│   │       │   │   ├── ./shareErasmus/templates/shareErasmus/components/settings/edit-my-city-form.html
+│   │       │   │   ├── ./shareErasmus/templates/shareErasmus/components/settings/edit-my-subject-form.html
+│   │       │   │   ├── ./shareErasmus/templates/shareErasmus/components/settings/edit-my-university-form.html
+│   │       │   │   └── ./shareErasmus/templates/shareErasmus/components/settings/select-my-university-form.html
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/components/sign
+│   │       │   │   ├── ./shareErasmus/templates/shareErasmus/components/sign/signin-form.html
+│   │       │   │   └── ./shareErasmus/templates/shareErasmus/components/sign/signup-form.html
+│   │       │   └── ./shareErasmus/templates/shareErasmus/components/universities
+│   │       │       └── ./shareErasmus/templates/shareErasmus/components/universities/university-item.html
+│   │       ├── ./shareErasmus/templates/shareErasmus/pages
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/pages/contact.html
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/pages/index.html
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/pages/settings
+│   │       │   │   ├── ./shareErasmus/templates/shareErasmus/pages/settings/account.html
+│   │       │   │   ├── ./shareErasmus/templates/shareErasmus/pages/settings/my-cities.html
+│   │       │   │   ├── ./shareErasmus/templates/shareErasmus/pages/settings/my-subjects.html
+│   │       │   │   └── ./shareErasmus/templates/shareErasmus/pages/settings/my-universities.html
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/pages/sign.html
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/pages/subject-detail.html
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/pages/universities.html
+│   │       │   ├── ./shareErasmus/templates/shareErasmus/pages/university-detail.html
+│   │       │   └── ./shareErasmus/templates/shareErasmus/pages/user-profile.html
+│   │       └── ./shareErasmus/templates/shareErasmus/privacy-policy.html
+│   ├── ./shareErasmus/tests.py
+│   ├── ./shareErasmus/validators.py
+│   ├── ./shareErasmus/validators.pyc
+│   └── ./shareErasmus/views
+│       ├── ./shareErasmus/views/api.py
+│       ├── ./shareErasmus/views/api.pyc
+│       ├── ./shareErasmus/views/__init__.py
+│       ├── ./shareErasmus/views/__init__.pyc
+│       ├── ./shareErasmus/views/maps.py
+│       ├── ./shareErasmus/views/maps.pyc
+│       ├── ./shareErasmus/views/responses.py
+│       ├── ./shareErasmus/views/responses.pyc
+│       ├── ./shareErasmus/views/views.py
+│       └── ./shareErasmus/views/views.pyc
+└── ./Vagrantfile
+
+44 directories, 284 files
