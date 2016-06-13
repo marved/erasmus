@@ -253,19 +253,17 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("PATCH", SUBJECTS_PATH + subjectId + "/", null, form_params);
     };
 
-    this.createComment = function(userId, body, universityId, subjectId, parentId) {
+    this.createComment = function(userId, body, universityId, subjectId) {
         userId = userId || null;
         body = body || "";
         universityId = universityId || null;
         subjectId = subjectId || null;
-        parentId = parentId || null;
 
         var form_params = {
             'userId': userId,
             'body': body,
             'universityId': universityId,
-            'subjectId': subjectId,
-            'parentId': parentId
+            'subjectId': subjectId
         };
         return _http("POST", COMMENTS_PATH, null, form_params);
     };

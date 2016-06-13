@@ -280,7 +280,6 @@ class CommentViewSet(CreateModelMixin,
         body = request.data.get("body", None)
         university_id = request.data.get("universityId", None)
         subject_id = request.data.get("subjectId", None)
-        parent_id = request.data.get("parentId", None)
         date = datetime.datetime.now()
 
         #try:
@@ -293,16 +292,11 @@ class CommentViewSet(CreateModelMixin,
             university = University.objects.get(pk=university_id)
         else:
             university = None
-        if parent_id != None:
-            parent = Comment.objects.get(pk=parent_id)
-        else:
-            parent = None
 
         comment = Comment.objects.create(user=user,
                                          body=body.encode("utf-8"),
                                          university=university,
                                          subject=subject,
-                                         parent=parent,
                                          dateTime=date)
         comment.save()
         #except:
