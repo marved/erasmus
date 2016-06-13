@@ -59,9 +59,9 @@ class UserProfileSerializer(ModelSerializer):
 
 class CommentSerializer(ModelSerializer):
     user = UserProfileSerializer(required=True)
-    university = UniversitySerializer(required=True)
-    subject = SubjectSerializer(required=True)
+    university = UniversitySerializer()
+    subject = SubjectSerializer()
     class Meta:
         model = Comment
-        fields = ('pk', 'user', 'body', 'dateTime', 'university', 'subject', 'parent')
+        fields = ('pk', 'user', 'body', 'dateTime', 'university', 'subject')
 

@@ -28,14 +28,13 @@ app.controller('SubjectDetailCtrl', ['$scope', 'shareErasmusApi', 'Notification'
         $scope.isAuthenticated = true;
     }, function (response) {
         $scope.isAuthenticated = false;
-        console.log("Algo falló al buscar sesión.");
+        console.log("sin sesión iniciada.");
     });
 
     shareErasmusApi.getComments().then(function (response) {
         $scope.allComments = response.data;
         for (var i=0; i<$scope.allComments.length; i++) {
             if($scope.allComments[i].subject != null)
-                $scope.allComments[i].dateTime = $scope.allComments[i].dateTime;
                 $scope.comments.push($scope.allComments[i]);
         }
     }, function (response) {

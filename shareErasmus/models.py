@@ -63,7 +63,7 @@ class Comment(models.Model):
     dateTime = models.DateTimeField(blank=True)
     university = models.ForeignKey(University, blank=True, null=True)
     subject = models.ForeignKey(Subject, blank=True, null=True)
-    parent = models.ForeignKey('self', blank=True, null=True)
+    #parent = models.ForeignKey('self', blank=True, null=True)
 
 
 

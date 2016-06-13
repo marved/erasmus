@@ -82,7 +82,7 @@
           </ol>
 
           <!-- Start Respond Form -->
-          <div id="respond">
+          <div id="respond-subject" ng-show="isAuthenticated">
             <h2 class="respond-title">Deja tu comentario</h2>
             <form role="form" ng-submit="saveComment()" class="contact-form" id="comment-subject-form">
               <div class="row">
@@ -95,6 +95,9 @@
             </form>
           </div>
           <!-- End Respond Form -->
+          <div ng-show="!isAuthenticated">
+            <p>Para escribir algún comentario es necesario <a href="/sign">iniciar sesión</a>.</p>
+          </div>
 
         </div>
         <!-- End Comment Area -->
