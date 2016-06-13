@@ -18,6 +18,7 @@ sudo apt-get -y install python-setuptools python-pip
 echo 'Installing Django ...'
 sudo pip install Django==1.8.3
 sudo pip install djangorestframework
+sudo easy_install --upgrade pytz
 
 sudo apt-get -y install libjpeg-dev libpng-dev
 sudo apt-get -y python-imaging

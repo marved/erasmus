@@ -18,6 +18,8 @@ from shareErasmus.views.responses import (
     USER_NOT_AUTHENTICATED_ERROR_MSG
 )
 from shareErasmus.views.maps import getLatLngData
+import datetime
+from django.utils import formats
 
 class CountryViewSet(CreateModelMixin,
                     RetrieveModelMixin,
@@ -272,6 +274,41 @@ class CommentViewSet(CreateModelMixin,
     """
     queryset = Comment.objects.all().order_by('user')
     serializer_class = CommentSerializer
+
+    def create(self, request, *args, **kwargs):
+        user_id = request.data.get("userId", None)
+        body = request.data.get("body", None)
+        university_id = request.data.get("universityId", None)
+        subject_id = request.data.get("subjectId", None)
+        parent_id = request.data.get("parentId", None)
+        date = datetime.datetime.now()
+
+        #try:
+        user = UserProfile.objects.get(pk=user_id)
+        if subject_id != None:
+            subject = Subject.objects.get(pk=subject_id)
+        else:
+            subject = None
+        if university_id != None:
+            university = University.objects.get(pk=university_id)
+        else:
+            university = None
+        if parent_id != None:
+            parent = Comment.objects.get(pk=parent_id)
+        else:
+            parent = None
+
+        comment = Comment.objects.create(user=user,
+                                         body=body.encode("utf-8"),
+                                         university=university,
+                                         subject=subject,
+                                         parent=parent,
+                                         dateTime=date)
+        comment.save()
+        #except:
+         #   return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+
+        return http_200_ok()
 
 
 class SessionAPIView(APIView):

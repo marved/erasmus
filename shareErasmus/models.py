@@ -1,6 +1,8 @@
 #encoding:utf-8
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
+from erasmus import settings
 
 class Country(models.Model):
     name = models.CharField(max_length=150)
@@ -57,12 +59,11 @@ class UserProfile(User):
 
 class Comment(models.Model):
     user = models.ForeignKey(UserProfile)
-    title = models.CharField(max_length=80)
     body = models.CharField(max_length=2000)
-    dateTime = models.DateTimeField()
+    dateTime = models.DateTimeField(blank=True)
     university = models.ForeignKey(University, blank=True, null=True)
     subject = models.ForeignKey(Subject, blank=True, null=True)
-    parent = models.ForeignKey('self', blank=True, null=True)
+    #parent = models.ForeignKey('self', blank=True, null=True)
 
 
 
