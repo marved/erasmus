@@ -1,4 +1,5 @@
 {% extends 'base-pages.html' %}
+{% load staticfiles %}
 {% block page_title %}{{subject.name}}{% endblock %}
 {% block page_body_content %}
 <!-- Start Page Banner -->
@@ -60,13 +61,13 @@
           <!-- End Call Action -->
         </div>
 
-        <!-- Start Comment Area
+        <!-- Start Comment Area -->
         <div id="comments">
           <h2 class="comments-title">(4) Comentarios</h2>
           <ol class="comments-list">
             <li>
               <div class="comment-box clearfix">
-                <div class="avatar"><img alt="" src="images/avatar.png" /></div>
+                <div class="avatar"><img alt="" src="{% static '/static/shareErasmus/images/nophoto.png' %}" /></div>
                 <div class="comment-content">
                   <div class="comment-meta">
                     <span class="comment-by">John Doe</span>
@@ -80,7 +81,7 @@
               <ul>
                 <li>
                   <div class="comment-box clearfix">
-                    <div class="avatar"><img alt="" src="images/avatar.png" /></div>
+                    <div class="avatar"><img alt="" src="{% static '/static/shareErasmus/images/nophoto.png' %}" /></div>
                     <div class="comment-content">
                       <div class="comment-meta">
                         <span class="comment-by">John Doe</span>
@@ -127,34 +128,20 @@
 
           </ol>
 
-          <!-- Start Respond Form
+          <!-- Start Respond Form -->
           <div id="respond">
             <h2 class="respond-title">Deja tu comentario</h2>
-            <form action="#">
-              <div class="row">
-                <div class="col-md-4">
-                  <label for="author">Nombre<span class="required">*</span></label>
-                  <input id="author" name="author" type="text" value="" size="30" aria-required="true">
-                </div>
-                <div class="col-md-4">
-                  <label for="email">Email<span class="required">*</span></label>
-                  <input id="email" name="author" type="text" value="" size="30" aria-required="true">
-                </div>
-                <div class="col-md-4">
-                  <label for="url">Website<span class="required">*</span></label>
-                  <input id="url" name="url" type="text" value="" size="30" aria-required="true">
-                </div>
-              </div>
+            <form role="form" ng-submit="saveComment()" class="contact-form" id="comment-subject-form">
               <div class="row">
                 <div class="col-md-12">
-                  <label for="comment">Comentario</label>
-                  <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                  <label for="comment-subject">Comentario</label>
+                  <textarea id="comment-subject" name="comment" ng-model="commentBody" cols="45" rows="8" aria-required="true"></textarea>
                   <input name="submit" type="submit" id="submit" value="Enviar">
                 </div>
               </div>
             </form>
           </div>
-          <!-- End Respond Form
+          <!-- End Respond Form -->
 
         </div>
         <!-- End Comment Area -->

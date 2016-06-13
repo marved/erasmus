@@ -63,5 +63,5 @@ class CommentSerializer(ModelSerializer):
     subject = SubjectSerializer
     class Meta:
         model = Comment
-        fields = ('pk', 'user', 'title', 'body', 'dateTime', 'university', 'subject', 'parent')
+        fields = ('pk', 'user', 'body', 'dateTime', 'university', 'subject', 'parent')
 
