@@ -19,6 +19,7 @@ from shareErasmus.views.responses import (
 )
 from shareErasmus.views.maps import getLatLngData
 import datetime
+from django.utils import formats
 
 class CountryViewSet(CreateModelMixin,
                     RetrieveModelMixin,
@@ -280,7 +281,7 @@ class CommentViewSet(CreateModelMixin,
         university_id = request.data.get("universityId", None)
         subject_id = request.data.get("subjectId", None)
         parent_id = request.data.get("parentId", None)
-        actual_date = datetime.datetime.now()
+        date = datetime.datetime.now()
 
         #try:
         user = UserProfile.objects.get(pk=user_id)
@@ -301,7 +302,8 @@ class CommentViewSet(CreateModelMixin,
                                          body=body.encode("utf-8"),
                                          university=university,
                                          subject=subject,
-                                         parent=parent)
+                                         parent=parent,
+                                         dateTime=date)
         comment.save()
         #except:
          #   return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)

@@ -63,69 +63,22 @@
 
         <!-- Start Comment Area -->
         <div id="comments">
-          <h2 class="comments-title">(4) Comentarios</h2>
+          <h2 class="comments-title">Comentarios</h2>
           <ol class="comments-list">
             <li>
-              <div class="comment-box clearfix">
+              <div class="comment-box clearfix" ng-repeat="comment in comments| orderBy:'-dateTime'">
                 <div class="avatar"><img alt="" src="{% static '/static/shareErasmus/images/nophoto.png' %}" /></div>
                 <div class="comment-content">
                   <div class="comment-meta">
-                    <span class="comment-by">John Doe</span>
-                    <span class="comment-date">February 15, 2013 at 11:39 pm</span>
-                    <span class="reply-link"><a href="#">Responder</a></span>
+                    <span class="comment-by">{% verbatim %}{{comment.user.username}}{% endverbatim %}</span>
+                    <span class="comment-date">{% verbatim %}{{comment.dateTime|date:"d/m/y H:mm:ss"}}{% endverbatim %}</span>
+                    <!--<span class="reply-link"><a href="#">Responder</a></span>-->
                   </div>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia desrut mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                  <p>{% verbatim %}{{comment.body}}{% endverbatim %}</p>
                 </div>
               </div>
 
-              <ul>
-                <li>
-                  <div class="comment-box clearfix">
-                    <div class="avatar"><img alt="" src="{% static '/static/shareErasmus/images/nophoto.png' %}" /></div>
-                    <div class="comment-content">
-                      <div class="comment-meta">
-                        <span class="comment-by">John Doe</span>
-                        <span class="comment-date">February 15, 2013 at 11:39 pm</span>
-                        <span class="reply-link"><a href="#">Responder</a></span>
-                      </div>
-                      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                    </div>
-                  </div>
-
-                  <ul>
-                    <li>
-                      <div class="comment-box clearfix">
-                        <div class="avatar"><img alt="" src="images/avatar.png" /></div>
-                        <div class="comment-content">
-                          <div class="comment-meta">
-                            <span class="comment-by">John Doe</span>
-                            <span class="comment-date">February 15, 2013 at 11:39 pm</span>
-                            <span class="reply-link"><a href="#">Responder</a></span>
-                          </div>
-                          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.</p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-
-                </li>
-              </ul>
             </li>
-
-            <li>
-              <div class="comment-box clearfix">
-                <div class="avatar"><img alt="" src="images/avatar.png" /></div>
-                <div class="comment-content">
-                  <div class="comment-meta">
-                    <span class="comment-by">John Doe</span>
-                    <span class="comment-date">February 15, 2013 at 11:39 pm</span>
-                    <span class="reply-link"><a href="#">Responder</a></span>
-                  </div>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia desrut mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-                </div>
-              </div>
-            </li>
-
           </ol>
 
           <!-- Start Respond Form -->

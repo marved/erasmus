@@ -5,6 +5,7 @@ app.controller('SubjectDetailCtrl', ['$scope', 'shareErasmusApi', 'Notification'
     $scope.subject = null;
     $scope.users = [];
     $scope.students = [];
+    $scope.allComments = [];
     $scope.comments = [];
     $scope.user = null;
     $scope.isAuthenticated = false;
@@ -28,6 +29,17 @@ app.controller('SubjectDetailCtrl', ['$scope', 'shareErasmusApi', 'Notification'
     }, function (response) {
         $scope.isAuthenticated = false;
         console.log("Algo falló al buscar sesión.");
+    });
+
+    shareErasmusApi.getComments().then(function (response) {
+        $scope.allComments = response.data;
+        for (var i=0; i<$scope.allComments.length; i++) {
+            if($scope.allComments[i].subject != null)
+                $scope.allComments[i].dateTime = $scope.allComments[i].dateTime;
+                $scope.comments.push($scope.allComments[i]);
+        }
+    }, function (response) {
+        console.log("Algo falló al cargar los comentarios.");
     });
 
     var getStudentsInSubject = function() {
