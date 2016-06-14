@@ -100,7 +100,7 @@ app.controller('MyUniversitiesCtrl', ['$scope', 'shareErasmusApi', 'Notification
 
         $scope.filterSubjects = [];
         for (var i=0; i<$scope.subjects.length; i++) {
-            if ($scope.subjects[i].university == $scope.universitySelected){
+            if ($scope.subjects[i].university.pk == $scope.universitySelected){
                 $scope.filterSubjects.push($scope.subjects[i]);
             }
         }
