@@ -11,7 +11,7 @@ from shareErasmus.models import University, UserProfile, Subject, Comment, Count
 from shareErasmus.serializers import (CountrySerializer, CitySerializer, UniversitySerializer,
                                       UserProfileSerializer, SubjectSerializer, CommentSerializer)
 
-from shareErasmus.validators import LoginFormValidator
+from shareErasmus.validators import LoginFormValidator, PasswordFormValidator
 from shareErasmus.views.responses import (
     http_200_ok, http_201_created, http_400_bad_request, http_401_not_authorized,
     INVALID_CREDENTIALS_ERROR_MSG, http_403_forbidden,
@@ -19,7 +19,6 @@ from shareErasmus.views.responses import (
 )
 from shareErasmus.views.maps import getLatLngData
 import datetime
-from django.utils import formats
 
 class CountryViewSet(CreateModelMixin,
                     RetrieveModelMixin,
@@ -192,22 +191,31 @@ class UserProfileViewSet(CreateModelMixin,
         return super(UserProfileViewSet, self).update(request, *args, **kwargs)
 
     def partial_update(self, request, *args, **kwargs):
-        # Actualmente solo funciona este método en el caso de petición para añadir asignaturas al usuario
-        subjects_id = request.data.get("subjects", None)
-        user_id = kwargs.get("pk", None)
-        #try:
-        user = UserProfile.objects.get(pk=int(user_id))
-        for subject_id in subjects_id:
-            try:
-                subject = Subject.objects.get(pk=subject_id)
-            except:
-                return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
-            user.subjects.add(subject)
-        user.save()
-        return http_200_ok()
+        form = PasswordFormValidator(request.data)
+        if form.is_valid():
+            new_password = form.cleaned_data['newPassword']
+            current_password = form.cleaned_data['currentPassword']
 
-        #except:
-         #   return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+            user_id = kwargs.get("pk", None)
+            user = UserProfile.objects.get(pk=user_id)
+            if user.check_password(current_password.encode("utf-8")):
+                user.set_password(new_password.encode("utf-8"))
+                user.save()
+
+        else:
+            subjects_id = request.data.get("subjects", None)
+            user_id = kwargs.get("pk", None)
+            #try:
+            user = UserProfile.objects.get(pk=int(user_id))
+            for subject_id in subjects_id:
+                try:
+                    subject = Subject.objects.get(pk=subject_id)
+                except:
+                    return http_400_bad_request(INVALID_CREDENTIALS_ERROR_MSG)
+                user.subjects.add(subject)
+            user.save()
+
+        return http_200_ok()
 
 
 class SubjectViewSet(CreateModelMixin,

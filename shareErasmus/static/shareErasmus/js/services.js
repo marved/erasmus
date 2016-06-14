@@ -190,6 +190,17 @@ app.service('shareErasmusApi', ['$http','$cookies',  function($http, $cookies) {
         return _http("PUT", USERS_PATH + userId + "/", null, form_params);
     };
 
+    this.changePassword = function(userId, currentPassword, newPassword) {
+        currentPassword = currentPassword || "";
+        newPassword = newPassword || "";
+
+        var form_params = {
+            'currentPassword': currentPassword,
+            'newPassword': newPassword
+        };
+        return _http("PATCH", USERS_PATH + userId + "/", null, form_params);
+    };
+
     this.authenticate = function(username, password) {
         var form_params = {
             'username': username,
