@@ -58,6 +58,9 @@ target/
 
 #Data Base
 db.sqlite3
+backupsDatabase/*
 
 .idea
 .vagrant
+nohup.out
+
