@@ -299,3 +299,24 @@ app.controller('EditCityCtrl', ['$scope', 'shareErasmusApi', 'Notification', fun
     };
 
 }]);
+
+app.controller('ChangePasswordCtrl', ['$scope', 'shareErasmusApi', 'Notification', function ($scope, shareErasmusApi, Notification){
+
+    $scope.user = null;
+    $scope.currentPassword = "";
+    $scope.newPassword = "";
+
+    shareErasmusApi.getSession().then(function (response) {
+        $scope.user = response.data;
+    });
+    
+    $scope.updatePassword = function() {
+        shareErasmusApi.changePassword($scope.user.pk, $scope.currentPassword, $scope.newPassword)
+            .then(function (response) {
+                Notification.success("Contraseña cambiada con éxito");
+        }, function (response) {
+            Notification.error("Algo falló al intentar cambiar la contraseña. Por favor, inténtelo más tarde");
+        });
+    };
+
+}]);

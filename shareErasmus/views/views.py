@@ -111,6 +111,14 @@ class AccountView(View):
             return render(request, "403.html")
 
 
+class ChangePasswordView(View):
+    def get(self, request):
+        if request.user.is_authenticated():
+            return render(request, "pages/settings/password.html")
+        else:
+            return render(request, "403.html")
+
+
 class MyUniversitiesView(View):
     def get(self, request):
         if request.user.is_authenticated():
