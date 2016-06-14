@@ -53,7 +53,6 @@ class Subject(models.Model):
         return self.name
 
 class UserProfile(User):
-    photo = models.ImageField(blank=True, null=True)
     is_public_email = models.BooleanField(default=False)
     subjects = models.ManyToManyField(Subject, blank=True)
 
