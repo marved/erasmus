@@ -71,7 +71,7 @@
                 <div class="comment-content">
                   <div class="comment-meta">
                     <span class="comment-by">{% verbatim %}{{comment.user.username}}{% endverbatim %}</span>
-                    <span class="comment-date">{% verbatim %}{{comment.dateTime|date:"d/m/y H:mm:ss"}}{% endverbatim %}</span>
+                    <span class="comment-date">{% verbatim %}{{comment.dateTime|date:"d/M/y H:mm:s"}}{% endverbatim %}</span>
                     <!--<span class="reply-link"><a href="#">Responder</a></span>-->
                   </div>
                   <p>{% verbatim %}{{comment.body}}{% endverbatim %}</p>
