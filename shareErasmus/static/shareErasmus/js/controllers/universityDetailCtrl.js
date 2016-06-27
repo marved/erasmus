@@ -27,7 +27,7 @@ app.controller('UniversityDetailCtrl', ['$scope', 'shareErasmusApi', 'Notificati
     shareErasmusApi.getComments().then(function (response) {
         $scope.allComments = response.data;
         for (var i=0; i<$scope.allComments.length; i++) {
-            if($scope.allComments[i].university != null)
+            if(($scope.allComments[i].university != null) && ($scope.allComments[i].university.pk == $scope.university.pk))
                 $scope.comments.push($scope.allComments[i]);
         }
     }, function (response) {

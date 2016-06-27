@@ -34,7 +34,7 @@ app.controller('SubjectDetailCtrl', ['$scope', 'shareErasmusApi', 'Notification'
     shareErasmusApi.getComments().then(function (response) {
         $scope.allComments = response.data;
         for (var i=0; i<$scope.allComments.length; i++) {
-            if($scope.allComments[i].subject != null)
+            if(($scope.allComments[i].subject != null)&& ($scope.allComments[i].subject.pk == $scope.subject.pk))
                 $scope.comments.push($scope.allComments[i]);
         }
     }, function (response) {
@@ -53,7 +53,6 @@ app.controller('SubjectDetailCtrl', ['$scope', 'shareErasmusApi', 'Notification'
     var getUser = function(session) {
         shareErasmusApi.getUser(session.pk).then(function (response) {
             $scope.user = response.data;
-            console.log(($scope.user));
         }, function (response) {
             console.log("Algo falló al buscar usuario.");
         });
